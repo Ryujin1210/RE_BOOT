@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */; };
+		3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FCB2AA054B000AEC368 /* ContentView.swift */; };
+		3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF63FCD2AA054B100AEC368 /* Assets.xcassets */; };
+		3DF63FD12AA054B100AEC368 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF63FD02AA054B100AEC368 /* Preview Assets.xcassets */; };
+		3DF63FD82AA0566600AEC368 /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FD72AA0566600AEC368 /* DrawingCanvasView.swift */; };
+		3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FD92AA058AC00AEC368 /* RecordManager.swift */; };
+		3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FDB2AA083AC00AEC368 /* DrawingManager.swift */; };
+		3DF63FE12AA0840200AEC368 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FE02AA0840200AEC368 /* DrawingView.swift */; };
+		3DF63FE52AA089B000AEC368 /* testSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DF63FE42AA089B000AEC368 /* testSound.mp3 */; };
+		3DF63FE72AA0ABE300AEC368 /* DrawingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FE62AA0ABE300AEC368 /* DrawingResultView.swift */; };
+		3DF63FEA2AA0ACD600AEC368 /* CounselingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FE92AA0ACD600AEC368 /* CounselingView.swift */; };
+		3DF63FED2AA0DF9700AEC368 /* Ex+ UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */; };
+		3DF63FEF2AA0E08900AEC368 /* SecretFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FEE2AA0E08900AEC368 /* SecretFileManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prompt-er Seoul Secret.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt_er_Seoul_SecretApp.swift; sourceTree = "<group>"; };
+		3DF63FCB2AA054B000AEC368 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3DF63FCD2AA054B100AEC368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DF63FD02AA054B100AEC368 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3DF63FD72AA0566600AEC368 /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
+		3DF63FD92AA058AC00AEC368 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		3DF63FDB2AA083AC00AEC368 /* DrawingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
+		3DF63FE02AA0840200AEC368 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		3DF63FE22AA084D600AEC368 /* Prompt-er-Seoul-Secret-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Prompt-er-Seoul-Secret-Info.plist"; sourceTree = SOURCE_ROOT; };
+		3DF63FE42AA089B000AEC368 /* testSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testSound.mp3; sourceTree = "<group>"; };
+		3DF63FE62AA0ABE300AEC368 /* DrawingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingResultView.swift; sourceTree = "<group>"; };
+		3DF63FE92AA0ACD600AEC368 /* CounselingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselingView.swift; sourceTree = "<group>"; };
+		3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ UIView.swift"; sourceTree = "<group>"; };
+		3DF63FEE2AA0E08900AEC368 /* SecretFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretFileManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DF63FC32AA054B000AEC368 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3DF63FBD2AA054B000AEC368 = {
+			isa = PBXGroup;
+			children = (
+				3DF63FC82AA054B000AEC368 /* Prompt-er Seoul Secret */,
+				3DF63FC72AA054B000AEC368 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DF63FC72AA054B000AEC368 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DF63FC82AA054B000AEC368 /* Prompt-er Seoul Secret */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FE22AA084D600AEC368 /* Prompt-er-Seoul-Secret-Info.plist */,
+				3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */,
+				3DF63FDD2AA083B100AEC368 /* View */,
+				3DF63FDF2AA083DB00AEC368 /* ViewModel */,
+				3DF63FE32AA0899F00AEC368 /* Resources */,
+				3DF63FEB2AA0DF8400AEC368 /* Extension */,
+				3DF63FCD2AA054B100AEC368 /* Assets.xcassets */,
+				3DF63FCF2AA054B100AEC368 /* Preview Content */,
+			);
+			path = "Prompt-er Seoul Secret";
+			sourceTree = "<group>";
+		};
+		3DF63FCF2AA054B100AEC368 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FD02AA054B100AEC368 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3DF63FDD2AA083B100AEC368 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FCB2AA054B000AEC368 /* ContentView.swift */,
+				3DF63FDE2AA083C600AEC368 /* DrawingView */,
+				3DF63FE82AA0AC9000AEC368 /* CounselingView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DF63FDE2AA083C600AEC368 /* DrawingView */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FE02AA0840200AEC368 /* DrawingView.swift */,
+				3DF63FD72AA0566600AEC368 /* DrawingCanvasView.swift */,
+				3DF63FE62AA0ABE300AEC368 /* DrawingResultView.swift */,
+			);
+			path = DrawingView;
+			sourceTree = "<group>";
+		};
+		3DF63FDF2AA083DB00AEC368 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FD92AA058AC00AEC368 /* RecordManager.swift */,
+				3DF63FDB2AA083AC00AEC368 /* DrawingManager.swift */,
+				3DF63FEE2AA0E08900AEC368 /* SecretFileManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3DF63FE32AA0899F00AEC368 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FE42AA089B000AEC368 /* testSound.mp3 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3DF63FE82AA0AC9000AEC368 /* CounselingView */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FE92AA0ACD600AEC368 /* CounselingView.swift */,
+			);
+			path = CounselingView;
+			sourceTree = "<group>";
+		};
+		3DF63FEB2AA0DF8400AEC368 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DF63FC52AA054B000AEC368 /* Prompt-er Seoul Secret */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF63FD42AA054B100AEC368 /* Build configuration list for PBXNativeTarget "Prompt-er Seoul Secret" */;
+			buildPhases = (
+				3DF63FC22AA054B000AEC368 /* Sources */,
+				3DF63FC32AA054B000AEC368 /* Frameworks */,
+				3DF63FC42AA054B000AEC368 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Prompt-er Seoul Secret";
+			productName = "Prompt-er Seoul Secret";
+			productReference = 3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DF63FBE2AA054B000AEC368 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3DF63FC52AA054B000AEC368 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 3DF63FC12AA054B000AEC368 /* Build configuration list for PBXProject "Prompt-er Seoul Secret" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DF63FBD2AA054B000AEC368;
+			productRefGroup = 3DF63FC72AA054B000AEC368 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DF63FC52AA054B000AEC368 /* Prompt-er Seoul Secret */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DF63FC42AA054B000AEC368 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF63FE52AA089B000AEC368 /* testSound.mp3 in Resources */,
+				3DF63FD12AA054B100AEC368 /* Preview Assets.xcassets in Resources */,
+				3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DF63FC22AA054B000AEC368 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF63FE72AA0ABE300AEC368 /* DrawingResultView.swift in Sources */,
+				3DF63FEA2AA0ACD600AEC368 /* CounselingView.swift in Sources */,
+				3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */,
+				3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */,
+				3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */,
+				3DF63FEF2AA0E08900AEC368 /* SecretFileManager.swift in Sources */,
+				3DF63FE12AA0840200AEC368 /* DrawingView.swift in Sources */,
+				3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */,
+				3DF63FD82AA0566600AEC368 /* DrawingCanvasView.swift in Sources */,
+				3DF63FED2AA0DF9700AEC368 /* Ex+ UIView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3DF63FD22AA054B100AEC368 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DF63FD32AA054B100AEC368 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DF63FD52AA054B100AEC368 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
+				DEVELOPMENT_TEAM = G7X65ZSJ3J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Secret;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "원활한 상담을 위해 음성을 녹음합니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		3DF63FD62AA054B100AEC368 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
+				DEVELOPMENT_TEAM = G7X65ZSJ3J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Secret;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "원활한 상담을 위해 음성을 녹음합니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DF63FC12AA054B000AEC368 /* Build configuration list for PBXProject "Prompt-er Seoul Secret" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF63FD22AA054B100AEC368 /* Debug */,
+				3DF63FD32AA054B100AEC368 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DF63FD42AA054B100AEC368 /* Build configuration list for PBXNativeTarget "Prompt-er Seoul Secret" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF63FD52AA054B100AEC368 /* Debug */,
+				3DF63FD62AA054B100AEC368 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3DF63FBE2AA054B000AEC368 /* Project object */;
+}
