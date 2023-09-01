@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DrawingResultView: View {
     let image: UIImage
+    let report: ReportModel
     
     // 종료하기
-    @State var doneButtonTapped = false
     @StateObject var recordManager: RecordManager
     
     var body: some View {
@@ -22,31 +22,19 @@ struct DrawingResultView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("저장하기") {
-                        // 저장하기
+                    NavigationLink("저장하기") {
+                        CounselingView(report: report)
                     }
                 }
             }
-            .alert("그리기 종료!", isPresented: $doneButtonTapped) {
-                Button("취소", role: .cancel) {
-                    // 돌아가기
-                    doneButtonTapped = false
-                }
-                
-                Button("확인", role: .destructive) {
-                    // 레코딩 종료
-                    recordManager.stopRecording()
-                }
-            } message: {
-                Text("그림을 완성하셨나요?")
-            }
+            .navigationBarBackButtonHidden()
     }
 }
-
-struct DrawingResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            DrawingResultView(image: UIImage(named: "ColoringBookEx")!, recordManager: RecordManager())
-        }
-    }
-}
+//
+//struct DrawingResultView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            DrawingResultView(image: UIImage(named: "ColoringBookEx")!, recordManager: RecordManager())
+//        }
+//    }
+//}

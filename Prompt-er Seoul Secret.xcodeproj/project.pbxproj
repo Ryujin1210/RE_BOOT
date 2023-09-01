@@ -19,7 +19,10 @@
 		3DF63FE72AA0ABE300AEC368 /* DrawingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FE62AA0ABE300AEC368 /* DrawingResultView.swift */; };
 		3DF63FEA2AA0ACD600AEC368 /* CounselingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FE92AA0ACD600AEC368 /* CounselingView.swift */; };
 		3DF63FED2AA0DF9700AEC368 /* Ex+ UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */; };
-		3DF63FEF2AA0E08900AEC368 /* SecretFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FEE2AA0E08900AEC368 /* SecretFileManager.swift */; };
+		3DF63FEF2AA0E08900AEC368 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FEE2AA0E08900AEC368 /* GalleryManager.swift */; };
+		3DF63FF52AA1DB5100AEC368 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF42AA1DB5100AEC368 /* GalleryView.swift */; };
+		3DF63FF72AA1DC1600AEC368 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF62AA1DC1600AEC368 /* ThumbnailView.swift */; };
+		3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF92AA1F71C00AEC368 /* ReportModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +40,10 @@
 		3DF63FE62AA0ABE300AEC368 /* DrawingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingResultView.swift; sourceTree = "<group>"; };
 		3DF63FE92AA0ACD600AEC368 /* CounselingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselingView.swift; sourceTree = "<group>"; };
 		3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ UIView.swift"; sourceTree = "<group>"; };
-		3DF63FEE2AA0E08900AEC368 /* SecretFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretFileManager.swift; sourceTree = "<group>"; };
+		3DF63FEE2AA0E08900AEC368 /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
+		3DF63FF42AA1DB5100AEC368 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		3DF63FF62AA1DC1600AEC368 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
+		3DF63FF92AA1F71C00AEC368 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 				3DF63FDD2AA083B100AEC368 /* View */,
 				3DF63FDF2AA083DB00AEC368 /* ViewModel */,
 				3DF63FE32AA0899F00AEC368 /* Resources */,
+				3DF63FF82AA1F70300AEC368 /* Model */,
 				3DF63FEB2AA0DF8400AEC368 /* Extension */,
 				3DF63FCD2AA054B100AEC368 /* Assets.xcassets */,
 				3DF63FCF2AA054B100AEC368 /* Preview Content */,
@@ -96,6 +103,7 @@
 				3DF63FCB2AA054B000AEC368 /* ContentView.swift */,
 				3DF63FDE2AA083C600AEC368 /* DrawingView */,
 				3DF63FE82AA0AC9000AEC368 /* CounselingView */,
+				3DF63FF32AA1DB2E00AEC368 /* GalleryView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,7 +123,7 @@
 			children = (
 				3DF63FD92AA058AC00AEC368 /* RecordManager.swift */,
 				3DF63FDB2AA083AC00AEC368 /* DrawingManager.swift */,
-				3DF63FEE2AA0E08900AEC368 /* SecretFileManager.swift */,
+				3DF63FEE2AA0E08900AEC368 /* GalleryManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -144,6 +152,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		3DF63FF32AA1DB2E00AEC368 /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FF42AA1DB5100AEC368 /* GalleryView.swift */,
+				3DF63FF62AA1DC1600AEC368 /* ThumbnailView.swift */,
+			);
+			path = GalleryView;
+			sourceTree = "<group>";
+		};
+		3DF63FF82AA1F70300AEC368 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DF63FF92AA1F71C00AEC368 /* ReportModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +185,8 @@
 			dependencies = (
 			);
 			name = "Prompt-er Seoul Secret";
+			packageProductDependencies = (
+			);
 			productName = "Prompt-er Seoul Secret";
 			productReference = 3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +215,9 @@
 				Base,
 			);
 			mainGroup = 3DF63FBD2AA054B000AEC368;
+			packageReferences = (
+				3DF63FF02AA1D73000AEC368 /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = 3DF63FC72AA054B000AEC368 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,9 +250,12 @@
 				3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */,
 				3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */,
 				3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */,
-				3DF63FEF2AA0E08900AEC368 /* SecretFileManager.swift in Sources */,
+				3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */,
+				3DF63FEF2AA0E08900AEC368 /* GalleryManager.swift in Sources */,
 				3DF63FE12AA0840200AEC368 /* DrawingView.swift in Sources */,
 				3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */,
+				3DF63FF52AA1DB5100AEC368 /* GalleryView.swift in Sources */,
+				3DF63FF72AA1DC1600AEC368 /* ThumbnailView.swift in Sources */,
 				3DF63FD82AA0566600AEC368 /* DrawingCanvasView.swift in Sources */,
 				3DF63FED2AA0DF9700AEC368 /* Ex+ UIView.swift in Sources */,
 			);
@@ -443,6 +476,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DF63FF02AA1D73000AEC368 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 3DF63FBE2AA054B000AEC368 /* Project object */;
 }
