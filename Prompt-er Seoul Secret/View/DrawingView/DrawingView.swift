@@ -13,6 +13,10 @@ struct DrawingView: View {
     let image: UIImage = UIImage(named: "ColoringBookEx")!
     @State var captureImage: UIImage?
     @State var isDone = false
+    @State var goNextPage = false
+    
+    // Report
+    @State var report: ReportModel?
     
     // 캔버스 관련 변수
     @State var canvas = PKCanvasView()
@@ -23,48 +27,45 @@ struct DrawingView: View {
     
     var body: some View {
         HStack {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 20) {
-                    ForEach(DrawingManager.shared.drawingQuestion, id: \.self) { question in
-                        Text(question)
-                            .font(.title)
-                            .onAppear {
-                                // 글과 맞는 음성 출력
-//                                DrawingManager.shared.playSound()
-                            }
-                    }
-                }
-            }
             DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, image: image)
-            Button("색 추출") {
-                DrawingManager.shared.getColors(canvas: canvas)
-            }
-            
-            Button("파일저장") {
-                captureImage = canvas.snapshot()
-                DrawingManager.shared.saveImage(image: captureImage!, name: "김복자") { status in
-                    print("저장 완 : \(status)")
-                }
-            }
         }
         .onAppear {
             // 레코딩 시작
 //            recordManager.startRecording()
             isPresented = true
         }
+        .alert("그리기 종료!", isPresented: $isDone) {
+            Button("취소", role: .cancel) {
+                // 돌아가기
+                isDone = false
+            }
+            
+            Button("확인", role: .destructive) {
+                // 레코딩 종료
+//                recordManager.stopRecording()
+                
+                // 그림 및 정보 저장
+                captureImage = canvas.snapshot()
+                report = DrawingManager.shared.saveData(name: "김춘자", recordSummary: "이것저것이것저것이것저것이것저것이것저것이것저것", canvas: canvas, image: captureImage!)
+                print(report)
+                goNextPage = true
+            }
+        } message: {
+            Text("그림을 완성하셨나요?\n확인을 누르면 그리기가 종료됩니다.")
+        }
+        .navigationBarBackButtonHidden()
         .navigationTitle("자유롭게 채색해주세요.")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $isDone, destination: {
-            if let captureImage = captureImage {
-                DrawingResultView(image: captureImage, recordManager: recordManager)
+        .navigationDestination(isPresented: $goNextPage, destination: {
+            if let captureImage = captureImage, let report = report {
+                DrawingResultView(image: captureImage, report: report, recordManager: recordManager)
             } else {
-                DrawingResultView(image: image, recordManager: recordManager)
+                DrawingResultView(image: image, report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: URL(fileURLWithPath: "")), recordManager: recordManager)
             }
         })
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("완성") {
-                    captureImage = canvas.snapshot()
                     isDone = true
                 }
             }
