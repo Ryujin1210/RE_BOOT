@@ -26,8 +26,11 @@ struct DrawingView: View {
     @StateObject var recordManager = RecordManager()
     
     var body: some View {
-        HStack {
+        ZStack {
+            Color("background-coloring")
+            
             DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, image: image)
+                .frame(width: 630, height: 630)
         }
         .onAppear {
             // 레코딩 시작
