@@ -24,6 +24,7 @@
 		3DF63FF72AA1DC1600AEC368 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF62AA1DC1600AEC368 /* ThumbnailView.swift */; };
 		3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF92AA1F71C00AEC368 /* ReportModel.swift */; };
 		3DF63FFC2AA348F700AEC368 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */; };
+		3DF63FFF2AA3922900AEC368 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF63FFE2AA3922900AEC368 /* PopupView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF63FFF2AA3922900AEC368 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +191,7 @@
 			);
 			name = "Prompt-er Seoul Secret";
 			packageProductDependencies = (
+				3DF63FFE2AA3922900AEC368 /* PopupView */,
 			);
 			productName = "Prompt-er Seoul Secret";
 			productReference = 3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */;
@@ -220,6 +223,7 @@
 			mainGroup = 3DF63FBD2AA054B000AEC368;
 			packageReferences = (
 				3DF63FF02AA1D73000AEC368 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				3DF63FFD2AA3922900AEC368 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 3DF63FC72AA054B000AEC368 /* Products */;
 			projectDirPath = "";
@@ -490,7 +494,23 @@
 				kind = branch;
 			};
 		};
+		3DF63FFD2AA3922900AEC368 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DF63FFE2AA3922900AEC368 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DF63FFD2AA3922900AEC368 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DF63FBE2AA054B000AEC368 /* Project object */;
 }
