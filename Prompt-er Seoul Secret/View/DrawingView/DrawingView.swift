@@ -63,7 +63,7 @@ struct DrawingView: View {
             if let captureImage = captureImage, let report = report {
                 DrawingResultView(image: captureImage, report: report, recordManager: recordManager)
             } else {
-                DrawingResultView(image: image, report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: URL(fileURLWithPath: "")), recordManager: recordManager)
+                DrawingResultView(image: image, report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: ""), recordManager: recordManager)
             }
         })
         .toolbar {

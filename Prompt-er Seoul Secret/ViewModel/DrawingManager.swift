@@ -65,7 +65,7 @@ extension DrawingManager {
             let userDirectory = try createDirectory(name: name, date: today)
             let imageURL = try saveImage(image: image, directoryUrl: userDirectory)
             // 레포트 모델 생성
-            let reportModel = ReportModel(name: name, date: today, recordSummary: recordSummary, colors: mapColors, imageUrl: imageURL)
+            let reportModel = ReportModel(name: name, date: today, recordSummary: recordSummary, colors: mapColors, imageUrl: imageURL.path)
             
             // 레포트 모델 저장
             saveToJson(report: reportModel, directoryUrl: userDirectory)

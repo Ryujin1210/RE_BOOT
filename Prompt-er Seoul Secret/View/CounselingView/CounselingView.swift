@@ -10,6 +10,8 @@ import SwiftUI
 struct CounselingView: View {
     let report: ReportModel
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack {
             Color("background")
@@ -57,6 +59,7 @@ struct CounselingView: View {
                     .padding(.horizontal, 57)
                     .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                 }
+                .toolbar(.hidden)
                 .navigationTitle("\(report.name)님의 작품")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -68,13 +71,42 @@ struct CounselingView: View {
                 }
             }
         }
+        .overlay(content: {
+            // 실험 중
+            NavigationBar(title: "\(report.name)님의 작품", subTitle: report.date, leftComponent:  {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
+                        .foregroundColor(.init(uiColor: UIColor(red: 0.5, green: 0.58, blue: 0, alpha: 1)))
+                }
+            }) {
+                NavigationLink {
+                    GalleryView()
+                } label: {
+                    Text("갤러리 보기")
+                        .font(.custom("SF Pro", size: 24))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 20)
+                        .background(Color("primary-700"))
+                        .cornerRadius(10)
+                }
+
+            }
+
+        })
     }
 }
 
 struct CounselingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CounselingView(report: .init(name: "", date: "", recordSummary: "어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저", colors: [], imageUrl: URL(filePath: "")))
+            CounselingView(report: .init(name: "", date: "", recordSummary: "어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저", colors: [], imageUrl: ""))
         }
     }
 }

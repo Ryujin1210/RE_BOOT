@@ -23,6 +23,7 @@
 		3DF63FF52AA1DB5100AEC368 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF42AA1DB5100AEC368 /* GalleryView.swift */; };
 		3DF63FF72AA1DC1600AEC368 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF62AA1DC1600AEC368 /* ThumbnailView.swift */; };
 		3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FF92AA1F71C00AEC368 /* ReportModel.swift */; };
+		3DF63FFC2AA348F700AEC368 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3DF63FF42AA1DB5100AEC368 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		3DF63FF62AA1DC1600AEC368 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
 		3DF63FF92AA1F71C00AEC368 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */,
+				3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */,
 				3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */,
 				3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */,
+				3DF63FFC2AA348F700AEC368 /* CustomNavigationBar.swift in Sources */,
 				3DF63FEF2AA0E08900AEC368 /* GalleryManager.swift in Sources */,
 				3DF63FE12AA0840200AEC368 /* DrawingView.swift in Sources */,
 				3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */,
