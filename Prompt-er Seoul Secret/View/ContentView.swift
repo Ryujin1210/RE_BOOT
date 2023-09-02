@@ -36,6 +36,26 @@ struct ContentView: View {
                     DrawingView(viewModel: viewModel)
                 }
                 .transition(.opacity) // Crossfade 애니메이션
+            } else if currentTag == 7 {
+                NavigationView {
+                    GalleryView()
+                        .transition(.opacity)
+                        .navigationBarTitle("", displayMode: .inline) // 네비게이션 제목을 지웁니다.
+                        .navigationBarBackButtonHidden(true) // 기본
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(action: {
+                                    viewModel.tag = 1
+                                }) {
+                                    Image(systemName: "chevron.backward")
+                                        .font(.title)
+                                        .foregroundColor(.primary700)
+                                }
+                            }
+                        }
+                }
+                .navigationViewStyle(.stack)
+                
             } else {
                 EmptyView()
             }

@@ -16,23 +16,40 @@ struct DrawingResultView: View {
     @StateObject var recordManager: RecordManager
     
     var body: some View {
-        Image(uiImage: image)
-            .resizable()
-            .scaledToFit()
-            .navigationTitle("내가 완성한 그림보기")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("저장하기") {
-                        DrawingManager.shared.saveToJson(directoryUrl: try! DrawingManager.shared.createDirectory(name: name, date: date))
-                        goNextPage = true
-                    }
+        ZStack {
+            Color.bgPrimary300
+                .ignoresSafeArea()
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 500, height: 500)
+                .shadow(color: .black.opacity(0.25), radius: 14, x: 0, y: 4)
+        }
+        .toolbar(.hidden)
+        .overlay(content: {
+            NavigationBar(title: "내가 완성한 작품 보기", leftComponent:  {
+                EmptyView()
+            }) {
+                Button {
+                    DrawingManager.shared.saveToJson(directoryUrl: try! DrawingManager.shared.createDirectory(name: name, date: date))
+                    goNextPage = true
+                } label: {
+                    Text("저장하기")
+                        .font(.pretendardSemiBold24)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 20)
+                        .background(Color.primary700)
+                        .cornerRadius(10)
                 }
+                
             }
-            .navigationDestination(isPresented: $goNextPage, destination: {
-                CounselingView(report: DrawingManager.shared.report)
-            })
-            .navigationBarBackButtonHidden()
+        })
+        .navigationDestination(isPresented: $goNextPage, destination: {
+            CounselingView(report: DrawingManager.shared.report)
+        })
+        .navigationBarBackButtonHidden()
     }
 }
 //

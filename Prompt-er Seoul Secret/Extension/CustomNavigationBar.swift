@@ -43,13 +43,12 @@ struct NavigationBar<L, R>: View where L: View, R: View {
                 
                 VStack(spacing: 0) {
                     Text(title)
-                        .font(.custom("SF Pro", size: 32))
-                        .fontWeight(.semibold)
+                        .font(.pretendardSemiBold30)
+                    
                     if subTitle != "" {
                         Text(subTitle)
-                            .font(.callout)
-                            .fontWeight(.medium)
-                            .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
+                            .font(.pretendardMedium16)
+                            .foregroundColor(.captionText1)
                     }
                 }
                 

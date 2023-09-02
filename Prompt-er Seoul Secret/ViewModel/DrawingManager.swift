@@ -25,7 +25,7 @@ class DrawingManager: ObservableObject {
     static let shared = DrawingManager()
     
     // 레포트 모델
-    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [], colors: [], imageUrl: "")
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
     
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -76,7 +76,7 @@ extension DrawingManager {
                 WhisperViewModel().uploadKoreanAudio(fileURL: voice, completion: { result in
                     switch result {
                     case .success(let success):
-                        self.report.recordSummary.append(success)
+                        self.report.recordSummary.updateValue(success, forKey: i)
                     case .failure(let failure):
                         print("error: \(failure.localizedDescription)")
                     }
