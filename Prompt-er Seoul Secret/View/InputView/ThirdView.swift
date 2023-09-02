@@ -48,15 +48,16 @@ struct ThirdView: View {
                 
                 Text("예시")
                     .font(.pretendardBold24)
-                    .foregroundColor(.primary_300)
+                    .foregroundColor(.primary700)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 4)
-                    .background(Color.primary_300_opacity)
+                    .background(Color.primary300.opacity(0.3))
                     .cornerRadius(10)
                 
                 Text("넓은 마당이 있는 2층 집에 살 때,\n 마당에서 남편과 노을을 보며 사색을 즐겼던 순간이요.")
                     .font(.pretendardMedium28).opacity(0.5)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.captionText2)
                 
                 Button(action: {
                     if isButtonPressed {
@@ -64,22 +65,20 @@ struct ThirdView: View {
                     } else {
                         startRecording()
                     }
-                    isButtonPressed.toggle()
-                    //                tag += 1
-                    
+                    isButtonPressed.toggle()                    
                 }) {
                     VStack{
                         Image("Mic")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 65, height: 65)
-                        Text(isButtonPressed ? "이야기가 끝나면 다시 버튼을 눌러주세요" : "대답하기 전에 버튼을 눌러주세요")
+                        Text(isButtonPressed ? "이야기가 끝나면 다시 버튼을 눌러주세요" : "버튼을 누르고 나서 이야기해주세요")
                             .font(.pretendardBold36)
                             .padding(.bottom, 20)
                         
                     }
                     .frame(width: 660 , height: 180)
-                    .background(isButtonPressed ? Color.btnRed : Color.btnGreen) // 버튼 상태에 따라 배경색 변경
+                    .background(isButtonPressed ? Color.btnRed : Color.primary500) // 버튼 상태에 따라 배경색 변경
                     .cornerRadius(20)
                     .foregroundColor(.white)
                     .padding(20)
