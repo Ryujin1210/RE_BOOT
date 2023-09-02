@@ -52,6 +52,7 @@ struct FifthView: View {
             }
             .onAppear {
                 images = viewModel.images
+                viewModel.images = []
             }
             .padding(.top, 70)
             

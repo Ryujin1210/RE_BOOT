@@ -26,7 +26,6 @@ class DrawingManager: ObservableObject {
     
     // 레포트 모델
     @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
-    
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
         "가장 행복했던 순간을 묘사해주세요",
