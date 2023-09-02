@@ -22,8 +22,6 @@ class DrawingManager: ObservableObject {
     // Singleton
     static let shared = DrawingManager()
     
-    
-    
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
         "가장 행복했던 순간을 묘사해주세요",
@@ -35,9 +33,6 @@ class DrawingManager: ObservableObject {
     
     var player: AVAudioPlayer?
     let painterName: String = "김복자"
-    
-    
-
 }
 
 // 음성 출력 관련 기능
@@ -57,12 +52,8 @@ extension DrawingManager {
 
 // 파일 관리 관련 데이터
 extension DrawingManager {
-    func saveData(name: String, recordSummary: String, canvas: PKCanvasView, image: UIImage) -> ReportModel? {
-        // 날짜 정리
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "YYYY년 MM월 dd일"
-        let today = dateFormatter.string(from: Date())
+    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int) -> ReportModel? {
+        var summaries: [String] = []
         
         // 사용 색상 get
         let colors = getColors(canvas: canvas)
@@ -73,10 +64,24 @@ extension DrawingManager {
         
         // 이미지 저장
         do {
-            let userDirectory = try createDirectory(name: name, date: today)
+            let userDirectory = try createDirectory(name: name, date: date)
             let imageURL = try saveImage(image: image, directoryUrl: userDirectory)
+            
+            for i in 0...voiceCount {
+                let voice = userDirectory.appendingPathComponent("\(i).m4a")
+                WhisperViewModel().uploadAudio(fileURL: voice, completion: { result in
+                    switch result {
+                    case .success(let success):
+                        summaries.append(success)
+                    case .failure(let failure):
+                        print("error: \(failure.localizedDescription)")
+                    }
+                    
+                })
+            }
+
             // 레포트 모델 생성
-            let reportModel = ReportModel(name: name, date: today, recordSummary: recordSummary, colors: mapColors, imageUrl: imageURL.path)
+            let reportModel = ReportModel(name: name, date: date, recordSummary: summaries, colors: mapColors, imageUrl: imageURL.path)
             
             // 레포트 모델 저장
             saveToJson(report: reportModel, directoryUrl: userDirectory)
@@ -172,10 +177,12 @@ extension DrawingManager {
     }
 }
 
+// 음성 녹음 관련 메서드
 extension DrawingManager {
-    func startRecording() {
+    func startRecording(name: String, date: String, fileCount: Int) {
         // 파일 저장 경로
-        let fileURL = getDocumentsDirectory().appendingPathComponent("AudioName.m4a") // 내담자 이름으로 파일 저장이 가능하도록 변경
+        let fileURL = try? createDirectory(name: name, date: date) // 내담자 이름으로 파일 저장이 가능하도록 변경
+        guard let audioFile = fileURL?.appendingPathComponent("\(fileCount).m4a") else { return }
         
         // Setting 값 저장
         let settings = [
@@ -186,7 +193,7 @@ extension DrawingManager {
         ]
         
         do {
-            audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
+            audioRecorder = try AVAudioRecorder(url: audioFile, settings: settings)
             audioRecorder?.record()
             self.isRecording = true
         } catch {

@@ -10,7 +10,7 @@ import UIKit
 struct ReportModel: Codable, Identifiable {
     let name: String
     let date: String
-    let recordSummary: String
+    let recordSummary: [String]
     let colors: [CustomColor]
     let imageUrl: String
 

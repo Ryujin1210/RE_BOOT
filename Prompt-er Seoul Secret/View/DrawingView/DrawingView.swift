@@ -26,11 +26,12 @@ struct DrawingView: View {
     
     // 오디오 관련 프로퍼티
     @StateObject var recordManager = RecordManager()
+    var summaries: [String] = []
     
     // 팝업 관련 프로퍼티
     @State var popup = false
     @State var botCounter = 0
-    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     let rebootBot: [String] = [
         "안녕하세요! 이제 자유롭게 색칠을 해볼까요?\n먼저 원하는 색을 골라보세요!",
         "지금 색칠하고 있는 색을 고른 이유를 알려주세요!",
@@ -48,19 +49,25 @@ struct DrawingView: View {
             Color("background-coloring")
                 .ignoresSafeArea()
             
-            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: viewModel.selectedImage!)
+            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: UIImage(named: "ColoringBookEx")!)
                 .frame(width: 630, height: 630)
                 .padding(.top, 70)
         }
         .onAppear {
             // 레코딩 시작
-//            recordManager.startRecording()
+            DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             isPresented = true
             
             rebootBotAction()
         }
         .onReceive(timer) { value in
-            rebootBotAction()
+            if botCounter > 3 {
+                timer.upstream.connect().cancel()
+            } else {
+                DrawingManager.shared.stopRecording()
+                rebootBotAction()
+                DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+            }
         }
         .alert("색칠하기를 그만하시겠어요?", isPresented: $isDone) {
             Button("취소", role: .cancel) {
@@ -70,11 +77,12 @@ struct DrawingView: View {
             
             Button("확인", role: .destructive) {
                 // 레코딩 종료
-//                recordManager.stopRecording()
+                timer.upstream.connect().cancel()
+                DrawingManager.shared.stopRecording()
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                report = DrawingManager.shared.saveData(name: viewModel.name, recordSummary: "이것저것이것저것이것저것이것저것이것저것이것저것", canvas: canvas, image: captureImage!)
+                report = DrawingManager.shared.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
                 goNextPage = true
             }
         } message: {
@@ -102,7 +110,7 @@ struct DrawingView: View {
             }
         })
         .popup(isPresented: $popup, view: {
-            FloatingView(message: rebootBot[botCounter])
+            FloatingView(message: rebootBot[botCounter > 3 ? 0 : botCounter])
                 .shadow(color: .black.opacity(0.12), radius: 14, x: 0, y: 4)
             
         }, customize: {
@@ -117,7 +125,7 @@ struct DrawingView: View {
             if let captureImage = captureImage, let report = report {
                 DrawingResultView(image: captureImage, report: report, recordManager: recordManager)
             } else {
-                DrawingResultView(image: viewModel.selectedImage!, report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: ""), recordManager: recordManager)
+                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, report: .init(name: "", date: "", recordSummary: [], colors: [], imageUrl: ""), recordManager: recordManager)
             }
         })
     }

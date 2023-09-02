@@ -49,7 +49,7 @@ struct ThumbnailView: View {
 
 struct ThumbnailView_Previews: PreviewProvider {
     static var previews: some View {
-        ThumbnailView(report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: ""))
+        ThumbnailView(report: .init(name: "", date: "", recordSummary: [], colors: [], imageUrl: ""))
             .previewLayout(.sizeThatFits)
     }
 }
