@@ -59,11 +59,11 @@ struct DrawingView: View {
             rebootBotAction()
         }
         .onReceive(timer) { value in
-            botCounter += 1
-            print(botCounter)
             if botCounter > 3 {
                 timer.upstream.connect().cancel()
             } else {
+                botCounter += 1
+                print(botCounter)
                 drawingManager.stopRecording()
                 rebootBotAction()
             }
@@ -81,7 +81,7 @@ struct DrawingView: View {
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
+                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1)
                 goNextPage = true
             }
         } message: {
@@ -122,9 +122,9 @@ struct DrawingView: View {
         })
         .navigationDestination(isPresented: $goNextPage, destination: {
             if let captureImage = captureImage {
-                DrawingResultView(image: captureImage, name: viewModel.name, date: viewModel.date, recordManager: recordManager)
+                DrawingResultView(image: captureImage, name: viewModel.name, date: viewModel.date, recordManager: recordManager, viewModel: viewModel)
             } else {
-                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, name: "", date: "", recordManager: recordManager)
+                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, name: "", date: "", recordManager: recordManager, viewModel: viewModel)
             }
         })
     }

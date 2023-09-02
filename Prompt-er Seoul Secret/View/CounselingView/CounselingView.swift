@@ -11,6 +11,7 @@ struct CounselingView: View {
     let report: ReportModel
     
     @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel: shareViewModel
     
     let rebootBot: [String] = [
         "안녕하세요! 이제 자유롭게 색칠을 해볼까요? 먼저 원하는 색을 골라보세요!",
@@ -96,7 +97,7 @@ struct CounselingView: View {
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
                         NavigationLink("갤러리 보기") {
-                            GalleryView()
+                            GalleryView(viewModel: viewModel)
                         }
                     }
                 }
@@ -116,7 +117,7 @@ struct CounselingView: View {
                 }
             }) {
                 NavigationLink {
-                    GalleryView()
+                    GalleryView(viewModel: viewModel)
                 } label: {
                     Text("갤러리 보기")
                         .font(.pretendardSemiBold24)
@@ -133,11 +134,11 @@ struct CounselingView: View {
         })
     }
 }
-
-struct CounselingView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            CounselingView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: ""))
-        }
-    }
-}
+//
+//struct CounselingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            CounselingView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: ""))
+//        }
+//    }
+//}
