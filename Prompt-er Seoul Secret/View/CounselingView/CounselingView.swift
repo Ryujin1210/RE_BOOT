@@ -53,7 +53,7 @@ struct CounselingView: View {
                             Divider()
                                 .padding(.bottom, 72)
                             
-                            Text("대화 내용 요약")
+                            Text("대화 기록 보기")
                                 .font(.title)
                                 .bold()
                                 .padding(.bottom, 64)

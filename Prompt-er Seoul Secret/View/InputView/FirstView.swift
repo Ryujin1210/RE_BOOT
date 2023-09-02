@@ -39,7 +39,7 @@ struct FirstView: View {
                 }
                 
                 Button(action: {
-                    // 갤러리 보기
+                    viewModel.tag = 7
                 }) {
                     Image("btnGallery")
                         .resizable()
