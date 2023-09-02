@@ -28,7 +28,7 @@ struct FirstView: View {
                     Text("작품 만들기")
                         .font(.pretendardBold40)
                         .frame(width: 344, height: 220, alignment: .center)
-                        .background(Color.btnGreen)
+                        .background(Color.primary700)
                     
                         .cornerRadius(20)
                         .foregroundColor(.white)
@@ -41,7 +41,7 @@ struct FirstView: View {
                     Text("갤러리 보기")
                         .font(.pretendardBold40)
                         .frame(width: 344, height: 220, alignment: .center)
-                        .background(Color.btnGreen)
+                        .background(Color.primary700)
                     
                         .cornerRadius(20)
                         .foregroundColor(.white)

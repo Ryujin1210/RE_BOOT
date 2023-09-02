@@ -10,14 +10,30 @@ import SwiftUI
 
 extension Color {
     // MARK: - 사용 법 to 규니 ... static let 변수명 = Color(hex: 원하는 헥스코드)
-    static let btnGreen = Color.init(hex: "A5B15F")
-    static let primaryShadow = Color.primary.opacity(0.2)
-    static let secondaryText = Color(hex: "#6e6e6e") // ~
-    static let primary_300 = Color(hex: "7F9500")
-    static let primary_300_opacity = Color(hex: "A5B15F").opacity(0.3)
-    static let btnRed = Color.init(hex: "B66644")
-    static let primary_900 = Color(hex: "#627300")
-    static let primary_500 = Color(hex: "A5B15F")
+//    static let btnGreen = Color.init(hex: "A5B15F")
+//    static let primaryShadow = Color.primary.opacity(0.2)
+//    static let secondaryText = Color(hex: "#6e6e6e") // ~
+//    static let primary_300 = Color(hex: "7F9500")
+//    static let primary_300_opacity = Color(hex: "A5B15F").opacity(0.3)
+//    static let btnRed = Color.init(hex: "B66644")
+//    static let primary_900 = Color(hex: "#627300")
+//    static let primary_500 = Color(hex: "A5B15F")
+    
+    // Primary
+    static let primary300 = Color("primary-300")
+    static let primary500 = Color("primary-500")
+    static let primary700 = Color("primary-700")
+    static let primary900 = Color("primary-900")
+    static let btnRed = Color("btnRed")
+    // Background
+    static let bgPrimary300 = Color("bg-primary-300")
+    static let bgColoring = Color("bg-coloring")
+    // TextColor
+    static let captionText1 = Color("caption-text1")
+    static let captionText2 = Color("caption-text1")
+    static let defaultBlack = Color("default-Black")
+    static let disableText = Color("disable-text")
+    
     
     init(hex: String) {
         let scanner = Scanner(string: hex)  // 문자열 파서 역할을 하는 클래스
