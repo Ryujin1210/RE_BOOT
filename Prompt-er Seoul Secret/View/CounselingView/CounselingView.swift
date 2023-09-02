@@ -50,7 +50,7 @@ struct CounselingView: View {
                                 .bold()
                                 .padding(.bottom, 64)
                             
-                            Text(report.recordSummary)
+                            Text("report.recordSummary.count")
                                 .font(.title2)
                         }
                         .padding(.horizontal, 88)
@@ -106,7 +106,7 @@ struct CounselingView: View {
 struct CounselingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CounselingView(report: .init(name: "", date: "", recordSummary: "어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저", colors: [], imageUrl: ""))
+            CounselingView(report: .init(name: "", date: "", recordSummary: [], colors: [], imageUrl: ""))
         }
     }
 }

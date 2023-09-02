@@ -14,9 +14,23 @@ class shareViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var images: [UIImage] = []
     @Published var selectedImage: UIImage? = nil
+    @Published var date = ""
+    
+    init() {
+        getDate()
+    }
     
     func addImage(_ image: UIImage) {
         images.append(image)
+    }
+    
+    func getDate() {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "YYYY년 MM월 dd일"
+        let today = dateFormatter.string(from: Date())
+        
+        date = today
     }
     
 }
