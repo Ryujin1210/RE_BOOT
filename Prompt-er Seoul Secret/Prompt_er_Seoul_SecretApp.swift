@@ -11,9 +11,9 @@ import SwiftUI
 struct Prompt_er_Seoul_SecretApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
+            ContentView()
             
-            DrawingView(viewModel: shareViewModel())
+//            DrawingView(viewModel: shareViewModel())
         }
     }
 }

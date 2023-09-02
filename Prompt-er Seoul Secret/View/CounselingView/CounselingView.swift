@@ -12,6 +12,14 @@ struct CounselingView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    let rebootBot: [String] = [
+        "안녕하세요! 이제 자유롭게 색칠을 해볼까요? 먼저 원하는 색을 골라보세요!",
+        "지금 색칠하고 있는 색을 고른 이유를 알려주세요!",
+        "그 순간이 행복했던 이유가 무엇인가요?",
+        "너무 잘 들었어요. 그 이후의 이야기가 궁금해요!",
+        "그 외"
+    ]
+    
     var body: some View {
         ZStack {
             Color("background")
@@ -50,8 +58,28 @@ struct CounselingView: View {
                                 .bold()
                                 .padding(.bottom, 64)
                             
-                            Text("report.recordSummary.count")
-                                .font(.title2)
+                            ForEach(0..<report.recordSummary.count) { num in
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text("리붓봇")
+                                            .font(.custom("", size: 24))
+                                            .fontWeight(.bold)
+                                            .foregroundColor(Color("primary-700"))
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 4)
+                                            .background(Color("primary-300"))
+                                            .cornerRadius(10)
+                                        
+                                        Text(rebootBot[num])
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.bottom, 20)
+                                    Text(report.recordSummary[num])
+                                        .font(.title2)
+                                }
+                                .padding(.bottom, 52)
+                            }
                         }
                         .padding(.horizontal, 88)
                         .padding(.vertical, 71)

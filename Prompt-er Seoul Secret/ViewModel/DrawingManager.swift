@@ -19,8 +19,13 @@ class DrawingManager: ObservableObject {
     
     var recordedFiles = [URL]()
     
+    var summaries: [String] = []
+    
     // Singleton
     static let shared = DrawingManager()
+    
+    // 레포트 모델
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [], colors: [], imageUrl: "")
     
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -52,8 +57,7 @@ extension DrawingManager {
 
 // 파일 관리 관련 데이터
 extension DrawingManager {
-    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int) -> ReportModel? {
-        var summaries: [String] = []
+    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int) {
         
         // 사용 색상 get
         let colors = getColors(canvas: canvas)
@@ -69,10 +73,10 @@ extension DrawingManager {
             
             for i in 0...voiceCount {
                 let voice = userDirectory.appendingPathComponent("\(i).m4a")
-                WhisperViewModel().uploadAudio(fileURL: voice, completion: { result in
+                WhisperViewModel().uploadKoreanAudio(fileURL: voice, completion: { result in
                     switch result {
                     case .success(let success):
-                        summaries.append(success)
+                        self.report.recordSummary.append(success)
                     case .failure(let failure):
                         print("error: \(failure.localizedDescription)")
                     }
@@ -81,23 +85,22 @@ extension DrawingManager {
             }
 
             // 레포트 모델 생성
-            let reportModel = ReportModel(name: name, date: date, recordSummary: summaries, colors: mapColors, imageUrl: imageURL.path)
+            self.report.name = name
+            self.report.date = date
+            self.report.colors = mapColors
+            self.report.imageUrl = imageURL.path
             
             // 레포트 모델 저장
-            saveToJson(report: reportModel, directoryUrl: userDirectory)
-            
-            return reportModel
+//            saveToJson(report: reportModel, directoryUrl: userDirectory)
         } catch {
             print("이미지 저장 중 error : \(error)")
         }
-        
-        return nil
     }
     
-    func saveToJson(report: ReportModel, directoryUrl: URL) {
+    func saveToJson(directoryUrl: URL) {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        let jsonData = try? encoder.encode(report)
+        let jsonData = try? encoder.encode(self.report)
         let jsonFileUrl = directoryUrl.appendingPathComponent("data.json")
         
         if let jsonData = jsonData {

@@ -10,14 +10,12 @@ import PencilKit
 import PopupView
 
 struct DrawingView: View {
+
     // Image 전달 받기
     @StateObject var viewModel: shareViewModel
     @State var captureImage: UIImage?
     @State var isDone = false
     @State var goNextPage = false
-    
-    // Report
-    @State var report: ReportModel?
     
     // 캔버스 관련 변수
     @State var canvas = PKCanvasView()
@@ -26,7 +24,6 @@ struct DrawingView: View {
     
     // 오디오 관련 프로퍼티
     @StateObject var recordManager = RecordManager()
-    var summaries: [String] = []
     
     // 팝업 관련 프로퍼티
     @State var popup = false
@@ -41,6 +38,7 @@ struct DrawingView: View {
     
     func rebootBotAction() {
         popup = true
+        DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
         botCounter += 1
     }
     
@@ -49,7 +47,7 @@ struct DrawingView: View {
             Color("background-coloring")
                 .ignoresSafeArea()
             
-            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: UIImage(named: "ColoringBookEx")!)
+            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: viewModel.selectedImage!)
                 .frame(width: 630, height: 630)
                 .padding(.top, 70)
         }
@@ -61,12 +59,12 @@ struct DrawingView: View {
             rebootBotAction()
         }
         .onReceive(timer) { value in
+            print(botCounter)
             if botCounter > 3 {
                 timer.upstream.connect().cancel()
             } else {
                 DrawingManager.shared.stopRecording()
                 rebootBotAction()
-                DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             }
         }
         .alert("색칠하기를 그만하시겠어요?", isPresented: $isDone) {
@@ -82,7 +80,7 @@ struct DrawingView: View {
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                report = DrawingManager.shared.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
+                DrawingManager.shared.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
                 goNextPage = true
             }
         } message: {
@@ -119,13 +117,13 @@ struct DrawingView: View {
                 .type(.floater())
                 .position(.top)
                 .animation(.spring())
-                .autohideIn(10)
+                .autohideIn(2)
         })
         .navigationDestination(isPresented: $goNextPage, destination: {
-            if let captureImage = captureImage, let report = report {
-                DrawingResultView(image: captureImage, report: report, recordManager: recordManager)
+            if let captureImage = captureImage {
+                DrawingResultView(image: captureImage, name: viewModel.name, date: viewModel.date, recordManager: recordManager)
             } else {
-                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, report: .init(name: "", date: "", recordSummary: [], colors: [], imageUrl: ""), recordManager: recordManager)
+                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, name: "", date: "", recordManager: recordManager)
             }
         })
     }
