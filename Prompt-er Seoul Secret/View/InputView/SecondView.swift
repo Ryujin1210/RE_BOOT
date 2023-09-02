@@ -37,7 +37,7 @@ struct SecondView: View {
                         
                         Text("어르신의 성함을 ")
                             .font(.pretendardBold40)
-                            .foregroundColor(Color.green) // 초록색 적용
+                            .foregroundColor(Color.primary700) // 초록색 적용
                         
                         Text("알려주세요!")
                             .font(.pretendardBold40)
@@ -57,7 +57,7 @@ struct SecondView: View {
                 
                 Rectangle()
                     .frame(width: 485.5, height: 3) // 사각형의 크기 설정
-                    .foregroundColor(Color.primary_300) // 사각형의 색상 설정
+                    .foregroundColor(Color.primary700) // 사각형의 색상 설정
                 
                 Button(action: {
                     viewModel.tag = 3
@@ -66,10 +66,9 @@ struct SecondView: View {
                     Text("이름 입력 완료")
                         .font(.pretendardBold40)
                         .frame(width: 612, height: 128, alignment: .center)
-                        .background(isNameEntered ? Color.btnGreen : Color.primary_300_opacity) // 이름이 입력되었을 때와 그렇지 않을 때 배경색 설정
-                    
+                        .background(isNameEntered ? Color.primary500 : Color.primary300.opacity(0.3)) // 이름이 입력되었을 때와 그렇지 않을 때 배경색 설정
                         .cornerRadius(20)
-                        .foregroundColor(.white)
+                        .foregroundColor(isNameEntered ? .white : .disableText)
                 }
                 .padding(.top, 80)
                 .disabled(!isNameEntered) // 이름이 입력되지 않으면 버튼 비활성화

@@ -17,10 +17,10 @@ struct FifthView: View {
         VStack {
             Text("밑그림 선택하기")
                 .font(.pretendardBold40)
-                .foregroundColor(.primary_900)
+                .foregroundColor(.primary900)
                 .padding(.horizontal, 56)
                 .padding(.vertical, 12)
-                .background(Color.primary_300_opacity)
+                .background(Color.primary300.opacity(0.3))
                 .cornerRadius(10)
             Text("마음에 드는 밑그림을 선택한 후\n'색칠하러 가기' 버튼을 눌러주세요")
                 .font(.pretendardBold32)
@@ -42,11 +42,11 @@ struct FifthView: View {
                             }
                         }
                         .cornerRadius(10)
-                        .shadow(color: selectedImage == image ? Color.primary_500 : Color.clear, radius: 8, x: 0, y: 0)
+                        .shadow(color: selectedImage == image ? Color.primary500 : Color.clear, radius: 8, x: 0, y: 0)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .inset(by: selectedImage == image ? -4 : 0.5)
-                                .stroke(selectedImage == image ? Color.primary_500 : Color.black,
+                                .stroke(selectedImage == image ? Color.primary500 : Color.black,
                                         lineWidth: selectedImage == image ? 8 : 1)
                         )}
             }
@@ -63,9 +63,9 @@ struct FifthView: View {
                 Text("색칠하러 가기")
                     .font(.pretendardBold40)
                     .frame(width: 612 , height: 128)
-                    .background(selectedImage != nil ? Color.primary_500 : Color.primary_300_opacity)
+                    .background(selectedImage != nil ? Color.primary700 : Color.primary300.opacity(0.3))
                     .cornerRadius(20)
-                    .foregroundColor(.white)
+                    .foregroundColor(selectedImage != nil ? .white : .disableText)
             }
             .disabled(selectedImage == nil)
             .padding(.top, 70)
