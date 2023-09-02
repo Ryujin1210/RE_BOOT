@@ -9,9 +9,20 @@ import PencilKit
 import AVKit
 
 class DrawingManager: ObservableObject {
-    /// 음성 출력 관련 데이터
+    // 음성 입력
+    var audioRecorder: AVAudioRecorder?
+    @Published var isRecording = false
+    
+    var audioPlayer: AVAudioPlayer?
+    @Published var isPlaying = false
+    @Published var isPaused = false
+    
+    var recordedFiles = [URL]()
+    
     // Singleton
     static let shared = DrawingManager()
+    
+    
     
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -158,6 +169,40 @@ extension DrawingManager {
         
         // 유저디렉토리 리턴
         return userDirectory
+    }
+}
+
+extension DrawingManager {
+    func startRecording() {
+        // 파일 저장 경로
+        let fileURL = getDocumentsDirectory().appendingPathComponent("AudioName.m4a") // 내담자 이름으로 파일 저장이 가능하도록 변경
+        
+        // Setting 값 저장
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
+            audioRecorder?.record()
+            self.isRecording = true
+        } catch {
+            print("녹음 오류 \(error.localizedDescription)")
+        }
+    }
+    
+    func stopRecording() {
+        audioRecorder?.stop()
+        self.recordedFiles.append(self.audioRecorder!.url)
+        self.isRecording = false
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+      let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+      return paths[0]
     }
 }
 

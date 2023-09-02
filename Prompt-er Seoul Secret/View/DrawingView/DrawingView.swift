@@ -29,6 +29,19 @@ struct DrawingView: View {
     
     // 팝업 관련 프로퍼티
     @State var popup = false
+    @State var botCounter = 0
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    let rebootBot: [String] = [
+        "안녕하세요! 이제 자유롭게 색칠을 해볼까요?\n먼저 원하는 색을 골라보세요!",
+        "지금 색칠하고 있는 색을 고른 이유를 알려주세요!",
+        "그 순간이 행복했던 이유가 무엇인가요?",
+        "너무 잘 들었어요.\n그 이후의 이야기가 궁금해요!"
+    ]
+    
+    func rebootBotAction() {
+        popup = true
+        botCounter += 1
+    }
     
     var body: some View {
         ZStack {
@@ -43,7 +56,11 @@ struct DrawingView: View {
             // 레코딩 시작
 //            recordManager.startRecording()
             isPresented = true
-            popup = true
+            
+            rebootBotAction()
+        }
+        .onReceive(timer) { value in
+            rebootBotAction()
         }
         .alert("색칠하기를 그만하시겠어요?", isPresented: $isDone) {
             Button("취소", role: .cancel) {
@@ -85,7 +102,7 @@ struct DrawingView: View {
             }
         })
         .popup(isPresented: $popup, view: {
-            FloatingView()
+            FloatingView(message: rebootBot[botCounter])
                 .shadow(color: .black.opacity(0.12), radius: 14, x: 0, y: 4)
             
         }, customize: {
@@ -116,6 +133,8 @@ struct DrawingView: View {
 
 extension DrawingView {
     private struct FloatingView: View {
+        let message: String
+        
         var body: some View {
             VStack(spacing: 8) {
                 Text("리붓봇")
@@ -127,7 +146,7 @@ extension DrawingView {
                     .background(Color("primary-300"))
                     .cornerRadius(10)
                 
-                Text("안녕하세요! 이제 자유롭게 색칠을 해볼까요?\n먼저 원하는 색을 골라보세요")
+                Text(message)
                     .font(.custom("", size: 30))
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
