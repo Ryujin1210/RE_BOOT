@@ -46,6 +46,7 @@
 		3DF6403B2AA3A02600AEC368 /* Ex+ Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640392AA3A02600AEC368 /* Ex+ Color.swift */; };
 		3DF6403C2AA3A02600AEC368 /* Ex+ Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */; };
 		3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6403E2AA3A04E00AEC368 /* loading.json */; };
+		B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		3DF640392AA3A02600AEC368 /* Ex+ Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Color.swift"; sourceTree = "<group>"; };
 		3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Font.swift"; sourceTree = "<group>"; };
 		3DF6403E2AA3A04E00AEC368 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Loading-Lottie.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 		3DF6403D2AA3A04E00AEC368 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */,
 				3DF6403E2AA3A04E00AEC368 /* loading.json */,
 			);
 			path = Lottie;
@@ -336,6 +339,7 @@
 				3DF640342AA3A00500AEC368 /* Pretendard-Regular.otf in Resources */,
 				3DF63FD12AA054B100AEC368 /* Preview Assets.xcassets in Resources */,
 				3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */,
+				B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */,
 				3DF640362AA3A00500AEC368 /* Pretendard-Light.otf in Resources */,
 				3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */,
 			);
@@ -507,16 +511,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Secret;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re:Boot";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "원활한 상담을 위해 음성을 녹음합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,16 +551,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Secret;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re:Boot";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "원활한 상담을 위해 음성을 녹음합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

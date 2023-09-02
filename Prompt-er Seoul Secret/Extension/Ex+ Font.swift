@@ -17,14 +17,19 @@ extension Font {
     static let pretendardBold32: Font = .custom("Pretendard-Bold", size: 32)
     static let pretendardBold28: Font = .custom("Pretendard-Bold", size: 28)
     static let pretendardBold24: Font = .custom("Pretendard-Bold", size: 24)
+    static let pretendardBold20: Font = .custom("Pretendard-Bold", size: 20)
+
     
     
     
     // SemiBold
     static let pretendardSemiBold16: Font = .custom("Pretendard-SemiBold", size: 16)
+    static let pretendardSemiBold24: Font = .custom("Pretendard-SemiBold", size: 24)
+
     
     // Medium
     static let pretendardMedium28: Font = .custom("Pretendard-Medium", size: 28)
+    static let pretendardMedium20: Font = .custom("Pretendard-Medium", size: 20)
     static let pretendardMedium16: Font = .custom("Pretendard-Medium", size: 16)
     
     // Regular
