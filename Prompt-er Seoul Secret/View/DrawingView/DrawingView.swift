@@ -22,6 +22,7 @@ struct DrawingView: View {
     // 캔버스 관련 변수
     @State var canvas = PKCanvasView()
     @State var isPresented = false
+    @State var toolPicker = PKToolPicker()
     
     // 오디오 관련 프로퍼티
     @StateObject var recordManager = RecordManager()
@@ -34,7 +35,7 @@ struct DrawingView: View {
             Color("background-coloring")
                 .ignoresSafeArea()
             
-            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, image: image)
+            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: image)
                 .frame(width: 630, height: 630)
                 .padding(.top, 70)
         }
@@ -69,6 +70,7 @@ struct DrawingView: View {
             }) {
                 Button {
                     isDone = true
+                    toolPicker.setVisible(false, forFirstResponder: canvas)
                 } label: {
                     Text("완성")
                         .font(.custom("SF Pro", size: 24))
@@ -85,6 +87,7 @@ struct DrawingView: View {
         .popup(isPresented: $popup, view: {
             FloatingView()
                 .shadow(color: .black.opacity(0.12), radius: 14, x: 0, y: 4)
+            
         }, customize: {
             $0
                 .closeOnTap(true)
