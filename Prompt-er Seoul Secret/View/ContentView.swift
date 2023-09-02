@@ -38,7 +38,7 @@ struct ContentView: View {
                 .transition(.opacity) // Crossfade 애니메이션
             } else if currentTag == 7 {
                 NavigationView {
-                    GalleryView()
+                    GalleryView(viewModel: viewModel)
                         .transition(.opacity)
                         .navigationBarTitle("", displayMode: .inline) // 네비게이션 제목을 지웁니다.
                         .navigationBarBackButtonHidden(true) // 기본

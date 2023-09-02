@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GalleryView: View {
     @StateObject var galleryManager = GalleryManager()
+    @StateObject var viewModel: shareViewModel
+    
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
@@ -24,7 +26,7 @@ struct GalleryView: View {
                 HStack(spacing: 0) {
                     ForEach(galleryManager.reports, id: \.id) { report in
                         NavigationLink {
-                            CounselingView(report: report)
+                            CounselingView(report: report, viewModel: viewModel)
                         } label: {
                             ThumbnailView(report: report)
                         }
@@ -39,7 +41,7 @@ struct GalleryView: View {
         .overlay(content: {
             NavigationBar(title: "갤러리", leftComponent:  {
                 Button {
-                    dismiss()
+                    viewModel.tag = 1
                 } label: {
                     Image(systemName: "chevron.backward")
                         .resizable()

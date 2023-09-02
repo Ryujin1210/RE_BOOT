@@ -23,7 +23,7 @@ struct ThumbnailView: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("\(report.name)씨의 작품")
+                        Text("\(report.name)님의 작품")
                             .padding(.top, 30)
                             .font(.pretendardSemiBold24)
                             .foregroundColor(.black)

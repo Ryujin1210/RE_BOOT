@@ -10,7 +10,8 @@ import PencilKit
 import PopupView
 
 struct DrawingView: View {
-
+    @EnvironmentObject var drawingManager: DrawingManager
+    
     // Image 전달 받기
     @StateObject var viewModel: shareViewModel
     @State var captureImage: UIImage?
@@ -38,7 +39,7 @@ struct DrawingView: View {
     
     func rebootBotAction() {
         popup = true
-        DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+        drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
     }
     
     var body: some View {
@@ -52,18 +53,18 @@ struct DrawingView: View {
         }
         .onAppear {
             // 레코딩 시작
-            DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+            drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             isPresented = true
             
             rebootBotAction()
         }
         .onReceive(timer) { value in
-            botCounter += 1
-            print(botCounter)
             if botCounter > 3 {
                 timer.upstream.connect().cancel()
             } else {
-                DrawingManager.shared.stopRecording()
+                botCounter += 1
+                print(botCounter)
+                drawingManager.stopRecording()
                 rebootBotAction()
             }
         }
@@ -76,11 +77,11 @@ struct DrawingView: View {
             Button("확인", role: .destructive) {
                 // 레코딩 종료
                 timer.upstream.connect().cancel()
-                DrawingManager.shared.stopRecording()
+                drawingManager.stopRecording()
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                DrawingManager.shared.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
+                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1)
                 goNextPage = true
             }
         } message: {
@@ -121,9 +122,9 @@ struct DrawingView: View {
         })
         .navigationDestination(isPresented: $goNextPage, destination: {
             if let captureImage = captureImage {
-                DrawingResultView(image: captureImage, name: viewModel.name, date: viewModel.date, recordManager: recordManager)
+                DrawingResultView(image: captureImage, name: viewModel.name, date: viewModel.date, recordManager: recordManager, viewModel: viewModel)
             } else {
-                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, name: "", date: "", recordManager: recordManager)
+                DrawingResultView(image: UIImage(named: "ColoringBookEx")!, name: "", date: "", recordManager: recordManager, viewModel: viewModel)
             }
         })
     }

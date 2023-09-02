@@ -17,7 +17,7 @@ class GalleryManager: ObservableObject {
     func getReports() {
         let userDirectoryUrl = try? getUsersDirectory()
         
-        let dirs = try! FileManager.default.contentsOfDirectory(at: userDirectoryUrl!, includingPropertiesForKeys: [], options: .skipsHiddenFiles)
+        guard let dirs = try? FileManager.default.contentsOfDirectory(at: userDirectoryUrl!, includingPropertiesForKeys: [], options: .skipsHiddenFiles) else { return }
         
         print(dirs)
         
