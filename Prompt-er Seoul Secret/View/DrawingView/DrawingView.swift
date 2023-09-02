@@ -45,7 +45,7 @@ struct DrawingView: View {
             isPresented = true
             popup = true
         }
-        .alert("그리기 종료!", isPresented: $isDone) {
+        .alert("색칠하기를 그만하시겠어요?", isPresented: $isDone) {
             Button("취소", role: .cancel) {
                 // 돌아가기
                 isDone = false
@@ -61,7 +61,7 @@ struct DrawingView: View {
                 goNextPage = true
             }
         } message: {
-            Text("그림을 완성하셨나요?\n확인을 누르면 그리기가 종료됩니다.")
+            Text("확인을 누르면 색칠하기가 종료됩니다.")
         }
         .toolbar(.hidden)
         .overlay(content: {
