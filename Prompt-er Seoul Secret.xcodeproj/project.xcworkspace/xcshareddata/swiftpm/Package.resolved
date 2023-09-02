@@ -1,12 +1,48 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
+        "version" : "5.8.0"
+      }
+    },
+    {
       "identity" : "alerttoast",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/elai950/AlertToast.git",
       "state" : {
         "branch" : "master",
         "revision" : "638f38f9daf08e17b7caea22d2fcb9c0a418d1b6"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "d6feea26a370019b4d3a85f5984cb95a2734776f",
+        "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "openaikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marcodotio/OpenAIKit.git",
+      "state" : {
+        "revision" : "9e718bc33f10bc0c0524ae140be6a89651c4ea3d",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "popupview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/PopupView.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "87f3bf660ba23e8ee49ea2b503e86dfdf8e61ca7"
       }
     }
   ],

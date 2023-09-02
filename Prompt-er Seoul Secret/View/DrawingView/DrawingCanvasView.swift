@@ -12,7 +12,7 @@ import UIKit
 struct DrawingCanvasView: UIViewRepresentable {
     @Binding var canvas: PKCanvasView
     @Binding var isPresented: Bool
-    let toolPicker = PKToolPicker()
+    @Binding var toolPicker: PKToolPicker
     let image: UIImage
     @State var firstTimeFlag = true
     

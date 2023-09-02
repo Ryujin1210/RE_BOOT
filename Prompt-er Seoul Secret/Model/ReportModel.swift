@@ -12,14 +12,14 @@ struct ReportModel: Codable, Identifiable {
     let date: String
     let recordSummary: String
     let colors: [CustomColor]
-    let imageUrl: URL
+    let imageUrl: String
 
     var id: String {
         name + date
     }
     
     var uiImage: UIImage {
-        let path: String = imageUrl.path
+        let path: String = imageUrl
         print("========>>>>\(path)")
         guard let image = UIImage(contentsOfFile: path) else {
             print("에러남?")
