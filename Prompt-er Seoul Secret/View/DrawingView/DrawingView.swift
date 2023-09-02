@@ -10,7 +10,8 @@ import PencilKit
 import PopupView
 
 struct DrawingView: View {
-
+    @EnvironmentObject var drawingManager: DrawingManager
+    
     // Image 전달 받기
     @StateObject var viewModel: shareViewModel
     @State var captureImage: UIImage?
@@ -38,7 +39,7 @@ struct DrawingView: View {
     
     func rebootBotAction() {
         popup = true
-        DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+        drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
     }
     
     var body: some View {
@@ -52,7 +53,7 @@ struct DrawingView: View {
         }
         .onAppear {
             // 레코딩 시작
-            DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+            drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             isPresented = true
             
             rebootBotAction()
@@ -63,7 +64,7 @@ struct DrawingView: View {
             if botCounter > 3 {
                 timer.upstream.connect().cancel()
             } else {
-                DrawingManager.shared.stopRecording()
+                drawingManager.stopRecording()
                 rebootBotAction()
             }
         }
@@ -76,11 +77,11 @@ struct DrawingView: View {
             Button("확인", role: .destructive) {
                 // 레코딩 종료
                 timer.upstream.connect().cancel()
-                DrawingManager.shared.stopRecording()
+                drawingManager.stopRecording()
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                DrawingManager.shared.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
+                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter)
                 goNextPage = true
             }
         } message: {

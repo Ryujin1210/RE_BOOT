@@ -26,7 +26,7 @@ class DrawingManager: ObservableObject {
     
     // 레포트 모델
     @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
-    
+    var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
         "가장 행복했던 순간을 묘사해주세요",
@@ -58,7 +58,7 @@ extension DrawingManager {
 // 파일 관리 관련 데이터
 extension DrawingManager {
     func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int) {
-        
+        self.voiceCount = voiceCount
         // 사용 색상 get
         let colors = getColors(canvas: canvas)
         let mapColors = colors.map { color in
