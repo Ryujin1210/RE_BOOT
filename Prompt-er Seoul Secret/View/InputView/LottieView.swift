@@ -17,7 +17,7 @@ struct LottieView: UIViewRepresentable {
     //1. Context -> UIViewRepresentableContext<LottieView>로 수정
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView(frame: .zero)
-        let animationView = LottieAnimationView(name: "loading")
+        let animationView = LottieAnimationView(name: "Loading-Lottie")
         //애니메이션 크기가 적절하게 조정될 수 있도록
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop

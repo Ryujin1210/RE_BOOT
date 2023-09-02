@@ -12,10 +12,16 @@ struct FirstView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image("Tree")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 641, height: 834)
+            VStack(alignment: .center) {
+                Image("icon-Text")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 237, height: 60)
+                Text("다시 색칠하며 이야기하는 하루")
+                    .font(.pretendardBold20)
+                    .foregroundColor(.captionText1)
+            }
+            .padding(.trailing, 50)
             VStack {
                 Text("원하는 활동을 말해주세요")
                     .font(.pretendardBold32)
@@ -25,29 +31,26 @@ struct FirstView: View {
                 Button(action: {
                     viewModel.tag = 2
                 }) {
-                    Text("작품 만들기")
-                        .font(.pretendardBold40)
-                        .frame(width: 344, height: 220, alignment: .center)
-                        .background(Color.primary700)
-                    
+                    Image("btnMake")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 344, height: 220)
                         .cornerRadius(20)
-                        .foregroundColor(.white)
                 }
-                .padding()
                 
                 Button(action: {
-                    
+                    // 갤러리 보기
                 }) {
-                    Text("갤러리 보기")
-                        .font(.pretendardBold40)
-                        .frame(width: 344, height: 220, alignment: .center)
-                        .background(Color.primary700)
-                    
+                    Image("btnGallery")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 344, height: 220)
                         .cornerRadius(20)
-                        .foregroundColor(.white)
                 }
                 .padding()
             }
+            .padding(.leading, 200)
+            
         }
     }
 }

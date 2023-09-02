@@ -11,10 +11,6 @@ import SwiftUI
 struct Prompt_er_Seoul_SecretApp: App {
     var body: some Scene {
         WindowGroup {
-//            NavigationStack {
-//                ContentView()
-//            }
-            
             ContentView()
         }
     }
