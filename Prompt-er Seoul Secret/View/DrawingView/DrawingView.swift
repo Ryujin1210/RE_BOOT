@@ -28,7 +28,7 @@ struct DrawingView: View {
     // 팝업 관련 프로퍼티
     @State var popup = false
     @State var botCounter = 0
-    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     let rebootBot: [String] = [
         "안녕하세요! 이제 자유롭게 색칠을 해볼까요?\n먼저 원하는 색을 골라보세요!",
         "지금 색칠하고 있는 색을 고른 이유를 알려주세요!",
@@ -39,12 +39,11 @@ struct DrawingView: View {
     func rebootBotAction() {
         popup = true
         DrawingManager.shared.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
-        botCounter += 1
     }
     
     var body: some View {
         ZStack {
-            Color("background-coloring")
+            Color.bgColoring
                 .ignoresSafeArea()
             
             DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: viewModel.selectedImage!)
@@ -59,6 +58,7 @@ struct DrawingView: View {
             rebootBotAction()
         }
         .onReceive(timer) { value in
+            botCounter += 1
             print(botCounter)
             if botCounter > 3 {
                 timer.upstream.connect().cancel()
@@ -96,12 +96,12 @@ struct DrawingView: View {
                     toolPicker.setVisible(false, forFirstResponder: canvas)
                 } label: {
                     Text("완성")
-                        .font(.custom("SF Pro", size: 24))
+                        .font(.pretendardSemiBold24)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.horizontal, 24)
                         .padding(.vertical, 20)
-                        .background(Color("primary-700"))
+                        .background(Color.primary700)
                         .cornerRadius(10)
                 }
 
@@ -117,7 +117,7 @@ struct DrawingView: View {
                 .type(.floater())
                 .position(.top)
                 .animation(.spring())
-                .autohideIn(2)
+                .autohideIn(10)
         })
         .navigationDestination(isPresented: $goNextPage, destination: {
             if let captureImage = captureImage {
@@ -144,17 +144,15 @@ extension DrawingView {
         var body: some View {
             VStack(spacing: 8) {
                 Text("리붓봇")
-                    .font(.custom("", size: 24))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("primary-700"))
+                    .font(.pretendardBold24)
+                    .foregroundColor(.primary700)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 4)
-                    .background(Color("primary-300"))
+                    .background(Color.primary300)
                     .cornerRadius(10)
                 
                 Text(message)
-                    .font(.custom("", size: 30))
-                    .fontWeight(.semibold)
+                    .font(.pretendardSemiBold30)
                     .multilineTextAlignment(.center)
             }
             .frame(width: 795, height: 205)

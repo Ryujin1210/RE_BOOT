@@ -31,13 +31,13 @@ struct CounselingView: View {
                         .frame(width: 460, height: 460)
                         .shadow(color: .black.opacity(0.14), radius: 14, x: 0, y: 0)
                         .padding(.bottom, 70)
-                        .padding(.top, 56)
+                        .padding(.top, 158)
                     
                     ZStack {
                         Color.white
                         VStack {
                             Text("사용된 색상")
-                                .font(.title)
+                                .font(.pretendardBold32)
                                 .bold()
                                 .padding(.bottom, 27)
                             
@@ -54,8 +54,7 @@ struct CounselingView: View {
                                 .padding(.bottom, 72)
                             
                             Text("대화 기록 보기")
-                                .font(.title)
-                                .bold()
+                                .font(.pretendardBold32)
                                 .padding(.bottom, 64)
                             
                             ForEach(0..<report.recordSummary.count) { num in
@@ -71,12 +70,14 @@ struct CounselingView: View {
                                             .cornerRadius(10)
                                         
                                         Text(rebootBot[num])
+                                            .font(.pretendardBold28)
                                         
                                         Spacer()
                                     }
                                     .padding(.bottom, 20)
                                     Text(report.recordSummary[num])
-                                        .font(.title2)
+                                        .font(.pretendardMedium28)
+                                        .foregroundColor(.captionText1)
                                 }
                                 .padding(.bottom, 52)
                             }
@@ -116,12 +117,12 @@ struct CounselingView: View {
                     GalleryView()
                 } label: {
                     Text("갤러리 보기")
-                        .font(.custom("SF Pro", size: 24))
+                        .font(.pretendardSemiBold24)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.horizontal, 24)
                         .padding(.vertical, 20)
-                        .background(Color("primary-700"))
+                        .background(Color.primary700)
                         .cornerRadius(10)
                 }
 

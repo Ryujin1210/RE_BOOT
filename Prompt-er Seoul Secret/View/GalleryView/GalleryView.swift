@@ -14,6 +14,12 @@ struct GalleryView: View {
         VStack {
             Spacer()
             
+            Text("작품을 선택하면\n추가적인 내용을 확인할 수 있어요.")
+                .font(.pretendardBold28)
+                .foregroundColor(.primary900)
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 53)
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
                     ForEach(galleryManager.reports, id: \.id) { report in
@@ -25,10 +31,8 @@ struct GalleryView: View {
                     }
                 }
             }
-            .padding(.top, 70)
             .padding(.horizontal, 40)
-            
-            Spacer()
+            .padding(.bottom, 100)
         }
         .background(Color("background"))
         .toolbar(.hidden)
