@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  Prompt-er Seoul Secret
+//  Secret
 //
-//  Created by 정승균 on 2023/08/31.
+//  Created by YU WONGEUN on 2023/09/01.
 //
 
 import SwiftUI
@@ -31,11 +31,6 @@ struct ContentView: View {
             } else if currentTag == 5 {
                 FifthView(viewModel: viewModel)
                     .transition(.opacity) // Crossfade 애니메이션
-            } else if currentTag == 6 {
-                NavigationStack {
-                    DrawingView(viewModel: viewModel)
-                }
-                .transition(.opacity) // Crossfade 애니메이션
             } else {
                 EmptyView()
             }
@@ -53,4 +48,3 @@ struct ContentView: View {
         }
     }
 }
-

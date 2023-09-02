@@ -11,7 +11,7 @@ import PopupView
 
 struct DrawingView: View {
     // Image 전달 받기
-    let image: UIImage = UIImage(named: "ColoringBookEx")!
+    @StateObject var viewModel: shareViewModel
     @State var captureImage: UIImage?
     @State var isDone = false
     @State var goNextPage = false
@@ -35,7 +35,7 @@ struct DrawingView: View {
             Color("background-coloring")
                 .ignoresSafeArea()
             
-            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: image)
+            DrawingCanvasView(canvas: $canvas, isPresented: $isPresented, toolPicker: $toolPicker, image: viewModel.selectedImage!)
                 .frame(width: 630, height: 630)
                 .padding(.top, 70)
         }
@@ -57,7 +57,7 @@ struct DrawingView: View {
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                report = DrawingManager.shared.saveData(name: "김춘자", recordSummary: "이것저것이것저것이것저것이것저것이것저것이것저것", canvas: canvas, image: captureImage!)
+                report = DrawingManager.shared.saveData(name: viewModel.name, recordSummary: "이것저것이것저것이것저것이것저것이것저것이것저것", canvas: canvas, image: captureImage!)
                 goNextPage = true
             }
         } message: {
@@ -100,19 +100,19 @@ struct DrawingView: View {
             if let captureImage = captureImage, let report = report {
                 DrawingResultView(image: captureImage, report: report, recordManager: recordManager)
             } else {
-                DrawingResultView(image: image, report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: ""), recordManager: recordManager)
+                DrawingResultView(image: viewModel.selectedImage!, report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: ""), recordManager: recordManager)
             }
         })
     }
 }
 
-struct DrawingView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            DrawingView()
-        }
-    }
-}
+//struct DrawingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            DrawingView(vie)
+//        }
+//    }
+//}
 
 extension DrawingView {
     private struct FloatingView: View {
