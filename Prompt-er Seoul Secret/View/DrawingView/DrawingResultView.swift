@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DrawingResultView: View {
     let image: UIImage
-    let report: ReportModel
-    
+    let name: String
+    let date: String
+    @State var goNextPage = false
     // 종료하기
     @StateObject var recordManager: RecordManager
     
@@ -22,11 +23,15 @@ struct DrawingResultView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    NavigationLink("저장하기") {
-                        CounselingView(report: report)
+                    Button("저장하기") {
+                        DrawingManager.shared.saveToJson(directoryUrl: try! DrawingManager.shared.createDirectory(name: name, date: date))
+                        goNextPage = true
                     }
                 }
             }
+            .navigationDestination(isPresented: $goNextPage, destination: {
+                CounselingView(report: DrawingManager.shared.report)
+            })
             .navigationBarBackButtonHidden()
     }
 }

@@ -8,11 +8,11 @@
 import UIKit
 
 struct ReportModel: Codable, Identifiable {
-    let name: String
-    let date: String
-    let recordSummary: [String]
-    let colors: [CustomColor]
-    let imageUrl: String
+    var name: String
+    var date: String
+    var recordSummary: [String]
+    var colors: [CustomColor]
+    var imageUrl: String
 
     var id: String {
         name + date

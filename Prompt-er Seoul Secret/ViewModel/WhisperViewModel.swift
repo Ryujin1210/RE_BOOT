@@ -51,6 +51,7 @@ final class WhisperViewModel: ObservableObject {
         
         let parameters: [String: String] = [
             "model": "whisper-1",
+            "language": "ko"
         ]
         
         AF.upload(
