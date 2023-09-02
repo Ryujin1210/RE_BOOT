@@ -41,11 +41,13 @@ struct CounselingView: View {
                                 .bold()
                                 .padding(.bottom, 27)
                             
-                            HStack(spacing: 28) {
-                                ForEach(report.colors, id: \.id) { color in
-                                    Circle()
-                                        .frame(width: 65, height: 65)
-                                        .foregroundColor(Color(uiColor: color.uiColor))
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 28) {
+                                    ForEach(report.colors, id: \.id) { color in
+                                        Circle()
+                                            .frame(width: 65, height: 65)
+                                            .foregroundColor(Color(uiColor: color.uiColor))
+                                    }
                                 }
                             }
                             .padding(.bottom, 72)
@@ -75,7 +77,7 @@ struct CounselingView: View {
                                         Spacer()
                                     }
                                     .padding(.bottom, 20)
-                                    Text(report.recordSummary[num])
+                                    Text(report.recordSummary[num]!)
                                         .font(.pretendardMedium28)
                                         .foregroundColor(.captionText1)
                                 }
@@ -135,7 +137,7 @@ struct CounselingView: View {
 struct CounselingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CounselingView(report: .init(name: "", date: "", recordSummary: [], colors: [], imageUrl: ""))
+            CounselingView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: ""))
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 struct ReportModel: Codable, Identifiable {
     var name: String
     var date: String
-    var recordSummary: [String]
+    var recordSummary: [Int:String]
     var colors: [CustomColor]
     var imageUrl: String
 
