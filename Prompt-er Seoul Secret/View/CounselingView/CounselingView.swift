@@ -83,16 +83,18 @@ struct CounselingView: View {
                                     VStack(alignment: .leading) {
                                         HStack(alignment: .top) {
                                             Text("리붓봇")
-                                                .font(.custom("", size: 24))
+                                                .font(.pretendardBold24)
                                                 .fontWeight(.bold)
-                                                .foregroundColor(Color("primary-700"))
+                                                .foregroundColor(.primary700)
                                                 .padding(.horizontal, 12)
                                                 .padding(.vertical, 4)
-                                                .background(Color("primary-300"))
+                                                .background(Color.primary300)
                                                 .cornerRadius(10)
                                             
                                             Text(rebootBot[num])
                                                 .font(.pretendardBold28)
+                                                .lineLimit(nil)
+                                                .multilineTextAlignment(.leading)
                                                 .lineSpacing(12)
                                             
                                             Spacer()
