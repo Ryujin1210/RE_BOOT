@@ -23,17 +23,19 @@ struct ThumbnailView: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("\(report.name)씨의 작품")
+                        Text("\(report.name)님의 작품")
                             .padding(.top, 30)
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                            .font(.pretendardSemiBold24)
+                            .foregroundColor(.black)
+                        
                         Spacer()
                     }
                     .padding(.leading, 10)
                     .padding(.bottom, 10)
                     
                     Text("\(report.date)")
-                        .foregroundColor(.black.opacity(0.3))
+                        .font(.pretendardRegular20)
+                        .foregroundColor(.captionText1)
                         .padding(.leading, 10)
                         .padding(.bottom, 30)
                 }
@@ -41,7 +43,7 @@ struct ThumbnailView: View {
                 .cornerRadius(10)
             }
         }
-        .frame(width: 400, height: 450)
+        .frame(width: 324, height: 450)
         .padding(.horizontal, 64)
         .padding(.vertical, 80)
     }
@@ -49,7 +51,7 @@ struct ThumbnailView: View {
 
 struct ThumbnailView_Previews: PreviewProvider {
     static var previews: some View {
-        ThumbnailView(report: .init(name: "", date: "", recordSummary: "", colors: [], imageUrl: ""))
+        ThumbnailView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: ""))
             .previewLayout(.sizeThatFits)
     }
 }

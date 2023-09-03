@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Prompt_er_Seoul_SecretApp: App {
+    @StateObject var drawingManager = DrawingManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(drawingManager)
+            
+//            DrawingView(viewModel: shareViewModel())
         }
     }
 }

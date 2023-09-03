@@ -63,6 +63,7 @@ struct SecondView: View {
                     Button(action: {
                         viewModel.tag = 3
                         viewModel.name = text
+                        text = ""
                     }) {
                         Text("이름 입력 완료")
                             .font(.pretendardBold40)

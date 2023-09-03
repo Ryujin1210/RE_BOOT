@@ -9,10 +9,24 @@ import PencilKit
 import AVKit
 
 class DrawingManager: ObservableObject {
-    /// 음성 출력 관련 데이터
+    // 음성 입력
+    var audioRecorder: AVAudioRecorder?
+    @Published var isRecording = false
+    
+    var audioPlayer: AVAudioPlayer?
+    @Published var isPlaying = false
+    @Published var isPaused = false
+    
+    var recordedFiles = [URL]()
+    
+    var summaries: [String] = []
+    
     // Singleton
     static let shared = DrawingManager()
     
+    // 레포트 모델
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
+    @Published var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
         "가장 행복했던 순간을 묘사해주세요",
@@ -24,9 +38,6 @@ class DrawingManager: ObservableObject {
     
     var player: AVAudioPlayer?
     let painterName: String = "김복자"
-    
-    
-
 }
 
 // 음성 출력 관련 기능
@@ -46,13 +57,9 @@ extension DrawingManager {
 
 // 파일 관리 관련 데이터
 extension DrawingManager {
-    func saveData(name: String, recordSummary: String, canvas: PKCanvasView, image: UIImage) -> ReportModel? {
-        // 날짜 정리
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "YYYY년 MM월 dd일"
-        let today = dateFormatter.string(from: Date())
-        
+    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int) {
+        print(voiceCount)
+        self.voiceCount = voiceCount
         // 사용 색상 get
         let colors = getColors(canvas: canvas)
         let mapColors = colors.map { color in
@@ -62,26 +69,40 @@ extension DrawingManager {
         
         // 이미지 저장
         do {
-            let userDirectory = try createDirectory(name: name, date: today)
+            let userDirectory = try createDirectory(name: name, date: date)
             let imageURL = try saveImage(image: image, directoryUrl: userDirectory)
+            
+            for i in 0...voiceCount {
+                let voice = userDirectory.appendingPathComponent("\(i).m4a")
+                WhisperViewModel().uploadKoreanAudio(fileURL: voice, completion: { result in
+                    switch result {
+                    case .success(let success):
+                        self.report.recordSummary.updateValue(success, forKey: i)
+                        print("voiceCount : \(self.report.recordSummary.count)")
+                    case .failure(let failure):
+                        print("error: \(failure.localizedDescription)")
+                    }
+                    
+                })
+            }
+
             // 레포트 모델 생성
-            let reportModel = ReportModel(name: name, date: today, recordSummary: recordSummary, colors: mapColors, imageUrl: imageURL.path)
+            self.report.name = name
+            self.report.date = date
+            self.report.colors = mapColors
+            self.report.imageUrl = imageURL.path
             
             // 레포트 모델 저장
-            saveToJson(report: reportModel, directoryUrl: userDirectory)
-            
-            return reportModel
+//            saveToJson(report: reportModel, directoryUrl: userDirectory)
         } catch {
             print("이미지 저장 중 error : \(error)")
         }
-        
-        return nil
     }
     
-    func saveToJson(report: ReportModel, directoryUrl: URL) {
+    func saveToJson(directoryUrl: URL) {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        let jsonData = try? encoder.encode(report)
+        let jsonData = try? encoder.encode(self.report)
         let jsonFileUrl = directoryUrl.appendingPathComponent("data.json")
         
         if let jsonData = jsonData {
@@ -158,6 +179,42 @@ extension DrawingManager {
         
         // 유저디렉토리 리턴
         return userDirectory
+    }
+}
+
+// 음성 녹음 관련 메서드
+extension DrawingManager {
+    func startRecording(name: String, date: String, fileCount: Int) {
+        // 파일 저장 경로
+        let fileURL = try? createDirectory(name: name, date: date) // 내담자 이름으로 파일 저장이 가능하도록 변경
+        guard let audioFile = fileURL?.appendingPathComponent("\(fileCount).m4a") else { return }
+        
+        // Setting 값 저장
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFile, settings: settings)
+            audioRecorder?.record()
+            self.isRecording = true
+        } catch {
+            print("녹음 오류 \(error.localizedDescription)")
+        }
+    }
+    
+    func stopRecording() {
+        audioRecorder?.stop()
+        self.recordedFiles.append(self.audioRecorder!.url)
+        self.isRecording = false
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+      let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+      return paths[0]
     }
 }
 
