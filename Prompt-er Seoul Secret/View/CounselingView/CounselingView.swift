@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CounselingView: View {
     let report: ReportModel
-    
+    var isButtonNonVisible = false
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: shareViewModel
     
@@ -36,71 +36,82 @@ struct CounselingView: View {
                     
                     ZStack {
                         Color.white
+                            .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                         VStack {
-                            Text("사용된 색상")
-                                .font(.pretendardBold32)
-                                .bold()
-                                .padding(.bottom, 27)
+                            HStack {
+                                Text("사용된 색상")
+                                    .font(.pretendardBold32)
+                                    .bold()
+                                    .padding(.bottom, 27)
+                                
+                                Spacer()
+                            }
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 28) {
+                                    Spacer()
+                                    
                                     ForEach(report.colors, id: \.id) { color in
                                         Circle()
+                                            .inset(by: 2)
+                                            .stroke(Color.black.opacity(0.1), lineWidth: 2)
                                             .frame(width: 65, height: 65)
                                             .foregroundColor(Color(uiColor: color.uiColor))
                                     }
+                                    
+                                    Spacer()
                                 }
                             }
                             .padding(.bottom, 72)
+                            .frame(idealWidth: CGFloat(report.colors.count * 65))
                             
                             Divider()
                                 .padding(.bottom, 72)
                             
-                            Text("대화 기록 보기")
-                                .font(.pretendardBold32)
-                                .padding(.bottom, 64)
+                            HStack {
+                                Text("대화 기록 보기")
+                                    .font(.pretendardBold32)
+                                    .padding(.bottom, 64)
+                                
+                                Spacer()
+                            }
                             
-                            ForEach(0..<report.recordSummary.count) { num in
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Text("리붓봇")
-                                            .font(.custom("", size: 24))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("primary-700"))
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 4)
-                                            .background(Color("primary-300"))
-                                            .cornerRadius(10)
-                                        
-                                        Text(rebootBot[num])
-                                            .font(.pretendardBold28)
-                                        
-                                        Spacer()
+                            if !report.recordSummary.isEmpty {
+                                ForEach(0..<report.recordSummary.count) { num in
+                                    VStack(alignment: .leading) {
+                                        HStack(alignment: .top) {
+                                            Text("리붓봇")
+                                                .font(.custom("", size: 24))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color("primary-700"))
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 4)
+                                                .background(Color("primary-300"))
+                                                .cornerRadius(10)
+                                            
+                                            Text(rebootBot[num])
+                                                .font(.pretendardBold28)
+                                                .lineSpacing(12)
+                                            
+                                            Spacer()
+                                        }
+                                        .padding(.bottom, 20)
+                                        Text(report.recordSummary[num]!)
+                                            .font(.pretendardMedium28)
+                                            .foregroundColor(.captionText1)
+                                            .lineSpacing(12)
                                     }
-                                    .padding(.bottom, 20)
-                                    Text(report.recordSummary[num]!)
-                                        .font(.pretendardMedium28)
-                                        .foregroundColor(.captionText1)
+                                    .padding(.bottom, 52)
+                                    .frame(maxWidth: .infinity)
                                 }
-                                .padding(.bottom, 52)
                             }
                         }
                         .padding(.horizontal, 88)
                         .padding(.vertical, 71)
                     }
                     .padding(.horizontal, 57)
-                    .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                 }
                 .toolbar(.hidden)
-                .navigationTitle("\(report.name)님의 작품")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .confirmationAction) {
-                        NavigationLink("갤러리 보기") {
-                            GalleryView(viewModel: viewModel)
-                        }
-                    }
-                }
             }
         }
         .overlay(content: {
@@ -128,6 +139,7 @@ struct CounselingView: View {
                         .background(Color.primary700)
                         .cornerRadius(10)
                 }
+                .hideToBool(isButtonNonVisible)
 
             }
 

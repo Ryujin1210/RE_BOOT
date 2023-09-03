@@ -32,7 +32,7 @@ struct FirstView: View {
                 }
                 .padding(.trailing, 50)
                 VStack {
-                    Text("원하는 활동을 말해주세요")
+                    Text("원하는 활동을 선택해주세요")
                         .font(.pretendardBold32)
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 60)
