@@ -36,11 +36,16 @@ struct CounselingView: View {
                     
                     ZStack {
                         Color.white
+                            .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                         VStack {
-                            Text("사용된 색상")
-                                .font(.pretendardBold32)
-                                .bold()
-                                .padding(.bottom, 27)
+                            HStack {
+                                Text("사용된 색상")
+                                    .font(.pretendardBold32)
+                                    .bold()
+                                    .padding(.bottom, 27)
+                                
+                                Spacer()
+                            }
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 28) {
@@ -48,6 +53,8 @@ struct CounselingView: View {
                                     
                                     ForEach(report.colors, id: \.id) { color in
                                         Circle()
+                                            .inset(by: 2)
+                                            .stroke(Color.black.opacity(0.1), lineWidth: 2)
                                             .frame(width: 65, height: 65)
                                             .foregroundColor(Color(uiColor: color.uiColor))
                                     }
@@ -61,9 +68,14 @@ struct CounselingView: View {
                             Divider()
                                 .padding(.bottom, 72)
                             
-                            Text("대화 기록 보기")
-                                .font(.pretendardBold32)
-                                .padding(.bottom, 64)
+                            HStack {
+                                Text("대화 기록 보기")
+                                    .font(.pretendardBold32)
+                                    .padding(.bottom, 64)
+                                
+                                Spacer()
+                            }
+                            
                             if !report.recordSummary.isEmpty {
                                 ForEach(0..<report.recordSummary.count) { num in
                                     VStack(alignment: .leading) {
@@ -79,6 +91,7 @@ struct CounselingView: View {
                                             
                                             Text(rebootBot[num])
                                                 .font(.pretendardBold28)
+                                                .lineSpacing(12)
                                             
                                             Spacer()
                                         }
@@ -86,6 +99,7 @@ struct CounselingView: View {
                                         Text(report.recordSummary[num]!)
                                             .font(.pretendardMedium28)
                                             .foregroundColor(.captionText1)
+                                            .lineSpacing(12)
                                     }
                                     .padding(.bottom, 52)
                                     .frame(maxWidth: .infinity)
@@ -96,7 +110,6 @@ struct CounselingView: View {
                         .padding(.vertical, 71)
                     }
                     .padding(.horizontal, 57)
-                    .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                 }
                 .toolbar(.hidden)
             }
