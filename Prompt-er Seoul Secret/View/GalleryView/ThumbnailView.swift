@@ -15,13 +15,15 @@ struct ThumbnailView: View {
             Color.white
                 .cornerRadius(10)
                 .shadow(color: .black.opacity(0.14), radius: 16.8, x: 0, y: 4.8)
+            
             VStack(spacing: 0) {
                 Image(uiImage: report.uiImage)
                     .resizable()
                     .frame(width: 400, height: 400)
                     .scaledToFill()
+                    .cornerRadius(10)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 15) {
                     HStack {
                         Text("\(report.name)님의 작품")
                             .padding(.top, 30)
@@ -30,13 +32,12 @@ struct ThumbnailView: View {
                         
                         Spacer()
                     }
-                    .padding(.leading, 10)
-                    .padding(.bottom, 10)
+                    .padding(.leading, 28)
                     
                     Text("\(report.date)")
                         .font(.pretendardRegular20)
                         .foregroundColor(.captionText1)
-                        .padding(.leading, 10)
+                        .padding(.leading, 28)
                         .padding(.bottom, 30)
                 }
                 .frame(width: 400)

@@ -53,10 +53,12 @@ struct CounselingView: View {
                                     
                                     ForEach(report.colors, id: \.id) { color in
                                         Circle()
-                                            .inset(by: 2)
-                                            .stroke(Color.black.opacity(0.1), lineWidth: 2)
-                                            .frame(width: 65, height: 65)
+                                            .overlay(Circle()
+                                                .inset(by: 2)
+                                                .stroke(Color.black.opacity(0.1), lineWidth: 2)
+                                            )
                                             .foregroundColor(Color(uiColor: color.uiColor))
+                                            .frame(width: 65, height: 65)
                                     }
                                     
                                     Spacer()

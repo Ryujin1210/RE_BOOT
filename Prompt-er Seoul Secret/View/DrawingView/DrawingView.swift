@@ -78,6 +78,7 @@ struct DrawingView: View {
             Button("확인", role: .destructive) {
                 // 레코딩 종료
                 timer.upstream.connect().cancel()
+                toolPicker.setVisible(false, forFirstResponder: canvas)
                 drawingManager.stopRecording()
                 
                 // 그림 및 정보 저장
@@ -95,7 +96,6 @@ struct DrawingView: View {
             }) {
                 Button {
                     isDone = true
-                    toolPicker.setVisible(false, forFirstResponder: canvas)
                 } label: {
                     Text("완성")
                         .font(.pretendardSemiBold24)

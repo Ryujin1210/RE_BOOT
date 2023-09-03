@@ -34,7 +34,7 @@ struct GalleryView: View {
                 }
             }
             .padding(.horizontal, 40)
-            .padding(.bottom, 100)
+            .padding(.bottom, 48)
         }
         .background(Color("background"))
         .toolbar(.hidden)
