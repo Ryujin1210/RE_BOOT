@@ -56,6 +56,7 @@ struct CounselingView: View {
                                 }
                             }
                             .padding(.bottom, 72)
+                            .frame(idealWidth: CGFloat(report.colors.count * 65))
                             
                             Divider()
                                 .padding(.bottom, 72)
@@ -66,7 +67,7 @@ struct CounselingView: View {
                             if !report.recordSummary.isEmpty {
                                 ForEach(0..<report.recordSummary.count) { num in
                                     VStack(alignment: .leading) {
-                                        HStack {
+                                        HStack(alignment: .top) {
                                             Text("리붓봇")
                                                 .font(.custom("", size: 24))
                                                 .fontWeight(.bold)
@@ -87,6 +88,7 @@ struct CounselingView: View {
                                             .foregroundColor(.captionText1)
                                     }
                                     .padding(.bottom, 52)
+                                    .frame(maxWidth: .infinity)
                                 }
                             }
                         }
