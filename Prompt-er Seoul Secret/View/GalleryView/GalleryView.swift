@@ -16,11 +16,11 @@ struct GalleryView: View {
         VStack {
             Spacer()
             
-            Text("작품을 선택하면\n추가적인 내용을 확인할 수 있어요.")
-                .font(.pretendardBold28)
-                .foregroundColor(.primary900)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 53)
+//            Text("작품을 선택하면\n추가적인 내용을 확인할 수 있어요.")
+//                .font(.pretendardBold28)
+//                .foregroundColor(.primary900)
+//                .multilineTextAlignment(.center)
+//                .padding(.bottom, 53)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
