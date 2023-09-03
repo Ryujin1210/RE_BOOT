@@ -31,7 +31,7 @@ struct DrawingView: View {
     @State var botCounter = 0
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     let rebootBot: [String] = [
-        "안녕하세요! 이제 자유롭게 색칠을 해볼까요?\n먼저 원하는 색을 골라보세요!",
+        "안녕하세요! 리붓봇이에요.\n지금부터 저와 함께 대화하며 자유롭게 색칠을 해볼까요?\n색칠하는 동안의 대화내용은 기록이 될 거에요.",
         "지금 색칠하고 있는 색을 고른 이유를 알려주세요!",
         "그 순간이 행복했던 이유가 무엇인가요?",
         "너무 잘 들었어요.\n그 이후의 이야기가 궁금해요!"
