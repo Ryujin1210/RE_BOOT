@@ -52,6 +52,7 @@ struct DrawingView: View {
                 .padding(.top, 70)
         }
         .onAppear {
+            drawingManager.report = .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
             // 레코딩 시작
             drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             isPresented = true

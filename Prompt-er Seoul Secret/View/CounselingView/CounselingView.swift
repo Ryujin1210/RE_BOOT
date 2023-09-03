@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CounselingView: View {
     let report: ReportModel
-    
+    var isButtonNonVisible = false
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: shareViewModel
     
@@ -44,11 +44,15 @@ struct CounselingView: View {
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 28) {
+                                    Spacer()
+                                    
                                     ForEach(report.colors, id: \.id) { color in
                                         Circle()
                                             .frame(width: 65, height: 65)
                                             .foregroundColor(Color(uiColor: color.uiColor))
                                     }
+                                    
+                                    Spacer()
                                 }
                             }
                             .padding(.bottom, 72)
@@ -59,30 +63,31 @@ struct CounselingView: View {
                             Text("대화 기록 보기")
                                 .font(.pretendardBold32)
                                 .padding(.bottom, 64)
-                            
-                            ForEach(0..<report.recordSummary.count) { num in
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Text("리붓봇")
-                                            .font(.custom("", size: 24))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("primary-700"))
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 4)
-                                            .background(Color("primary-300"))
-                                            .cornerRadius(10)
-                                        
-                                        Text(rebootBot[num])
-                                            .font(.pretendardBold28)
-                                        
-                                        Spacer()
+                            if !report.recordSummary.isEmpty {
+                                ForEach(0..<report.recordSummary.count) { num in
+                                    VStack(alignment: .leading) {
+                                        HStack {
+                                            Text("리붓봇")
+                                                .font(.custom("", size: 24))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color("primary-700"))
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 4)
+                                                .background(Color("primary-300"))
+                                                .cornerRadius(10)
+                                            
+                                            Text(rebootBot[num])
+                                                .font(.pretendardBold28)
+                                            
+                                            Spacer()
+                                        }
+                                        .padding(.bottom, 20)
+                                        Text(report.recordSummary[num]!)
+                                            .font(.pretendardMedium28)
+                                            .foregroundColor(.captionText1)
                                     }
-                                    .padding(.bottom, 20)
-                                    Text(report.recordSummary[num]!)
-                                        .font(.pretendardMedium28)
-                                        .foregroundColor(.captionText1)
+                                    .padding(.bottom, 52)
                                 }
-                                .padding(.bottom, 52)
                             }
                         }
                         .padding(.horizontal, 88)
@@ -92,15 +97,6 @@ struct CounselingView: View {
                     .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                 }
                 .toolbar(.hidden)
-                .navigationTitle("\(report.name)님의 작품")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .confirmationAction) {
-                        NavigationLink("갤러리 보기") {
-                            GalleryView(viewModel: viewModel)
-                        }
-                    }
-                }
             }
         }
         .overlay(content: {
@@ -128,6 +124,7 @@ struct CounselingView: View {
                         .background(Color.primary700)
                         .cornerRadius(10)
                 }
+                .hideToBool(isButtonNonVisible)
 
             }
 

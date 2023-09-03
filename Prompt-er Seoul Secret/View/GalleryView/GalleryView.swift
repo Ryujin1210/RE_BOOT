@@ -26,7 +26,7 @@ struct GalleryView: View {
                 HStack(spacing: 0) {
                     ForEach(galleryManager.reports, id: \.id) { report in
                         NavigationLink {
-                            CounselingView(report: report, viewModel: viewModel)
+                            CounselingView(report: report, isButtonNonVisible: true, viewModel: viewModel)
                         } label: {
                             ThumbnailView(report: report)
                         }

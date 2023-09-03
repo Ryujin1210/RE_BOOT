@@ -46,6 +46,7 @@
 		3DF6403B2AA3A02600AEC368 /* Ex+ Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640392AA3A02600AEC368 /* Ex+ Color.swift */; };
 		3DF6403C2AA3A02600AEC368 /* Ex+ Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */; };
 		3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6403E2AA3A04E00AEC368 /* loading.json */; };
+		3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640402AA410A500AEC368 /* Ex+ View.swift */; };
 		B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		3DF640392AA3A02600AEC368 /* Ex+ Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Color.swift"; sourceTree = "<group>"; };
 		3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Font.swift"; sourceTree = "<group>"; };
 		3DF6403E2AA3A04E00AEC368 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		3DF640402AA410A500AEC368 /* Ex+ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ View.swift"; sourceTree = "<group>"; };
 		B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Loading-Lottie.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 				3DF640392AA3A02600AEC368 /* Ex+ Color.swift */,
 				3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */,
 				3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */,
+				3DF640402AA410A500AEC368 /* Ex+ View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				3DF6402B2AA39FEA00AEC368 /* ShareViewModel.swift in Sources */,
 				3DF6403C2AA3A02600AEC368 /* Ex+ Font.swift in Sources */,
 				3DF63FED2AA0DF9700AEC368 /* Ex+ UIView.swift in Sources */,
+				3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
-				DEVELOPMENT_TEAM = YKG7843K2L;
+				DEVELOPMENT_TEAM = G7X65ZSJ3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
@@ -527,7 +531,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ryu.Secret;
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -568,7 +572,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ryu.Secret;
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
