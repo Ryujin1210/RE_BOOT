@@ -10,16 +10,18 @@ import Lottie
 
 struct FourthView: View {
     var body: some View {
-        VStack {
+        ZStack {
             LottieView(filename: "loading")
                 .frame(width: 550, height: 520)
+            
             Text("밑그림 이미지를 생성 중이에요 \n 잠시만 기다려주세요")
                 .font(.pretendardBold36)
                 .multilineTextAlignment(.center)
+                .padding(.top, 400)
         }
-        
     }
 }
+
 
 struct FourthView_Previews: PreviewProvider {
     static var previews: some View {
