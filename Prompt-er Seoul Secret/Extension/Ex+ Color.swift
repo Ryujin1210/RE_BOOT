@@ -28,6 +28,8 @@ extension Color {
     // Background
     static let bgPrimary300 = Color("bg-primary-300")
     static let bgColoring = Color("bg-coloring")
+    static let greenhi = Color("green-hi")
+    static let redhi = Color("red-hi")
     // TextColor
     static let captionText1 = Color("caption-text1")
     static let captionText2 = Color("caption-text1")

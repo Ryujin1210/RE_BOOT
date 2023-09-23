@@ -116,7 +116,7 @@ struct ColorAnalysisView: View {
         }
     }
 }
-
-#Preview {
-    ColorAnalysisView(report: ReportModel(name: "류", date: "2023-03-09", recordSummary: [1: "발보 발보 바로... 바보 ... 바롤바보..."], colors: [], imageUrl: "", firstAnswer: "넓은 마당이 있는 2층 집에 살 때, 마당에서 남편과 노을을 보며 사색을 즐겼던 순간이요."))
-}
+//
+//#Preview {
+//    ColorAnalysisView(report: ReportModel(name: "류", date: "2023-03-09", recordSummary: [1: "발보 발보 바로... 바보 ... 바롤바보..."], colors: [], imageUrl: "", firstAnswer: "넓은 마당이 있는 2층 집에 살 때, 마당에서 남편과 노을을 보며 사색을 즐겼던 순간이요."))
+//}
