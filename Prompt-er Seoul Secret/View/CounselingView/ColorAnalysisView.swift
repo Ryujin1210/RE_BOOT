@@ -9,13 +9,40 @@ import SwiftUI
 
 struct ColorAnalysisView: View {
     let report: ReportModel
+    @State private var isPopoverVisible = false
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .top, spacing: 4) {
                 Text("사용된 색상 분석")
                     .font(.pretendardBold32)
                     .bold()
+                
+                // popover
+                Button(action: {
+                    isPopoverVisible.toggle()
+                }, label: {
+                    Image("info.circle")
+                        .foregroundColor(.unselectedText)
+                })
+                .popover(isPresented: $isPopoverVisible, arrowEdge: .top) {
+                    
+                    VStack (alignment: .leading){
+                        Text("사용된 색상 분석")
+                            .font(.pretendardSemiBold20)
+                            .foregroundColor(.defaultBlack)
+                            .padding(.bottom, 12)
+                        
+                        Text("사용된 색상을 미술치료 관점으로 분석하여 사용자의 \n심리 상태를 파악합니다.")
+                            .font(.pretendardMedium20)
+                            .foregroundColor(.captionText2)
+                    }
+                    .padding(.leading ,28)
+                    .padding(.top, 24)
+                    .padding(.bottom, 24)
+                    .padding(.trailing, 28)
+                }
+                
                 
                 Spacer()
             }

@@ -49,7 +49,7 @@ struct FirstView: View {
                     Button(action: {
                         viewModel.tag = 7
                     }) {
-                        Image("btnGallery")
+                        Image("btnHistory")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 344, height: 220)
