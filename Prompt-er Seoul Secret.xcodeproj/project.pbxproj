@@ -576,7 +576,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret-ku";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -618,7 +618,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret-ku";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

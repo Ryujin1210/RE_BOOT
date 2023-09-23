@@ -86,7 +86,9 @@ final class openAIViewModel: ObservableObject {
         guard let openai = openai else {
             return nil
         }
-        var sumPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?\nAnswer to Korean"
+//        var sumPrompt = prompt + "summarize this sentence into one paragraph for art therapy analysis" + "\n"
+//        + "Answer to Korean"
+        let sumPrompt = prompt + "\n" + "미술심리 치료적으로 이 문장을 한 문단을 요약하여줘"
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
@@ -147,8 +149,9 @@ final class openAIViewModel: ObservableObject {
             print("openai")
             return nil
         }
-        let editorPrompt = prompt + "\n" + "Can you insert periods and punctuation marks appropriately in this text? if i provide already contains appropriate puctuation and periods just return"
+//        let editorPrompt = prompt + "\n" + "Can you insert periods and punctuation marks appropriately in this text? if i provide already contains appropriate puctuation and periods just return original sentence, and don't use english"
         
+        let editorPrompt = prompt + "\n" + "위 문장에 마침표와 쉼표를 알맞게 넣어줘 만약에 필요없다면 아무것도 하지 말고 똑같은 문장을 나에게 보여줘"
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
