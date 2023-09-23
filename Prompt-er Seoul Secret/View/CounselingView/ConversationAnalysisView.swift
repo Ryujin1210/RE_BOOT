@@ -65,7 +65,7 @@ struct ConversationAnalysisView: View {
             .padding(.bottom, 24)
             
             HStack(spacing: 0) {
-                Text("대화 내용 요약 한 문단")
+                Text(report.summaryText)
                     .font(.pretendardMedium24)
                     .foregroundColor(.bodyText)
 
@@ -220,5 +220,5 @@ struct ConversationAnalysisView: View {
 //}
 //
 #Preview {
-    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: ""))
+    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "", summaryText: ""))
 }

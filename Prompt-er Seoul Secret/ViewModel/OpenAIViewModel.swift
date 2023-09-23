@@ -86,7 +86,7 @@ final class openAIViewModel: ObservableObject {
         guard let openai = openai else {
             return nil
         }
-        var sumPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?"
+        var sumPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?\nAnswer to Korean"
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
