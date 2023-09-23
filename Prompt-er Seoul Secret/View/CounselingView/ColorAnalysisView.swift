@@ -114,6 +114,8 @@ struct ColorAnalysisView: View {
                 Spacer()
             }
         }
+        
+        Spacer()
     }
 }
 
