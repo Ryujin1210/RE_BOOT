@@ -199,12 +199,9 @@ struct ConversationAnalysisView: View {
                             Spacer()
                         }
                         .padding(.bottom, 20)
-                        Text(report.recordSummary[num]!)
-                            .font(.pretendardMedium24)
-                            .foregroundColor(.bodyText)
+                        positivehighlightedText(str: report.recordSummary[num]!, negativeKeyword: report.textEmotion.negative.words, positiveKeyword: report.textEmotion.positive.words)
                             .lineSpacing(12)
                     }
-                    .padding(.bottom, 52)
                     .frame(maxWidth: .infinity)
                 }
             }
