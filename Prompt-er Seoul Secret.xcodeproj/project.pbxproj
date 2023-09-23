@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D3E5B5A2ABEB30B0092305A /* OutPut2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B562ABEB30A0092305A /* OutPut2.m4a */; };
+		3D3E5B5B2ABEB30B0092305A /* OutPut1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B572ABEB30A0092305A /* OutPut1.m4a */; };
+		3D3E5B5C2ABEB30B0092305A /* OutPut4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B582ABEB30B0092305A /* OutPut4.m4a */; };
+		3D3E5B5D2ABEB30B0092305A /* OutPut3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B592ABEB30B0092305A /* OutPut3.m4a */; };
 		3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */; };
 		3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FCB2AA054B000AEC368 /* ContentView.swift */; };
 		3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF63FCD2AA054B100AEC368 /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D3E5B562ABEB30A0092305A /* OutPut2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut2.m4a; sourceTree = "<group>"; };
+		3D3E5B572ABEB30A0092305A /* OutPut1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut1.m4a; sourceTree = "<group>"; };
+		3D3E5B582ABEB30B0092305A /* OutPut4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut4.m4a; sourceTree = "<group>"; };
+		3D3E5B592ABEB30B0092305A /* OutPut3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut3.m4a; sourceTree = "<group>"; };
 		3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prompt-er Seoul Secret.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt_er_Seoul_SecretApp.swift; sourceTree = "<group>"; };
 		3DF63FCB2AA054B000AEC368 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -190,6 +198,10 @@
 				3DF6403D2AA3A04E00AEC368 /* Lottie */,
 				3DF6402E2AA3A00400AEC368 /* Font */,
 				3DF63FE42AA089B000AEC368 /* testSound.mp3 */,
+				3D3E5B572ABEB30A0092305A /* OutPut1.m4a */,
+				3D3E5B562ABEB30A0092305A /* OutPut2.m4a */,
+				3D3E5B592ABEB30B0092305A /* OutPut3.m4a */,
+				3D3E5B582ABEB30B0092305A /* OutPut4.m4a */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -339,13 +351,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF63FE52AA089B000AEC368 /* testSound.mp3 in Resources */,
+				3D3E5B5D2ABEB30B0092305A /* OutPut3.m4a in Resources */,
 				3DF640352AA3A00500AEC368 /* Pretendard-Medium.otf in Resources */,
 				3DF640372AA3A00500AEC368 /* Pretendard-Bold.otf in Resources */,
+				3D3E5B5C2ABEB30B0092305A /* OutPut4.m4a in Resources */,
 				3DF640382AA3A00500AEC368 /* Pretendard-SemiBold.otf in Resources */,
 				3DF640342AA3A00500AEC368 /* Pretendard-Regular.otf in Resources */,
 				3DF63FD12AA054B100AEC368 /* Preview Assets.xcassets in Resources */,
 				3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */,
 				B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */,
+				3D3E5B5A2ABEB30B0092305A /* OutPut2.m4a in Resources */,
+				3D3E5B5B2ABEB30B0092305A /* OutPut1.m4a in Resources */,
 				3DF640362AA3A00500AEC368 /* Pretendard-Light.otf in Resources */,
 				3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */,
 			);
