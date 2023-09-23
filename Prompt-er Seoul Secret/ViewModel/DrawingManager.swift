@@ -25,7 +25,7 @@ class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     static let shared = DrawingManager()
     
     // 레포트 모델
-    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [])
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "")
     @Published var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -43,6 +43,9 @@ class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var audioRecordName: String = ""
     @Published var audioRecordDate: String = ""
     @Published var audioCounter: Int = 0
+    
+    // Flags
+    @Published var isColorSummaryDone = false
 }
 
 // 음성 출력 관련 기능
@@ -86,6 +89,14 @@ extension DrawingManager {
         let mainColors = getMainColors(canvas: canvas)
         let mapMainColors = mainColors.map { color in
             CustomColor.init(uiColor: color)
+        }
+        
+        Task {
+            print("컬러요약")
+            guard let result = await openAIViewModel.shared.getColorChatResponse(firstAnswer: firstAnswer, colors: mainColors) else { return }
+            print("컬러요약 \(result)")
+            self.report.colorSummary = result
+            isColorSummaryDone = true
         }
         
         // 이미지 저장

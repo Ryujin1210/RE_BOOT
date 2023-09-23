@@ -40,16 +40,16 @@ struct DrawingResultView: View {
                     drawingManager.saveToJson(directoryUrl: try! drawingManager.createDirectory(name: name, date: date))
                     goNextPage = true
                 } label: {
-                    Text(drawingManager.report.recordSummary.count != drawingManager.voiceCount ? "저장중..." : "보러가기")
+                    Text(drawingManager.report.recordSummary.count != drawingManager.voiceCount || !drawingManager.isColorSummaryDone ? "저장중..." : "보러가기")
                         .font(.pretendardSemiBold24)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.horizontal, 24)
                         .padding(.vertical, 20)
-                        .background(drawingManager.report.recordSummary.count != drawingManager.voiceCount ? Color.primary300 : Color.primary700)
+                        .background(drawingManager.report.recordSummary.count != drawingManager.voiceCount || !drawingManager.isColorSummaryDone ? Color.primary300 : Color.primary700)
                         .cornerRadius(10)
                 }
-                .disabled(drawingManager.report.recordSummary.count != drawingManager.voiceCount)
+                .disabled(drawingManager.report.recordSummary.count != drawingManager.voiceCount || !drawingManager.isColorSummaryDone)
             }
         })
         .navigationDestination(isPresented: $goNextPage, destination: {

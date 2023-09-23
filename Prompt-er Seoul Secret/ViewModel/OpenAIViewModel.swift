@@ -110,20 +110,20 @@ final class openAIViewModel: ObservableObject {
     }
     
     //MARK: - 색채 분석을 위한 요청
-    func getColorChatResponse(prompt: String, colors: [UIColor]) async -> String? {
+    func getColorChatResponse(firstAnswer: String, colors: [UIColor]) async -> String? {
         guard let openai = openai else {
             return nil
         }
         
         var mostColors = convertUIColorsToHex(colors: colors)
-        var colorPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?"
+        var sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis?, Answer to Korean"
         
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
                 messages: [
                     ChatMessage(role: .system, content: "You are a professional art therapist who assists for senior counseling."),
-                    ChatMessage(role: .user, content: prompt)
+                    ChatMessage(role: .user, content: sumPrompt)
                 ]
             )
             let completionResponse = try await openai.generateChatCompletion(
