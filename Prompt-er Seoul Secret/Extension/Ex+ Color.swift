@@ -52,3 +52,24 @@ extension Color {
         self.init(red: r, green: g, blue: b)
     }
 }
+
+extension UIColor {
+    func toHex() -> String {
+        guard let components = self.cgColor.components else {
+            return "#000000" // 기본값 (검정색)
+        }
+        
+        let red = Int(components[0] * 255.0)
+        let green = Int(components[1] * 255.0)
+        let blue = Int(components[2] * 255.0)
+        
+        return String(format: "#%02X%02X%02X", red, green, blue)
+    }
+}
+
+// 색상 -> hex 변환 소스
+func convertUIColorsToHex(colors: [UIColor]) -> [String] {
+    return colors.map { $0.toHex() }
+}
+
+
