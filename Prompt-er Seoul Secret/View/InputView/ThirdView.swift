@@ -11,7 +11,7 @@ import AVFoundation
 struct ThirdView: View {
     @State private var isButtonPressed = false // 버튼 상태를 추적하는 상태 변수
     @ObservedObject var whiperModel = WhisperViewModel()
-    @ObservedObject var openaiModel = openAIViewModel()
+    @ObservedObject var openaiModel = openAIViewModel.shared
     @StateObject var viewModel: shareViewModel
     @State private var isRecording = false
     @State private var audioRecorder: AVAudioRecorder!

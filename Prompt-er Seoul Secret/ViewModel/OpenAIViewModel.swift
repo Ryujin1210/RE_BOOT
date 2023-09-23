@@ -10,6 +10,8 @@ import OpenAIKit
 import SwiftUI
 
 final class openAIViewModel: ObservableObject {
+    static let shared = openAIViewModel()
+    
     private var openai: OpenAI?
     
     func setup() {
@@ -18,7 +20,7 @@ final class openAIViewModel: ObservableObject {
             apiKey: "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"
         ))
     }
-    
+    //MARK: - 이미지 생성 요청
     func generateImage(prompt: String) async -> [UIImage]? {
         guard let openai = openai else {
             return nil
@@ -51,6 +53,7 @@ final class openAIViewModel: ObservableObject {
         }
     }
     
+    //MARK: - 그림을 그리기 위해 요약 편집 요청
     func getChatResponse(prompt: String) async -> String? {
         guard let openai = openai else {
             return nil
@@ -74,6 +77,95 @@ final class openAIViewModel: ObservableObject {
         } catch {
             // 오류 처리 코드를 추가하세요.
             print(error)
+            return nil
+        }
+    }
+    
+    //MARK: - 대화 전문 요약 요청
+    func getSummarizeChatResponse(prompt: String) async -> String? {
+        guard let openai = openai else {
+            return nil
+        }
+        var sumPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?"
+        do {
+            let chatParameters = ChatParameters(
+                model: "gpt-4",
+                messages: [
+                    ChatMessage(role: .system, content: "you are a helpful summarize assistant for summarizing"),
+                    ChatMessage(role: .user, content: sumPrompt)
+                ]
+            )
+            let completionResponse = try await openai.generateChatCompletion(
+                parameters: chatParameters
+            )
+            let responseText = completionResponse.choices[0].message.content
+            print(responseText)
+            return responseText
+            
+        } catch {
+            // 오류 처리 코드를 추가하세요.
+            print(error)
+            return nil
+        }
+    }
+    
+    //MARK: - 색채 분석을 위한 요청
+    func getColorChatResponse(prompt: String, colors: [UIColor]) async -> String? {
+        guard let openai = openai else {
+            return nil
+        }
+        
+        var mostColors = convertUIColorsToHex(colors: colors)
+        var colorPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?"
+        
+        do {
+            let chatParameters = ChatParameters(
+                model: "gpt-4",
+                messages: [
+                    ChatMessage(role: .system, content: "You are a professional art therapist who assists for senior counseling."),
+                    ChatMessage(role: .user, content: prompt)
+                ]
+            )
+            let completionResponse = try await openai.generateChatCompletion(
+                parameters: chatParameters
+            )
+            let responseText = completionResponse.choices[0].message.content
+            print(responseText)
+            return responseText
+            
+        } catch {
+            // 오류 처리 코드를 추가하세요.
+            print(error)
+            return nil
+        }
+    }
+    
+    //MARK: - 구문점 과 마침표를 위한 문장 편집기
+    func getEditorChatResponse(prompt: String) async -> String? {
+        guard let openai = openai else {
+            print("openai")
+            return nil
+        }
+        let editorPrompt = prompt + "\n" + "Can you insert periods and punctuation marks appropriately in this text? if i provide already contains appropriate puctuation and periods just return"
+        
+        do {
+            let chatParameters = ChatParameters(
+                model: "gpt-4",
+                messages: [
+                    ChatMessage(role: .system, content: "You are a professional sentence editor"),
+                    ChatMessage(role: .user, content: editorPrompt)
+                ]
+            )
+            let completionResponse = try await openai.generateChatCompletion(
+                parameters: chatParameters
+            )
+            let responseText = completionResponse.choices[0].message.content
+            print("마침표 편집문 : " + responseText)
+            return responseText
+            
+        } catch {
+            // 오류 처리 코드를 추가하세요.
+            print("DEBUG: " + error.localizedDescription)
             return nil
         }
     }

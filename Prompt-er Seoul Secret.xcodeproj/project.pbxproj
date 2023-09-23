@@ -51,7 +51,8 @@
 		3DF6403C2AA3A02600AEC368 /* Ex+ Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */; };
 		3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6403E2AA3A04E00AEC368 /* loading.json */; };
 		3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640402AA410A500AEC368 /* Ex+ View.swift */; };
-		B54E10902ABEAEA200C2A65C /* Ex+ Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */; };
+		B54E10952ABEBDBD00C2A65C /* HighLightTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */; };
+		B54E10972ABEDEA200C2A65C /* Ex+ Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E10962ABEDEA200C2A65C /* Ex+ Text.swift */; };
 		B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +99,8 @@
 		3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Font.swift"; sourceTree = "<group>"; };
 		3DF6403E2AA3A04E00AEC368 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		3DF640402AA410A500AEC368 /* Ex+ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ View.swift"; sourceTree = "<group>"; };
-		B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ Text.swift"; sourceTree = "<group>"; };
+		B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLightTest.swift; sourceTree = "<group>"; };
+		B54E10962ABEDEA200C2A65C /* Ex+ Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ Text.swift"; sourceTree = "<group>"; };
 		B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Loading-Lottie.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 				3DF63FDE2AA083C600AEC368 /* DrawingView */,
 				3DF63FE82AA0AC9000AEC368 /* CounselingView */,
 				3DF63FF32AA1DB2E00AEC368 /* GalleryView */,
+				B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 		3DF63FE32AA0899F00AEC368 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B54E10912ABEB4B400C2A65C /* Keyword */,
 				3DF6403D2AA3A04E00AEC368 /* Lottie */,
 				3DF6402E2AA3A00400AEC368 /* Font */,
 				3DF63FE42AA089B000AEC368 /* testSound.mp3 */,
@@ -222,7 +226,7 @@
 				3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */,
 				3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */,
 				3DF640402AA410A500AEC368 /* Ex+ View.swift */,
-				B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */,
+				B54E10962ABEDEA200C2A65C /* Ex+ Text.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -277,6 +281,13 @@
 				3DF6403E2AA3A04E00AEC368 /* loading.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		B54E10912ABEB4B400C2A65C /* Keyword */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Keyword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,7 +395,6 @@
 				3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */,
 				3DF6400A2AA39EE800AEC368 /* ThirdView.swift in Sources */,
 				3DF640092AA39EE800AEC368 /* FifthView.swift in Sources */,
-				B54E10902ABEAEA200C2A65C /* Ex+ Text.swift in Sources */,
 				3DF6403B2AA3A02600AEC368 /* Ex+ Color.swift in Sources */,
 				3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */,
 				3DF6400E2AA39EE800AEC368 /* LottieView.swift in Sources */,
@@ -396,11 +406,13 @@
 				3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */,
 				3DF63FF52AA1DB5100AEC368 /* GalleryView.swift in Sources */,
 				3DF63FF72AA1DC1600AEC368 /* ThumbnailView.swift in Sources */,
+				B54E10972ABEDEA200C2A65C /* Ex+ Text.swift in Sources */,
 				3DF63FD82AA0566600AEC368 /* DrawingCanvasView.swift in Sources */,
 				3DF6402C2AA39FEA00AEC368 /* WhisperViewModel.swift in Sources */,
 				3DF6402B2AA39FEA00AEC368 /* ShareViewModel.swift in Sources */,
 				3DF6403C2AA3A02600AEC368 /* Ex+ Font.swift in Sources */,
 				3DF63FED2AA0DF9700AEC368 /* Ex+ UIView.swift in Sources */,
+				B54E10952ABEBDBD00C2A65C /* HighLightTest.swift in Sources */,
 				3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,12 +540,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = G7X65ZSJ3J;
+				DEVELOPMENT_TEAM = YKG7843K2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
@@ -553,10 +564,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret-ryu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Prompter Secret";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -573,12 +583,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = G7X65ZSJ3J;
+				DEVELOPMENT_TEAM = YKG7843K2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
@@ -598,10 +606,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret";
+				PRODUCT_BUNDLE_IDENTIFIER = "seunggyun.Prompt-er-Seoul-Secret-ryu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Prompter Secret";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FirstView: View {
     @StateObject var viewModel: shareViewModel
-    
     var body: some View {
         ZStack {
             
@@ -26,7 +25,7 @@ struct FirstView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 237, height: 60)
-                    Text("다시 색칠하며 이야기하는 하루")
+                    Text("다시 이야기하며 색칠하는 기억")
                         .font(.pretendardBold20)
                         .foregroundColor(.captionText1)
                 }

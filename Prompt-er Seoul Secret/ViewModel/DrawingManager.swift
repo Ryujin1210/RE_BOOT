@@ -93,7 +93,11 @@ extension DrawingManager {
                 WhisperViewModel().uploadKoreanAudio(fileURL: voice, completion: { result in
                     switch result {
                     case .success(let success):
-                        self.report.recordSummary.updateValue(success, forKey: i)
+                        Task {
+                            var editText =  await openAIViewModel.shared.getEditorChatResponse(prompt: success)
+                            self.report.recordSummary.updateValue(editText ?? "응답 에러", forKey: i)
+                        }
+                        // 여기서 마침표 구문점 넣기
                         print("voiceCount : \(self.report.recordSummary.count)")
                     case .failure(let failure):
                         print("error: \(failure.localizedDescription)")
