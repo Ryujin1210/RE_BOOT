@@ -13,6 +13,8 @@ extension String {
     }
     
     func dotCount() -> Int {
-        return self.filter { ($0) == "." }.count
+        return self.filter { ($0) == "." }.count +
+        self.filter { ($0) == "?" }.count +
+        self.filter { ($0) == "!" }.count
     }
 }
