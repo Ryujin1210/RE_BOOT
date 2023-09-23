@@ -78,9 +78,7 @@ struct ColorAnalysisView: View {
             
             // 주로 사용한 색상 프로퍼티 추가
             HStack(spacing: 28) {
-                Spacer()
-                
-                ForEach(report.colors, id: \.id) { color in
+                ForEach(report.mainColors, id: \.id) { color in
                     Circle()
                         .overlay(Circle()
                             .inset(by: 2)
@@ -92,6 +90,7 @@ struct ColorAnalysisView: View {
                 
                 Spacer()
             }
+            .padding(.leading, 28)
             .padding(.bottom, 72)
             
             Divider()
@@ -120,5 +119,5 @@ struct ColorAnalysisView: View {
 }
 
 #Preview {
-    ColorAnalysisView(report: ReportModel(name: "류", date: "2023-03-09", recordSummary: [1: "발보 발보 바로... 바보 ... 바롤바보..."], colors: [], imageUrl: "", firstAnswer: "넓은 마당이 있는 2층 집에 살 때, 마당에서 남편과 노을을 보며 사색을 즐겼던 순간이요."))
+    ColorAnalysisView(report: ReportModel(name: "류", date: "2023-03-09", recordSummary: [1: "발보 발보 바로... 바보 ... 바롤바보..."], colors: [], imageUrl: "", firstAnswer: "넓은 마당이 있는 2층 집에 살 때, 마당에서 남편과 노을을 보며 사색을 즐겼던 순간이요.", mainColors: []))
 }

@@ -25,7 +25,7 @@ class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     static let shared = DrawingManager()
     
     // 레포트 모델
-    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "")
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [])
     @Published var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -81,7 +81,12 @@ extension DrawingManager {
         let mapColors = colors.map { color in
             CustomColor.init(uiColor: color)
         }
-        // 레코드 파일 요약 (whisper, gpt 통신 필요)
+        
+        // Main Color get
+        let mainColors = getMainColors(canvas: canvas)
+        let mapMainColors = mainColors.map { color in
+            CustomColor.init(uiColor: color)
+        }
         
         // 이미지 저장
         do {
@@ -112,6 +117,7 @@ extension DrawingManager {
             self.report.colors = mapColors
             self.report.imageUrl = imageURL.path
             self.report.firstAnswer = firstAnswer
+            self.report.mainColors = mapMainColors
             
             // 레포트 모델 저장
 //            saveToJson(report: reportModel, directoryUrl: userDirectory)
@@ -182,12 +188,7 @@ extension DrawingManager {
         
         var candidateColor: [UIColor:CGFloat] = [:]
         let strokes = canvas.drawing.strokes
-        
-        if strokes.count <= 3 {
-            return strokes.map { stroke in
-                stroke.ink.color
-            }
-        }
+        print("----> strokeCount \(strokes.count)")
         
         for stroke in strokes {
             if candidateColor[stroke.ink.color] != nil {
@@ -196,14 +197,23 @@ extension DrawingManager {
                 candidateColor.updateValue(stroke.renderBounds.width * stroke.renderBounds.height, forKey: stroke.ink.color)
             }
         }
+        print("================ 색상 크기")
+        print(candidateColor)
+        
+        if candidateColor.count <= 3 {
+            return candidateColor.keys.map { color in
+                color
+            }
+        }
         
         var mainColors: [UIColor] = []
         
         for _ in 0..<3 {
-            if let color = candidateColor.max(by: { $0.value > $1.value }) {
+            if let color = candidateColor.max(by: { $0.value < $1.value }) {
                 candidateColor.removeValue(forKey: color.key)
                 mainColors.append(color.key)
             }
+            print("----> mainColors \(mainColors)")
         }
         
         return mainColors
