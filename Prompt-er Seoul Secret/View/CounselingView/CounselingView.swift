@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+enum AnalysisViewType: Int {
+    case conversation = 0
+    case color
+}
+
 struct CounselingView: View {
     let report: ReportModel
     var isButtonNonVisible = false
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: shareViewModel
+    
+    @State var nowPresenting: AnalysisViewType = .conversation
     
     let rebootBot: [String] = [
         "안녕하세요! 리붓봇이에요. 지금부터 저와 함께 대화하며 자유롭게 색칠을 해볼까요? 색칠하는 동안의 대화내용은 기록이 될 거에요.",
@@ -56,78 +63,78 @@ struct CounselingView: View {
                             
                             AnalysisView
                             
-                            
-                            HStack {
-                                Text("사용된 색상")
-                                    .font(.pretendardBold32)
-                                    .bold()
-                                    .padding(.bottom, 44)
-                                
-                                Spacer()
-                            }
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 28) {
-                                    Spacer()
-                                    
-                                    ForEach(report.colors, id: \.id) { color in
-                                        Circle()
-                                            .overlay(Circle()
-                                                .inset(by: 2)
-                                                .stroke(Color.black.opacity(0.1), lineWidth: 2)
-                                            )
-                                            .foregroundColor(Color(uiColor: color.uiColor))
-                                            .frame(width: 65, height: 65)
-                                    }
-                                    
-                                    Spacer()
-                                }
-                            }
-                            .padding(.bottom, 60)
-                            .frame(idealWidth: CGFloat(report.colors.count * 65))
-                            
-                            Divider()
-                                .padding(.bottom, 60)
-                            
-                            HStack {
-                                Text("대화 기록 보기")
-                                    .font(.pretendardBold32)
-                                    .padding(.bottom, 64)
-                                
-                                Spacer()
-                            }
-                            
-                            if !report.recordSummary.isEmpty {
-                                ForEach(0..<report.recordSummary.count) { num in
-                                    VStack(alignment: .leading) {
-                                        HStack(alignment: .top) {
-                                            Text("리붓봇")
-                                                .font(.pretendardBold24)
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.primary700)
-                                                .padding(.horizontal, 12)
-                                                .padding(.vertical, 4)
-                                                .background(Color.primary300)
-                                                .cornerRadius(10)
-                                            
-                                            Text(rebootBot[num])
-                                                .font(.pretendardBold28)
-                                                .lineLimit(nil)
-                                                .multilineTextAlignment(.leading)
-                                                .lineSpacing(12)
-                                            
-                                            Spacer()
-                                        }
-                                        .padding(.bottom, 20)
-                                        Text(report.recordSummary[num]!)
-                                            .font(.pretendardMedium28)
-                                            .foregroundColor(.captionText1)
-                                            .lineSpacing(12)
-                                    }
-                                    .padding(.bottom, 52)
-                                    .frame(maxWidth: .infinity)
-                                }
-                            }
+// MARK: - 과거
+//                            HStack {
+//                                Text("사용된 색상")
+//                                    .font(.pretendardBold32)
+//                                    .bold()
+//                                    .padding(.bottom, 44)
+//                                
+//                                Spacer()
+//                            }
+//                            
+//                            ScrollView(.horizontal, showsIndicators: false) {
+//                                HStack(spacing: 28) {
+//                                    Spacer()
+//                                    
+//                                    ForEach(report.colors, id: \.id) { color in
+//                                        Circle()
+//                                            .overlay(Circle()
+//                                                .inset(by: 2)
+//                                                .stroke(Color.black.opacity(0.1), lineWidth: 2)
+//                                            )
+//                                            .foregroundColor(Color(uiColor: color.uiColor))
+//                                            .frame(width: 65, height: 65)
+//                                    }
+//                                    
+//                                    Spacer()
+//                                }
+//                            }
+//                            .padding(.bottom, 60)
+//                            .frame(idealWidth: CGFloat(report.colors.count * 65))
+//                            
+//                            Divider()
+//                                .padding(.bottom, 60)
+//                            
+//                            HStack {
+//                                Text("대화 기록 보기")
+//                                    .font(.pretendardBold32)
+//                                    .padding(.bottom, 64)
+//                                
+//                                Spacer()
+//                            }
+//                            
+//                            if !report.recordSummary.isEmpty {
+//                                ForEach(0..<report.recordSummary.count) { num in
+//                                    VStack(alignment: .leading) {
+//                                        HStack(alignment: .top) {
+//                                            Text("리붓봇")
+//                                                .font(.pretendardBold24)
+//                                                .fontWeight(.bold)
+//                                                .foregroundColor(.primary700)
+//                                                .padding(.horizontal, 12)
+//                                                .padding(.vertical, 4)
+//                                                .background(Color.primary300)
+//                                                .cornerRadius(10)
+//                                            
+//                                            Text(rebootBot[num])
+//                                                .font(.pretendardBold28)
+//                                                .lineLimit(nil)
+//                                                .multilineTextAlignment(.leading)
+//                                                .lineSpacing(12)
+//                                            
+//                                            Spacer()
+//                                        }
+//                                        .padding(.bottom, 20)
+//                                        Text(report.recordSummary[num]!)
+//                                            .font(.pretendardMedium28)
+//                                            .foregroundColor(.captionText1)
+//                                            .lineSpacing(12)
+//                                    }
+//                                    .padding(.bottom, 52)
+//                                    .frame(maxWidth: .infinity)
+//                                }
+//                            }
                         }
                         .padding(.horizontal, 88)
                         .padding(.vertical, 64)
@@ -182,7 +189,7 @@ extension CounselingView {
                 VStack {
                     HStack {
                         Text("사용 문장 수")
-                            .font(.pretendardMedium24)
+                            .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
                         
                         Spacer()
@@ -212,7 +219,7 @@ extension CounselingView {
                 VStack {
                     HStack {
                         Text("사용 단어 수")
-                            .font(.pretendardMedium24)
+                            .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
                         
                         Spacer()
@@ -242,7 +249,7 @@ extension CounselingView {
                 VStack {
                     HStack {
                         Text("총 작품활동 시간")
-                            .font(.pretendardMedium24)
+                            .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
                         
                         Spacer()
@@ -261,6 +268,7 @@ extension CounselingView {
             }
             .padding(.vertical, 24)
         }
+        .frame(height: 200)
     }
     
     private var AnalysisView: some View {
@@ -269,21 +277,25 @@ extension CounselingView {
                 Spacer()
                 
                 Button {
-                    
+                    withAnimation {
+                        nowPresenting = .conversation
+                    }
                 } label: {
                     Text("대화 분석")
                         .font(.pretendardBold28)
-                        .foregroundColor(.defaultBlack)
+                        .foregroundColor(nowPresenting == .conversation ? .defaultBlack : .unselectedText)
                 }
                 
                 Spacer()
                 
                 Button {
-                    
+                    withAnimation {
+                        nowPresenting = .color
+                    }
                 } label: {
                     Text("색상 분석")
                         .font(.pretendardBold28)
-                        .foregroundColor(.defaultBlack)
+                        .foregroundColor(nowPresenting == .color ? .defaultBlack : .unselectedText)
                 }
                 
                 Spacer()
@@ -291,6 +303,15 @@ extension CounselingView {
             .padding(.bottom, 30)
             
             Divider()
+                .padding(.bottom, 56)
+            
+            if nowPresenting == .conversation {
+                ConversationAnalysisView()
+                    .transition(.opacity)
+            } else {
+                ColorAnalysisView(report: report)
+                    .transition(.opacity)
+            }
         }
     }
 }
@@ -298,7 +319,7 @@ extension CounselingView {
 struct CounselingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CounselingView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: ""), viewModel: .init())
+            CounselingView(report: ReportModel(name: "류", date: "2023-03-09", recordSummary: [1: "발보 발보 바로... 바보 ... 바롤바보..."], colors: [], imageUrl: "", firstAnswer: "넓은 마당이 있는 2층 집에 살 때, 마당에서 남편과 노을을 보며 사색을 즐겼던 순간이요.", mainColors: [], colorSummary: ""), viewModel: .init())
         }
     }
 }

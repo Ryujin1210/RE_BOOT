@@ -36,7 +36,7 @@ extension Color {
     static let defaultBlack = Color("default-black")
     static let disableText = Color("disable-text")
     static let bodyText = Color("body-text")
-    static let unselectedText = Color("unselcted-text")
+    static let unselectedText = Color("unselected-text")
     
     // Border Line
     static let borderLine = Color("borderLine")

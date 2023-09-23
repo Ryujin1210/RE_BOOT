@@ -78,9 +78,7 @@ struct ColorAnalysisView: View {
             
             // 주로 사용한 색상 프로퍼티 추가
             HStack(spacing: 28) {
-                Spacer()
-                
-                ForEach(report.colors, id: \.id) { color in
+                ForEach(report.mainColors, id: \.id) { color in
                     Circle()
                         .overlay(Circle()
                             .inset(by: 2)
@@ -92,6 +90,7 @@ struct ColorAnalysisView: View {
                 
                 Spacer()
             }
+            .padding(.leading, 28)
             .padding(.bottom, 72)
             
             Divider()
@@ -107,13 +106,15 @@ struct ColorAnalysisView: View {
             .padding(.bottom, 24)
             
             HStack {
-                Text("선명한 색상을 선택하여 그림의 색채가 아주 명료합니다. 연두색과 불빛(빨강, 파랑, 노랑) 등으로 인해 어둡지 않습니다. 때문에 연두색의 싱그러움, 봄(시작)의 설렘, 자연의 편안함, 검정색의 불안감 등 다양한 감정이 동시에 느껴지는 그림입니다.")
+                Text(report.colorSummary)
                     .font(.pretendardMedium24)
                     .foregroundColor(.bodyText)
                 
                 Spacer()
             }
         }
+        
+        Spacer()
     }
 }
 //
