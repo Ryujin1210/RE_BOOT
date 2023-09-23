@@ -98,12 +98,12 @@ struct ConversationAnalysisView: View {
                         
                         HStack(alignment: .bottom, spacing: 0) {
                             Spacer()
-                            Text("\(report.sentenceCount)")
+                            Text("\(report.textEmotion.positive.count)")
                                 .font(.pretendardSemiBold40)
                                 .padding(.trailing, 11)
                                 .foregroundColor(.primary700)
                             
-                            Text("문장")
+                            Text("단어")
                                 .font(.pretendardMedium24)
                                 .foregroundColor(.captionText1)
                                 .padding(.trailing, 28)
@@ -142,12 +142,12 @@ struct ConversationAnalysisView: View {
                         
                         HStack(alignment: .bottom, spacing: 0) {
                             Spacer()
-                            Text("\(report.sentenceCount)")
+                            Text("\(report.textEmotion.negative.count)")
                                 .font(.pretendardSemiBold40)
                                 .padding(.trailing, 11)
                                 .foregroundColor(.primary700)
                             
-                            Text("문장")
+                            Text("단어")
                                 .font(.pretendardMedium24)
                                 .foregroundColor(.captionText1)
                                 .padding(.trailing, 28)
@@ -220,5 +220,5 @@ struct ConversationAnalysisView: View {
 //}
 //
 #Preview {
-    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "", summaryText: ""))
+    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "", summaryText: "", textEmotion: .dummy))
 }
