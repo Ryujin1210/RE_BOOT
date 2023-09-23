@@ -86,7 +86,7 @@ final class openAIViewModel: ObservableObject {
         guard let openai = openai else {
             return nil
         }
-        var sumPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?"
+        var sumPrompt = prompt + "\n" + "Can you summarize this sentence into one paragraph for art therapy analysis?\nAnswer to Korean"
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
@@ -172,7 +172,7 @@ final class openAIViewModel: ObservableObject {
     }
     
     //MARK: - Json 긍정 부정
-    func getJsonChatResponse(prompt: String) async -> String? {
+    func getJsonChatResponse(prompt: String) async -> EmotionModel? {
         guard let openai = openai else {
             print("openai")
             return nil
@@ -191,8 +191,11 @@ final class openAIViewModel: ObservableObject {
                 parameters: chatParameters
             )
             let responseText = completionResponse.choices[0].message.content
-            print("마침표 편집문 : " + responseText)
-            return responseText
+            print("감정 모델 텍스트 : " + responseText)
+            
+            let model = try JSONDecoder().decode(EmotionModel.self, from: responseText.data(using: .utf8)!)
+            
+            return model
             
         } catch {
             // 오류 처리 코드를 추가하세요.

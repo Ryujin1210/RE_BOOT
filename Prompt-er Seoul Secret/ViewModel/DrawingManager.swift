@@ -25,7 +25,7 @@ class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     static let shared = DrawingManager()
     
     // 레포트 모델
-    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "")
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "", summaryText: "", textEmotion: .dummy)
     @Published var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -139,16 +139,32 @@ extension DrawingManager {
     }
     
     func saveToJson(directoryUrl: URL) {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let jsonData = try? encoder.encode(self.report)
-        let jsonFileUrl = directoryUrl.appendingPathComponent("data.json")
-        
-        if let jsonData = jsonData {
-            do {
-                try jsonData.write(to: jsonFileUrl)
-            } catch {
-                print("제이슨 데이터 저장 에러 \(error)")
+        Task {
+            var allText: String = ""
+            
+            for part in report.recordSummary {
+                allText += part.value
+            }
+            
+            if let summary = await openAIViewModel.shared.getSummarizeChatResponse(prompt: allText) {
+                report.summaryText = summary
+            }
+            
+            if let model = await openAIViewModel.shared.getJsonChatResponse(prompt: allText) {
+                report.textEmotion = model
+            }
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let jsonData = try? encoder.encode(self.report)
+            let jsonFileUrl = directoryUrl.appendingPathComponent("data.json")
+            
+            if let jsonData = jsonData {
+                do {
+                    try jsonData.write(to: jsonFileUrl)
+                } catch {
+                    print("제이슨 데이터 저장 에러 \(error)")
+                }
             }
         }
     }

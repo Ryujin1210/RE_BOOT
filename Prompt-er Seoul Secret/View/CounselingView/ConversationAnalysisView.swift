@@ -65,7 +65,7 @@ struct ConversationAnalysisView: View {
             .padding(.bottom, 24)
             
             HStack(spacing: 0) {
-                Text("대화 내용 요약 한 문단")
+                Text(report.summaryText)
                     .font(.pretendardMedium24)
                     .foregroundColor(.bodyText)
 
@@ -98,12 +98,12 @@ struct ConversationAnalysisView: View {
                         
                         HStack(alignment: .bottom, spacing: 0) {
                             Spacer()
-                            Text("\(report.sentenceCount)")
+                            Text("\(report.textEmotion.positive.count)")
                                 .font(.pretendardSemiBold40)
                                 .padding(.trailing, 11)
                                 .foregroundColor(.primary700)
                             
-                            Text("문장")
+                            Text("단어")
                                 .font(.pretendardMedium24)
                                 .foregroundColor(.captionText1)
                                 .padding(.trailing, 28)
@@ -142,12 +142,12 @@ struct ConversationAnalysisView: View {
                         
                         HStack(alignment: .bottom, spacing: 0) {
                             Spacer()
-                            Text("\(report.sentenceCount)")
+                            Text("\(report.textEmotion.negative.count)")
                                 .font(.pretendardSemiBold40)
                                 .padding(.trailing, 11)
                                 .foregroundColor(.primary700)
                             
-                            Text("문장")
+                            Text("단어")
                                 .font(.pretendardMedium24)
                                 .foregroundColor(.captionText1)
                                 .padding(.trailing, 28)
@@ -199,12 +199,9 @@ struct ConversationAnalysisView: View {
                             Spacer()
                         }
                         .padding(.bottom, 20)
-                        Text(report.recordSummary[num]!)
-                            .font(.pretendardMedium24)
-                            .foregroundColor(.bodyText)
+                        positivehighlightedText(str: report.recordSummary[num]!, negativeKeyword: report.textEmotion.negative.words, positiveKeyword: report.textEmotion.positive.words)
                             .lineSpacing(12)
                     }
-                    .padding(.bottom, 52)
                     .frame(maxWidth: .infinity)
                 }
             }
@@ -219,6 +216,7 @@ struct ConversationAnalysisView: View {
 //    }
 //}
 //
+
 //#Preview {
 //    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: ""))
 //}

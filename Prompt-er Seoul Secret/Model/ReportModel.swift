@@ -17,6 +17,8 @@ struct ReportModel: Codable, Identifiable {
     var mainColors: [CustomColor]
     var colorSummary: String
     var activityTime: String
+    var summaryText: String
+    var textEmotion: EmotionModel
 
     var id: String {
         name + date
@@ -67,4 +69,17 @@ struct CustomColor : Codable, Identifiable {
     init(uiColor : UIColor) {
         uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
     }
+}
+
+
+struct EmotionModel: Codable {
+    var positive: Emotion
+    var negative: Emotion
+    
+    struct Emotion: Codable {
+        var count: Int
+        var words: [String]
+    }
+    
+    static let dummy: EmotionModel = .init(positive: .init(count: 3, words: ["행복", "사랑", "귀여운"]), negative: .init(count: 1, words: ["나쁘다"]))
 }
