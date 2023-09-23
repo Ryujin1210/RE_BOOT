@@ -219,6 +219,6 @@ struct ConversationAnalysisView: View {
 //    }
 //}
 //
-#Preview {
-    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: ""))
-}
+//#Preview {
+//    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: ""))
+//}

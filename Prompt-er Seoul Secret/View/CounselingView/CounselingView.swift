@@ -17,7 +17,10 @@ struct CounselingView: View {
     var isButtonNonVisible = false
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: shareViewModel
-    
+    @State private var isPopoverVisible1 = false
+    @State private var isPopoverVisible2 = false
+    @State private var isPopoverVisible3 = false
+
     @State var nowPresenting: AnalysisViewType = .conversation
     
     let rebootBot: [String] = [
@@ -187,10 +190,35 @@ extension CounselingView {
             HStack {
                 // 사용 문장 수
                 VStack {
-                    HStack {
+                    HStack(alignment: .top, spacing: 4) {
                         Text("사용 문장 수")
                             .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
+                         
+                        // popover
+                        Button(action: {
+                            isPopoverVisible1.toggle()
+                        }, label: {
+                            Image("info.circle")
+                                .foregroundColor(.unselectedText)
+                        })
+                        .popover(isPresented: $isPopoverVisible1, arrowEdge: .top) {
+                            
+                            VStack (alignment: .leading){
+                                Text("사용 문장 수")
+                                    .font(.pretendardSemiBold20)
+                                    .foregroundColor(.defaultBlack)
+                                    .padding(.bottom, 12)
+                                
+                                Text("어르신이 사용하신 문장 수가 많을수록 인지 및 말하기 활 \n동이 활발하게 이루어진다고 볼 수 있어요.")
+                                    .font(.pretendardMedium20)
+                                    .foregroundColor(.captionText2)
+                            }
+                            .padding(.leading ,28)
+                            .padding(.top, 24)
+                            .padding(.bottom, 24)
+                            .padding(.trailing, 28)
+                        }  
                         
                         Spacer()
                     }
@@ -217,10 +245,35 @@ extension CounselingView {
                 
                 // 사용 단어 수
                 VStack {
-                    HStack {
+                    HStack(alignment: .top, spacing: 4) {
                         Text("사용 단어 수")
                             .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
+                        
+                        // popover
+                        Button(action: {
+                            isPopoverVisible2.toggle()
+                        }, label: {
+                            Image("info.circle")
+                                .foregroundColor(.unselectedText)
+                        })
+                        .popover(isPresented: $isPopoverVisible2, arrowEdge: .top) {
+                            
+                            VStack (alignment: .leading){
+                                Text("사용 단어 수")
+                                    .font(.pretendardSemiBold20)
+                                    .foregroundColor(.defaultBlack)
+                                    .padding(.bottom, 12)
+                                
+                                Text("어르신이 사용하신 단어 가짓수가 다양할수록 어르신의 \n어휘 구사가 활발하시다고 볼 수 있어요.")
+                                    .font(.pretendardMedium20)
+                                    .foregroundColor(.captionText2)
+                            }
+                            .padding(.leading ,28)
+                            .padding(.top, 24)
+                            .padding(.bottom, 24)
+                            .padding(.trailing, 28)
+                        }
                         
                         Spacer()
                     }
@@ -247,10 +300,35 @@ extension CounselingView {
                 
                 // 총 작품활동 시간
                 VStack {
-                    HStack {
+                    HStack(alignment: .top, spacing: 4) {
                         Text("총 작품활동 시간")
                             .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
+                        
+                        // popover
+                        Button(action: {
+                            isPopoverVisible3.toggle()
+                        }, label: {
+                            Image("info.circle")
+                                .foregroundColor(.unselectedText)
+                        })
+                        .popover(isPresented: $isPopoverVisible3, arrowEdge: .top) {
+                            
+                            VStack (alignment: .leading){
+                                Text("총 작품활동 시간")
+                                    .font(.pretendardSemiBold20)
+                                    .foregroundColor(.defaultBlack)
+                                    .padding(.bottom, 12)
+                                
+                                Text("총 작품활동 시간으로 어르신께서 활동을 수행하는 데에 \n소요되는 시간을 측정하여, 활동에 어려움을 느끼시는지 \n확인할 수 있어요.")
+                                    .font(.pretendardMedium20)
+                                    .foregroundColor(.captionText2)
+                            }
+                            .padding(.leading ,28)
+                            .padding(.top, 24)
+                            .padding(.bottom, 24)
+                            .padding(.trailing, 28)
+                        }
                         
                         Spacer()
                     }

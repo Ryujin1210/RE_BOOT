@@ -116,14 +116,14 @@ final class openAIViewModel: ObservableObject {
         }
         
         let mostColors = convertUIColorsToHex(colors: colors)
-        //        let sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis?, Answer to Korean"
+        //        let sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis to translate to korean? "
         //        let sumPrompt = "provide a one-paragraph summary in Korean interpreting" + "\(mostColors)" + "used and the title is" + "\(firstAnswer)"
-        let sumPrompt = "can you analyze in one paragraph based on the " + "\(mostColors)" + " used for this \(firstAnswer)  ,and Translate the sentence into Korean for a response."
+        let sumPrompt = "summarize and edit and analyze it in one paragraph in Korean based on the " + "\(mostColors)" + " used in this \(firstAnswer)." + "\n" + "answer to korean and hexcode convert to color and don't tell about meaning for future life"
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
                 messages: [
-                    ChatMessage(role: .system, content: "You are a professional art therapist who assists for senior counseling."),
+                    ChatMessage(role: .system, content: "You are a professional art therapist for senior counseling."),
                     ChatMessage(role: .user, content: sumPrompt)
                 ]
             )
