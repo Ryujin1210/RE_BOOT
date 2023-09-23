@@ -39,6 +39,16 @@ struct ReportModel: Codable, Identifiable {
         
         return count
     }
+    
+    var sentenceCount: Int {
+        var count: Int = 0
+        
+        for answer in recordSummary {
+            count += answer.value.dotCount()
+        }
+        
+        return count
+    }
 }
 
 struct CustomColor : Codable, Identifiable {

@@ -11,4 +11,8 @@ extension String {
     func spaceCount() -> Int {
         return self.filter { ($0) == " " }.count
     }
+    
+    func dotCount() -> Int {
+        return self.filter { ($0) == "." }.count
+    }
 }

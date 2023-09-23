@@ -70,7 +70,7 @@ struct CounselingView: View {
                                         
                                         HStack(alignment: .bottom, spacing: 0) {
                                             Spacer()
-                                            Text("16")
+                                            Text("\(report.sentenceCount)")
                                                 .font(.pretendardSemiBold40)
                                                 .padding(.trailing, 11)
                                                 .foregroundColor(.primary700)
