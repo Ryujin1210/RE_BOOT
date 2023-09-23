@@ -116,9 +116,9 @@ final class openAIViewModel: ObservableObject {
         }
         
         let mostColors = convertUIColorsToHex(colors: colors)
-//        let sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis?, Answer to Korean"
-//        let sumPrompt = "provide a one-paragraph summary in Korean interpreting" + "\(mostColors)" + "used and the title is" + "\(firstAnswer)"
-        let sumPrompt = "can you analyze in one paragraph based on the " + "\(mostColors)" + " used for this \(firstAnswer) , and translate to Korean?"
+        //        let sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis?, Answer to Korean"
+        //        let sumPrompt = "provide a one-paragraph summary in Korean interpreting" + "\(mostColors)" + "used and the title is" + "\(firstAnswer)"
+        let sumPrompt = "can you analyze in one paragraph based on the " + "\(mostColors)" + " used for this \(firstAnswer)  ,and Translate the sentence into Korean for a response."
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
@@ -154,6 +154,36 @@ final class openAIViewModel: ObservableObject {
                 model: "gpt-4",
                 messages: [
                     ChatMessage(role: .system, content: "You are a professional sentence editor"),
+                    ChatMessage(role: .user, content: editorPrompt)
+                ]
+            )
+            let completionResponse = try await openai.generateChatCompletion(
+                parameters: chatParameters
+            )
+            let responseText = completionResponse.choices[0].message.content
+            print("마침표 편집문 : " + responseText)
+            return responseText
+            
+        } catch {
+            // 오류 처리 코드를 추가하세요.
+            print("DEBUG: " + error.localizedDescription)
+            return nil
+        }
+    }
+    
+    //MARK: - Json 긍정 부정
+    func getJsonChatResponse(prompt: String) async -> String? {
+        guard let openai = openai else {
+            print("openai")
+            return nil
+        }
+        let editorPrompt = "show me the count, list of words of positive/negative words in JSON format, in" + "\(prompt)"
+        
+        do {
+            let chatParameters = ChatParameters(
+                model: "gpt-4",
+                messages: [
+                    ChatMessage(role: .system, content: " You are a helpful JSON edito, You can respone only my JSON Format template without other sentence, Template : { \"positive\": { \"count\": Int, \"words\": [String] }, \"negative\": { \"count\": Int, \"words\": [String] }}") ,
                     ChatMessage(role: .user, content: editorPrompt)
                 ]
             )
