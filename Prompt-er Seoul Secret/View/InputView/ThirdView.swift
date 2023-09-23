@@ -172,10 +172,12 @@ struct ThirdView: View {
             print("already stop")
         }
         DispatchQueue.main.async {
-            whiperModel.uploadAudio(fileURL: audioRecorder.url) { result in
+            whiperModel.uploadKoreanAudio(fileURL: audioRecorder.url) { result in
                 switch result {
                 case .success(let response):
                     self.result = response
+                    viewModel.firstAnswer = response
+                    print(result)
                     Task {
                         gptTranlation = await openaiModel.getChatResponse(prompt: ("\(response)" + "\n" + "Translate to English"))!
                         print(gptTranlation)

@@ -47,6 +47,7 @@
 		3DF6403C2AA3A02600AEC368 /* Ex+ Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */; };
 		3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6403E2AA3A04E00AEC368 /* loading.json */; };
 		3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640402AA410A500AEC368 /* Ex+ View.swift */; };
+		B54E10902ABEAEA200C2A65C /* Ex+ Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */; };
 		B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Font.swift"; sourceTree = "<group>"; };
 		3DF6403E2AA3A04E00AEC368 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		3DF640402AA410A500AEC368 /* Ex+ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ View.swift"; sourceTree = "<group>"; };
+		B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ Text.swift"; sourceTree = "<group>"; };
 		B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Loading-Lottie.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 				3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */,
 				3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */,
 				3DF640402AA410A500AEC368 /* Ex+ View.swift */,
+				B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */,
 				3DF6400A2AA39EE800AEC368 /* ThirdView.swift in Sources */,
 				3DF640092AA39EE800AEC368 /* FifthView.swift in Sources */,
+				B54E10902ABEAEA200C2A65C /* Ex+ Text.swift in Sources */,
 				3DF6403B2AA3A02600AEC368 /* Ex+ Color.swift in Sources */,
 				3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */,
 				3DF6400E2AA39EE800AEC368 /* LottieView.swift in Sources */,

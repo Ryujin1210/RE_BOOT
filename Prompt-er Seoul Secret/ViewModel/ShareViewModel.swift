@@ -15,6 +15,7 @@ class shareViewModel: ObservableObject {
     @Published var images: [UIImage] = []
     @Published var selectedImage: UIImage? = nil
     @Published var date = ""
+    @Published var firstAnswer = ""
     
     init() {
         getDate()
