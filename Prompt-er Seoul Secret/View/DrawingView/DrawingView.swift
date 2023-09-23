@@ -83,6 +83,9 @@ struct DrawingView: View {
                 toolPicker.setVisible(false, forFirstResponder: canvas)
                 drawingManager.stopRecording()
                 
+                // audio player session 종료
+                drawingManager.player?.stop()
+                
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
                 drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1, firstAnswer: viewModel.firstAnswer)

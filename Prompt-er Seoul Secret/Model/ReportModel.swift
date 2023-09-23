@@ -29,6 +29,26 @@ struct ReportModel: Codable, Identifiable {
         
         return image
     }
+    
+    var wordsCount: Int {
+        var count: Int = 0
+        
+        for answer in recordSummary {
+            count += answer.value.spaceCount() + 1
+        }
+        
+        return count
+    }
+    
+    var sentenceCount: Int {
+        var count: Int = 0
+        
+        for answer in recordSummary {
+            count += answer.value.dotCount()
+        }
+        
+        return count
+    }
 }
 
 struct CustomColor : Codable, Identifiable {
