@@ -191,7 +191,7 @@ struct ConversationAnalysisView: View {
                                 .cornerRadius(10)
                             
                             Text(rebootBot[num])
-                                .font(.pretendardBold28)
+                                .font(.pretendardBold24)
                                 .lineLimit(nil)
                                 .multilineTextAlignment(.leading)
                                 .lineSpacing(12)
@@ -202,6 +202,7 @@ struct ConversationAnalysisView: View {
                         positivehighlightedText(str: report.recordSummary[num]!, negativeKeyword: report.textEmotion.negative.words, positiveKeyword: report.textEmotion.positive.words)
                             .lineSpacing(12)
                     }
+                    .padding(.bottom, 52)
                     .frame(maxWidth: .infinity)
                 }
             }

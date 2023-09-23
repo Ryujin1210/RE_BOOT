@@ -30,7 +30,7 @@ struct DrawingView: View {
     @State var popup = false
     @State var botCounter = 0
     @State var activityTime: Int = 0
-    let timer = Timer.publish(every: 15, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 20, on: .main, in: .common).autoconnect()
     let activityTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let rebootBot: [String] = [
         "안녕하세요! 리붓봇이에요.\n지금부터 저와 함께 대화하며 자유롭게 색칠을 해볼까요?\n색칠하는 동안의 대화내용은 기록이 될 거에요.",
