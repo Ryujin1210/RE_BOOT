@@ -65,6 +65,10 @@ struct DrawingView: View {
             
             rebootBotAction()
         }
+        .onDisappear {
+            // audio player session 종료
+            drawingManager.player?.stop()
+        }
         .onReceive(timer) { value in
             if botCounter > 3 {
                 timer.upstream.connect().cancel()
