@@ -23,6 +23,7 @@ struct HighLightTest: View {
         
         // 부정 긍정
         positivehighlightedText(str: str, negativeKeyword: negative, positiveKeyword: positive)
+         
         
         // 색상 테스트
         VStack {
