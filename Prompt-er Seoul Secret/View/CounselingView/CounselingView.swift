@@ -51,97 +51,10 @@ struct CounselingView: View {
                                 .shadow(color: .black.opacity(0.14), radius: 14, x: 0, y: 0)
                                 .padding(.bottom, 72)
                             
-                            ZStack {
-                                Color.bgPrimary300
-                                    .cornerRadius(10)
-                                
-                                HStack {
-                                    // 사용 문장 수
-                                    VStack {
-                                        HStack {
-                                            Text("사용 문장 수")
-                                                .font(.pretendardMedium24)
-                                                .foregroundColor(.defaultBlack)
-                                            
-                                            Spacer()
-                                        }
-                                        .padding(.leading, 36)
-                                        .padding(.bottom, 50)
-                                        
-                                        HStack(alignment: .bottom, spacing: 0) {
-                                            Spacer()
-                                            Text("\(report.sentenceCount)")
-                                                .font(.pretendardSemiBold40)
-                                                .padding(.trailing, 11)
-                                                .foregroundColor(.primary700)
-                                            
-                                            Text("문장")
-                                                .font(.pretendardMedium24)
-                                                .foregroundColor(.captionText1)
-                                                .padding(.trailing, 28)
-                                                .padding(.bottom, 9)
-                                        }
-                                    }
-                                    
-                                    Divider()
-                                        .foregroundColor(.borderLine)
-                                    
-                                    // 사용 단어 수
-                                    VStack {
-                                        HStack {
-                                            Text("사용 단어 수")
-                                                .font(.pretendardMedium24)
-                                                .foregroundColor(.defaultBlack)
-                                            
-                                            Spacer()
-                                        }
-                                        .padding(.leading, 36)
-                                        .padding(.bottom, 50)
-                                        
-                                        HStack(alignment: .bottom, spacing: 0) {
-                                            Spacer()
-                                            Text("\(report.wordsCount)")
-                                                .font(.pretendardSemiBold40)
-                                                .padding(.trailing, 11)
-                                                .foregroundColor(.primary700)
-                                            
-                                            Text("단어")
-                                                .font(.pretendardMedium24)
-                                                .foregroundColor(.captionText1)
-                                                .padding(.trailing, 28)
-                                                .padding(.bottom, 9)
-                                        }
-                                    }
-                                    
-                                    Divider()
-                                        .foregroundColor(.borderLine)
-                                    
-                                    // 총 작품활동 시간
-                                    VStack {
-                                        HStack {
-                                            Text("총 작품활동 시간")
-                                                .font(.pretendardMedium24)
-                                                .foregroundColor(.defaultBlack)
-                                            
-                                            Spacer()
-                                        }
-                                        .padding(.leading, 36)
-                                        .padding(.bottom, 50)
-                                        
-                                        HStack(alignment: .bottom, spacing: 0) {
-                                            Spacer()
-                                            Text("16:00")
-                                                .font(.pretendardSemiBold40)
-                                                .padding(.trailing, 36)
-                                                .foregroundColor(.primary700)
-                                        }
-                                    }
-                                }
-                                .padding(.vertical, 24)
-                            }
+                            SummaryDataView
+                                .padding(.bottom, 84)
                             
-                            Divider()
-                                .padding(.bottom, 60)
+                            AnalysisView
                             
                             
                             HStack {
@@ -255,6 +168,130 @@ struct CounselingView: View {
             }
 
         })
+    }
+}
+
+extension CounselingView {
+    private var SummaryDataView: some View {
+        ZStack {
+            Color.bgPrimary300
+                .cornerRadius(10)
+            
+            HStack {
+                // 사용 문장 수
+                VStack {
+                    HStack {
+                        Text("사용 문장 수")
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.defaultBlack)
+                        
+                        Spacer()
+                    }
+                    .padding(.leading, 36)
+                    .padding(.bottom, 50)
+                    
+                    HStack(alignment: .bottom, spacing: 0) {
+                        Spacer()
+                        Text("\(report.sentenceCount)")
+                            .font(.pretendardSemiBold40)
+                            .padding(.trailing, 11)
+                            .foregroundColor(.primary700)
+                        
+                        Text("문장")
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.captionText1)
+                            .padding(.trailing, 28)
+                            .padding(.bottom, 9)
+                    }
+                }
+                
+                Divider()
+                    .foregroundColor(.borderLine)
+                
+                // 사용 단어 수
+                VStack {
+                    HStack {
+                        Text("사용 단어 수")
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.defaultBlack)
+                        
+                        Spacer()
+                    }
+                    .padding(.leading, 36)
+                    .padding(.bottom, 50)
+                    
+                    HStack(alignment: .bottom, spacing: 0) {
+                        Spacer()
+                        Text("\(report.wordsCount)")
+                            .font(.pretendardSemiBold40)
+                            .padding(.trailing, 11)
+                            .foregroundColor(.primary700)
+                        
+                        Text("단어")
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.captionText1)
+                            .padding(.trailing, 28)
+                            .padding(.bottom, 9)
+                    }
+                }
+                
+                Divider()
+                    .foregroundColor(.borderLine)
+                
+                // 총 작품활동 시간
+                VStack {
+                    HStack {
+                        Text("총 작품활동 시간")
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.defaultBlack)
+                        
+                        Spacer()
+                    }
+                    .padding(.leading, 36)
+                    .padding(.bottom, 50)
+                    
+                    HStack(alignment: .bottom, spacing: 0) {
+                        Spacer()
+                        Text("16:00")
+                            .font(.pretendardSemiBold40)
+                            .padding(.trailing, 36)
+                            .foregroundColor(.primary700)
+                    }
+                }
+            }
+            .padding(.vertical, 24)
+        }
+    }
+    
+    private var AnalysisView: some View {
+        VStack {
+            HStack {
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("대화 분석")
+                        .font(.pretendardBold28)
+                        .foregroundColor(.defaultBlack)
+                }
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("색상 분석")
+                        .font(.pretendardBold28)
+                        .foregroundColor(.defaultBlack)
+                }
+                
+                Spacer()
+            }
+            .padding(.bottom, 30)
+            
+            Divider()
+        }
     }
 }
 

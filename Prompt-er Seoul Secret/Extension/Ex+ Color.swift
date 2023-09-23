@@ -33,6 +33,7 @@ extension Color {
     static let captionText2 = Color("caption-text1")
     static let defaultBlack = Color("default-black")
     static let disableText = Color("disable-text")
+    static let bodyText = Color("body-text")
     
     // Border Line
     static let borderLine = Color("borderLine")
