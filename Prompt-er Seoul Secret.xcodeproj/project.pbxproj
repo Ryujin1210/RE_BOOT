@@ -14,7 +14,7 @@
 		3D3E5B5F2ABF0BA00092305A /* Ex+ String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E5B5E2ABF0BA00092305A /* Ex+ String.swift */; };
 		3D3E5B612ABF10E40092305A /* ConversationAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E5B602ABF10E40092305A /* ConversationAnalysisView.swift */; };
 		3D3E5B632ABF10F30092305A /* ColorAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E5B622ABF10F30092305A /* ColorAnalysisView.swift */; };
-		3D3E5B672ABF1B550092305A /* Ex+ Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E5B662ABF1B550092305A /* Ex+ Text.swift */; };
+		3D3E5B692ABF20D90092305A /* Ex+ Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E5B682ABF20D90092305A /* Ex+ Text.swift */; };
 		3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */; };
 		3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FCB2AA054B000AEC368 /* ContentView.swift */; };
 		3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF63FCD2AA054B100AEC368 /* Assets.xcassets */; };
@@ -56,7 +56,6 @@
 		3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6403E2AA3A04E00AEC368 /* loading.json */; };
 		3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640402AA410A500AEC368 /* Ex+ View.swift */; };
 		B54E10952ABEBDBD00C2A65C /* HighLightTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */; };
-		B54E10972ABEDEA200C2A65C /* Ex+ Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E10962ABEDEA200C2A65C /* Ex+ Text.swift */; };
 		B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,7 @@
 		3D3E5B5E2ABF0BA00092305A /* Ex+ String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ String.swift"; sourceTree = "<group>"; };
 		3D3E5B602ABF10E40092305A /* ConversationAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationAnalysisView.swift; sourceTree = "<group>"; };
 		3D3E5B622ABF10F30092305A /* ColorAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAnalysisView.swift; sourceTree = "<group>"; };
-		3D3E5B662ABF1B550092305A /* Ex+ Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Text.swift"; sourceTree = "<group>"; };
+		3D3E5B682ABF20D90092305A /* Ex+ Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+ Text.swift"; sourceTree = "<group>"; };
 		3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prompt-er Seoul Secret.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt_er_Seoul_SecretApp.swift; sourceTree = "<group>"; };
 		3DF63FCB2AA054B000AEC368 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 		3DF6403E2AA3A04E00AEC368 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		3DF640402AA410A500AEC368 /* Ex+ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ View.swift"; sourceTree = "<group>"; };
 		B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLightTest.swift; sourceTree = "<group>"; };
-		B54E10962ABEDEA200C2A65C /* Ex+ Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ Text.swift"; sourceTree = "<group>"; };
 		B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Loading-Lottie.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,20 +125,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D3E5B652ABF1AF00092305A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				B54E10962ABEDEA200C2A65C /* Ex+ Text.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		3DF63FBD2AA054B000AEC368 = {
 			isa = PBXGroup;
 			children = (
 				3DF63FC82AA054B000AEC368 /* Prompt-er Seoul Secret */,
 				3DF63FC72AA054B000AEC368 /* Products */,
-				3D3E5B652ABF1AF00092305A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,7 +228,7 @@
 		3DF63FEB2AA0DF8400AEC368 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3D3E5B662ABF1B550092305A /* Ex+ Text.swift */,
+				3D3E5B682ABF20D90092305A /* Ex+ Text.swift */,
 				3DF63FEC2AA0DF9700AEC368 /* Ex+ UIView.swift */,
 				3DF640392AA3A02600AEC368 /* Ex+ Color.swift */,
 				3DF6403A2AA3A02600AEC368 /* Ex+ Font.swift */,
@@ -404,7 +393,6 @@
 				3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */,
 				3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */,
 				3DF640082AA39EE800AEC368 /* FourthView.swift in Sources */,
-				3D3E5B672ABF1B550092305A /* Ex+ Text.swift in Sources */,
 				3DF63FDA2AA058AC00AEC368 /* RecordManager.swift in Sources */,
 				3DF6400A2AA39EE800AEC368 /* ThirdView.swift in Sources */,
 				3DF640092AA39EE800AEC368 /* FifthView.swift in Sources */,
@@ -420,9 +408,9 @@
 				3DF63FE12AA0840200AEC368 /* DrawingView.swift in Sources */,
 				3DF6402D2AA39FEA00AEC368 /* OpenAIViewModel.swift in Sources */,
 				3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */,
+				3D3E5B692ABF20D90092305A /* Ex+ Text.swift in Sources */,
 				3DF63FF52AA1DB5100AEC368 /* GalleryView.swift in Sources */,
 				3DF63FF72AA1DC1600AEC368 /* ThumbnailView.swift in Sources */,
-				B54E10972ABEDEA200C2A65C /* Ex+ Text.swift in Sources */,
 				3DF63FD82AA0566600AEC368 /* DrawingCanvasView.swift in Sources */,
 				3DF6402C2AA39FEA00AEC368 /* WhisperViewModel.swift in Sources */,
 				3DF6402B2AA39FEA00AEC368 /* ShareViewModel.swift in Sources */,
