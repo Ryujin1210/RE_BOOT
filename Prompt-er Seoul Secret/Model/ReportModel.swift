@@ -13,6 +13,7 @@ struct ReportModel: Codable, Identifiable {
     var recordSummary: [Int:String]
     var colors: [CustomColor]
     var imageUrl: String
+    var firstAnswer: String
 
     var id: String {
         name + date
