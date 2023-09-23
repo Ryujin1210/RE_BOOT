@@ -186,7 +186,7 @@ final class openAIViewModel: ObservableObject {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
                 messages: [
-                    ChatMessage(role: .system, content: " You are a helpful JSON edito, You can respone only my JSON Format template without other sentence, Template : { \"positive\": { \"count\": Int, \"words\": [String] }, \"negative\": { \"count\": Int, \"words\": [String] }}") ,
+                    ChatMessage(role: .system, content: " You are a helpful JSON editor, You can respone only my JSON Format template without other sentence, Template : { \"positive\": { \"count\": Int, \"words\": [String] }, \"negative\": { \"count\": Int, \"words\": [String] }}") ,
                     ChatMessage(role: .user, content: editorPrompt)
                 ]
             )

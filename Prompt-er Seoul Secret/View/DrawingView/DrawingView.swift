@@ -70,7 +70,7 @@ struct DrawingView: View {
             drawingManager.player?.stop()
         }
         .onReceive(timer) { value in
-            if botCounter > 3 {
+            if botCounter > 4 {
                 timer.upstream.connect().cancel()
             } else {
                 botCounter += 1

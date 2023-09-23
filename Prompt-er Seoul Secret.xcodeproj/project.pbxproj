@@ -57,6 +57,8 @@
 		3DF640412AA410A500AEC368 /* Ex+ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF640402AA410A500AEC368 /* Ex+ View.swift */; };
 		B51106C72ABF495300334BDE /* popovertest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51106C62ABF495300334BDE /* popovertest.swift */; };
 		B51106C92ABF501A00334BDE /* Ex+ Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51106C82ABF501A00334BDE /* Ex+ Int.swift */; };
+		B51106CB2ABF7D5F00334BDE /* resultLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B51106CA2ABF7D5F00334BDE /* resultLottie.json */; };
+		B51106CD2ABF7D9100334BDE /* ResultLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51106CC2ABF7D9100334BDE /* ResultLottieView.swift */; };
 		B54E10952ABEBDBD00C2A65C /* HighLightTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */; };
 		B5B1455E2AA3C95800FE6B02 /* Loading-Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */; };
 /* End PBXBuildFile section */
@@ -110,6 +112,8 @@
 		3DF640402AA410A500AEC368 /* Ex+ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ View.swift"; sourceTree = "<group>"; };
 		B51106C62ABF495300334BDE /* popovertest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popovertest.swift; sourceTree = "<group>"; };
 		B51106C82ABF501A00334BDE /* Ex+ Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ Int.swift"; sourceTree = "<group>"; };
+		B51106CA2ABF7D5F00334BDE /* resultLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resultLottie.json; sourceTree = "<group>"; };
+		B51106CC2ABF7D9100334BDE /* ResultLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLottieView.swift; sourceTree = "<group>"; };
 		B54E10942ABEBDBD00C2A65C /* HighLightTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLightTest.swift; sourceTree = "<group>"; };
 		B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Loading-Lottie.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +276,7 @@
 				3DF640022AA39EE800AEC368 /* FifthView.swift */,
 				3DF640072AA39EE800AEC368 /* LottieView.swift */,
 				3DF640042AA39EE800AEC368 /* SwiftUIView.swift */,
+				B51106CC2ABF7D9100334BDE /* ResultLottieView.swift */,
 			);
 			path = InputView;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 		3DF6403D2AA3A04E00AEC368 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				B51106CA2ABF7D5F00334BDE /* resultLottie.json */,
 				B5B1455D2AA3C95700FE6B02 /* Loading-Lottie.json */,
 				3DF6403E2AA3A04E00AEC368 /* loading.json */,
 			);
@@ -382,6 +388,7 @@
 				3D3E5B5B2ABEB30B0092305A /* OutPut1.m4a in Resources */,
 				3DF640362AA3A00500AEC368 /* Pretendard-Light.otf in Resources */,
 				3DF6403F2AA3A04E00AEC368 /* loading.json in Resources */,
+				B51106CB2ABF7D5F00334BDE /* resultLottie.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +422,7 @@
 				3DF6400C2AA39EE800AEC368 /* SecondView.swift in Sources */,
 				3DF63FE12AA0840200AEC368 /* DrawingView.swift in Sources */,
 				3DF6402D2AA39FEA00AEC368 /* OpenAIViewModel.swift in Sources */,
+				B51106CD2ABF7D9100334BDE /* ResultLottieView.swift in Sources */,
 				3DF63FDC2AA083AC00AEC368 /* DrawingManager.swift in Sources */,
 				3D3E5B692ABF20D90092305A /* Ex+ Text.swift in Sources */,
 				3DF63FF52AA1DB5100AEC368 /* GalleryView.swift in Sources */,
