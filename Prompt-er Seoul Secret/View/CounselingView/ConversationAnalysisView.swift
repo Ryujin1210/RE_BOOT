@@ -18,6 +18,7 @@ struct ConversationAnalysisView: View {
         "너무 잘 들었어요. 그 이후의 이야기가 궁금해요!",
         "그 외"
     ]
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 4) {
@@ -72,75 +73,96 @@ struct ConversationAnalysisView: View {
             .padding(.bottom, 72)
             
             // 긍정 부정 단어 박스
-            HStack {
+            HStack(spacing: 32) {
                 // 긍정 단어 개수
-                VStack {
-                    HStack {
-                        Text("긍정단어")
-                            .font(.pretendardMedium20)
-                            .foregroundColor(.defaultBlack)
-                            .background(Color.greenhi)
+                ZStack {
+                    Color.white
+                        .cornerRadius(10)
+                        .shadow(color: .black.opacity(0.08), radius: 6, x: 0, y: 0)
                     
+                    VStack {
+                        HStack {
+                            Text("긍정단어")
+                                .font(.pretendardMedium20)
+                                .foregroundColor(.defaultBlack)
+                                .background(Color.greenhi)
                         
-                        Text("개수")
-                            .font(.pretendardMedium20)
-                            .foregroundColor(.defaultBlack)
+                            
+                            Text("개수")
+                                .font(.pretendardMedium20)
+                                .foregroundColor(.defaultBlack)
+                            
+                            Spacer()
+                        }
+                        .padding(.leading, 36)
                         
-                        Spacer()
+                        HStack(alignment: .bottom, spacing: 0) {
+                            Spacer()
+                            Text("\(report.sentenceCount)")
+                                .font(.pretendardSemiBold40)
+                                .padding(.trailing, 11)
+                                .foregroundColor(.primary700)
+                            
+                            Text("문장")
+                                .font(.pretendardMedium24)
+                                .foregroundColor(.captionText1)
+                                .padding(.trailing, 28)
+                                .padding(.bottom, 9)
+                        }
                     }
-                    .padding(.leading, 36)
-                    .padding(.bottom, 50)
-                    
-                    HStack(alignment: .bottom, spacing: 0) {
-                        Spacer()
-                        Text("\(report.sentenceCount)")
-                            .font(.pretendardSemiBold40)
-                            .padding(.trailing, 11)
-                            .foregroundColor(.primary700)
-                        
-                        Text("문장")
-                            .font(.pretendardMedium24)
-                            .foregroundColor(.captionText1)
-                            .padding(.trailing, 28)
-                            .padding(.bottom, 9)
-                    }
+                    .padding(.vertical, 20)
                 }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .inset(by: 0.5)
+                        .stroke(.black.opacity(0.1), lineWidth: 1)
+                )
                
                 // 부정 단어 개수
-                VStack {
-                    HStack {
-                        Text("부정단어")
-                            .font(.pretendardMedium20)
-                            .foregroundColor(.defaultBlack)
-                            .background(Color.redhi
-                                )
+                ZStack {
+                    Color.white
+                        .cornerRadius(10)
+                        .shadow(color: .black.opacity(0.08), radius: 6, x: 0, y: 0)
                     
+                    VStack {
+                        HStack {
+                            Text("부정단어")
+                                .font(.pretendardMedium20)
+                                .foregroundColor(.defaultBlack)
+                                .background(Color.redhi)
                         
-                        Text("개수")
-                            .font(.pretendardMedium20)
-                            .foregroundColor(.defaultBlack)
+                            
+                            Text("개수")
+                                .font(.pretendardMedium20)
+                                .foregroundColor(.defaultBlack)
+                            
+                            Spacer()
+                        }
+                        .padding(.leading, 36)
                         
-                        Spacer()
-                    }
-                    .padding(.leading, 36)
-                    .padding(.bottom, 50)
-                    
-                    HStack(alignment: .bottom, spacing: 0) {
-                        Spacer()
-                        Text("\(report.sentenceCount)")
-                            .font(.pretendardSemiBold40)
-                            .padding(.trailing, 11)
-                            .foregroundColor(.primary700)
-                        
-                        Text("문장")
-                            .font(.pretendardMedium24)
-                            .foregroundColor(.captionText1)
-                            .padding(.trailing, 28)
-                            .padding(.bottom, 9)
+                        HStack(alignment: .bottom, spacing: 0) {
+                            Spacer()
+                            Text("\(report.sentenceCount)")
+                                .font(.pretendardSemiBold40)
+                                .padding(.trailing, 11)
+                                .foregroundColor(.primary700)
+                            
+                            Text("문장")
+                                .font(.pretendardMedium24)
+                                .foregroundColor(.captionText1)
+                                .padding(.trailing, 28)
+                                .padding(.bottom, 9)
+                        }
                     }
                 }
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .inset(by: 0.5)
+                            .stroke(.black.opacity(0.1), lineWidth: 1)
+                    )
             }
-            .padding(.vertical, 24)
+            .frame(height: 122)
+            .padding(.bottom, 48)
                
             
             Divider()
@@ -178,8 +200,8 @@ struct ConversationAnalysisView: View {
                         }
                         .padding(.bottom, 20)
                         Text(report.recordSummary[num]!)
-                            .font(.pretendardMedium28)
-                            .foregroundColor(.captionText1)
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.bodyText)
                             .lineSpacing(12)
                     }
                     .padding(.bottom, 52)
@@ -197,6 +219,6 @@ struct ConversationAnalysisView: View {
 //    }
 //}
 //
-//#Preview {
-//    ConversationAnalysisView()
-//}
+#Preview {
+    ConversationAnalysisView(report: .init(name: "바보", date: "ㄹㅁㅇㄹ", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: ""))
+}

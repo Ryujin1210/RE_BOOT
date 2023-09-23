@@ -64,6 +64,7 @@ struct ColorAnalysisView: View {
                     Spacer()
                 }
             }
+            .padding(.leading, -32)
             .padding(.bottom, 72)
             .frame(idealWidth: CGFloat(report.colors.count * 65))
             
@@ -75,6 +76,7 @@ struct ColorAnalysisView: View {
                 
                 Spacer()
             }
+            .padding(.bottom, 32)
             
             // 주로 사용한 색상 프로퍼티 추가
             HStack(spacing: 28) {
@@ -90,7 +92,6 @@ struct ColorAnalysisView: View {
                 
                 Spacer()
             }
-            .padding(.leading, 28)
             .padding(.bottom, 72)
             
             Divider()
@@ -109,6 +110,7 @@ struct ColorAnalysisView: View {
                 Text(report.colorSummary)
                     .font(.pretendardMedium24)
                     .foregroundColor(.bodyText)
+                    .lineSpacing(12)
                 
                 Spacer()
             }
