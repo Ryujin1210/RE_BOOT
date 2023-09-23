@@ -31,9 +31,11 @@ extension Color {
     // TextColor
     static let captionText1 = Color("caption-text1")
     static let captionText2 = Color("caption-text1")
-    static let defaultBlack = Color("default-Black")
+    static let defaultBlack = Color("default-black")
     static let disableText = Color("disable-text")
     
+    // Border Line
+    static let borderLine = Color("borderLine")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)  // 문자열 파서 역할을 하는 클래스
