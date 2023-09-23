@@ -115,9 +115,10 @@ final class openAIViewModel: ObservableObject {
             return nil
         }
         
-        var mostColors = convertUIColorsToHex(colors: colors)
-        var sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis?, Answer to Korean"
-        
+        let mostColors = convertUIColorsToHex(colors: colors)
+//        let sumPrompt = "we used" + "\(mostColors)" + "and this drawing is about" + "\(firstAnswer)" + "Can you summarize this sentence into one paragraph for art therapy analysis?, Answer to Korean"
+//        let sumPrompt = "provide a one-paragraph summary in Korean interpreting" + "\(mostColors)" + "used and the title is" + "\(firstAnswer)"
+        let sumPrompt = "can you analyze in one paragraph based on the " + "\(mostColors)" + " used for this \(firstAnswer) , and translate to Korean?"
         do {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
