@@ -306,7 +306,7 @@ extension CounselingView {
                 .padding(.bottom, 56)
             
             if nowPresenting == .conversation {
-                ConversationAnalysisView()
+                ConversationAnalysisView(report: report)
                     .transition(.opacity)
             } else {
                 ColorAnalysisView(report: report)

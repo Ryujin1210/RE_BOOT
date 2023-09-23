@@ -79,8 +79,7 @@ struct ConversationAnalysisView: View {
                         Text("긍정단어")
                             .font(.pretendardMedium20)
                             .foregroundColor(.defaultBlack)
-                            .background(Color.greenhi
-                                )
+                            .background(Color.greenhi)
                     
                         
                         Text("개수")
@@ -179,8 +178,8 @@ struct ConversationAnalysisView: View {
                         }
                         .padding(.bottom, 20)
                         Text(report.recordSummary[num]!)
-                            .font(.pretendardMedium28)
-                            .foregroundColor(.captionText1)
+                            .font(.pretendardMedium24)
+                            .foregroundColor(.bodyText)
                             .lineSpacing(12)
                     }
                     .padding(.bottom, 52)
@@ -191,12 +190,12 @@ struct ConversationAnalysisView: View {
 
     }
 }
-
-struct ConversationAnalysisView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConversationAnalysisView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: ""))
-    }
-}
+//
+//struct ConversationAnalysisView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ConversationAnalysisView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: ""))
+//    }
+//}
 //
 //#Preview {
 //    ConversationAnalysisView()
