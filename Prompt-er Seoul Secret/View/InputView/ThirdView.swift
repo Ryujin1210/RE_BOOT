@@ -17,7 +17,8 @@ struct ThirdView: View {
     @State private var audioRecorder: AVAudioRecorder!
     @State private var result: String = ""
     @State private var audioPlayer: AVAudioPlayer?
-    @State private var gptResult: String = ""
+    @State private var gptTranlation: String = ""
+    @State private var gptEdit: String = ""
     @State var images: [UIImage] = []
     
     var body: some View {
@@ -176,8 +177,13 @@ struct ThirdView: View {
                 case .success(let response):
                     self.result = response
                     Task {
-                        gptResult = await openaiModel.getChatResponse(prompt: ("\(response)" + "\n" + "Can you summarize this sentence in one sentence for me to draw as a single scene?"))!
-                        images = await openaiModel.generateImage(prompt: ("\(gptResult)" + ", Coloring Book"))!
+                        gptTranlation = await openaiModel.getChatResponse(prompt: ("\(response)" + "\n" + "Translate to English"))!
+                        print(gptTranlation)
+                        gptEdit = await openaiModel.getChatResponse(prompt: ("\(gptTranlation)" + "\n" + "summarize this sentence in one sentence for me to draw as a single scene"))!
+                        print(gptEdit)
+//                        images = await openaiModel.generateImage(prompt: ("\(gptEdit)" + ", for Coloring Book"))!
+                        images = await openaiModel.generateImage(prompt: ("\(gptEdit)" + ", for Coloring Book"))!
+
                         for image in images {
                             saveImage(image)
                         }

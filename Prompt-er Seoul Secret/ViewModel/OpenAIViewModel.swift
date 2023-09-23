@@ -60,7 +60,7 @@ final class openAIViewModel: ObservableObject {
             let chatParameters = ChatParameters(
                 model: "gpt-4",
                 messages: [
-                    ChatMessage(role: .system, content: "You are a helpful art teraphy assistant."),
+                    ChatMessage(role: .system, content: "You are a helpful art therapist who assists in creating scenes for drawing."),
                     ChatMessage(role: .user, content: prompt)
                 ]
             )
