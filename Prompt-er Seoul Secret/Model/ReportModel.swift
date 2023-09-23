@@ -16,6 +16,7 @@ struct ReportModel: Codable, Identifiable {
     var firstAnswer: String
     var mainColors: [CustomColor]
     var colorSummary: String
+    var activityTime: String
 
     var id: String {
         name + date
