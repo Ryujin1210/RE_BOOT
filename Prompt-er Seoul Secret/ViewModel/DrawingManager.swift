@@ -178,6 +178,37 @@ extension DrawingManager {
         return Array(colorSet)
     }
     
+    func getMainColors(canvas: PKCanvasView) -> [UIColor] {
+        
+        var candidateColor: [UIColor:CGFloat] = [:]
+        let strokes = canvas.drawing.strokes
+        
+        if strokes.count <= 3 {
+            return strokes.map { stroke in
+                stroke.ink.color
+            }
+        }
+        
+        for stroke in strokes {
+            if candidateColor[stroke.ink.color] != nil {
+                candidateColor[stroke.ink.color] = candidateColor[stroke.ink.color]! + stroke.renderBounds.width * stroke.renderBounds.height
+            } else {
+                candidateColor.updateValue(stroke.renderBounds.width * stroke.renderBounds.height, forKey: stroke.ink.color)
+            }
+        }
+        
+        var mainColors: [UIColor] = []
+        
+        for _ in 0..<3 {
+            if let color = candidateColor.max(by: { $0.value > $1.value }) {
+                candidateColor.removeValue(forKey: color.key)
+                mainColors.append(color.key)
+            }
+        }
+        
+        return mainColors
+    }
+    
     func createDirectory(name: String, date: String) throws -> URL {
 
         

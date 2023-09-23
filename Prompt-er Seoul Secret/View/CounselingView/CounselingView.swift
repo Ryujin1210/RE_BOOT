@@ -182,7 +182,7 @@ extension CounselingView {
                 VStack {
                     HStack {
                         Text("사용 문장 수")
-                            .font(.pretendardMedium24)
+                            .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
                         
                         Spacer()
@@ -212,7 +212,7 @@ extension CounselingView {
                 VStack {
                     HStack {
                         Text("사용 단어 수")
-                            .font(.pretendardMedium24)
+                            .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
                         
                         Spacer()
@@ -242,7 +242,7 @@ extension CounselingView {
                 VStack {
                     HStack {
                         Text("총 작품활동 시간")
-                            .font(.pretendardMedium24)
+                            .font(.pretendardSemiBold24)
                             .foregroundColor(.defaultBlack)
                         
                         Spacer()
