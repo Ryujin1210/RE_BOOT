@@ -39,7 +39,9 @@ struct DrawingView: View {
     
     func rebootBotAction() {
         popup = true
-        drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+        drawingManager.playSound(soundNum: botCounter + 1, name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+//        drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
+        print("reboot 봇 액션 : \(botCounter)")
     }
     
     var body: some View {
@@ -52,7 +54,7 @@ struct DrawingView: View {
                 .padding(.top, 70)
         }
         .onAppear {
-            drawingManager.report = .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
+            drawingManager.report = .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "")
             // 레코딩 시작
             drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             isPresented = true
@@ -83,7 +85,7 @@ struct DrawingView: View {
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1)
+                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1, firstAnswer: viewModel.firstAnswer)
                 goNextPage = true
             }
         } message: {

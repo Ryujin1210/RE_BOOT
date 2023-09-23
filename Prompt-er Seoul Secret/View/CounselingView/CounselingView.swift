@@ -39,10 +39,33 @@ struct CounselingView: View {
                             .shadow(color: .black.opacity(0.1), radius: 14, x: 0, y: 10)
                         VStack {
                             HStack {
+                                Text("\(report.name)님의 행복했던 기억")
+                                    .font(.pretendardBold32)
+                                    .bold()
+                                    .padding(.bottom, 44)
+                                
+                                Spacer()
+                            }
+                            
+                            HStack {
+                                Text(report.firstAnswer)
+                                    .font(.pretendardMedium28)
+                                    .foregroundColor(.captionText1)
+                                    .lineSpacing(12)
+                                    .padding(.bottom, 60)
+                                
+                                Spacer()
+                            }
+                            
+                            Divider()
+                                .padding(.bottom, 60)
+                            
+                            
+                            HStack {
                                 Text("사용된 색상")
                                     .font(.pretendardBold32)
                                     .bold()
-                                    .padding(.bottom, 27)
+                                    .padding(.bottom, 44)
                                 
                                 Spacer()
                             }
@@ -64,11 +87,11 @@ struct CounselingView: View {
                                     Spacer()
                                 }
                             }
-                            .padding(.bottom, 72)
+                            .padding(.bottom, 60)
                             .frame(idealWidth: CGFloat(report.colors.count * 65))
                             
                             Divider()
-                                .padding(.bottom, 72)
+                                .padding(.bottom, 60)
                             
                             HStack {
                                 Text("대화 기록 보기")
@@ -150,11 +173,11 @@ struct CounselingView: View {
         })
     }
 }
-//
-//struct CounselingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            CounselingView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: ""))
-//        }
-//    }
-//}
+
+struct CounselingView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            CounselingView(report: .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: ""), viewModel: .init())
+        }
+    }
+}

@@ -8,7 +8,7 @@
 import PencilKit
 import AVKit
 
-class DrawingManager: ObservableObject {
+class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     // 음성 입력
     var audioRecorder: AVAudioRecorder?
     @Published var isRecording = false
@@ -25,7 +25,7 @@ class DrawingManager: ObservableObject {
     static let shared = DrawingManager()
     
     // 레포트 모델
-    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "")
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "")
     @Published var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -38,26 +38,42 @@ class DrawingManager: ObservableObject {
     
     var player: AVAudioPlayer?
     let painterName: String = "김복자"
+    
+    // 음성 녹음 관련 저장 프로퍼티
+    @Published var audioRecordName: String = ""
+    @Published var audioRecordDate: String = ""
+    @Published var audioCounter: Int = 0
 }
 
 // 음성 출력 관련 기능
 extension DrawingManager {
-    func playSound() {
+    func playSound(soundNum: Int, name: String, date: String, fileCount: Int) {
+        self.audioRecordName = name
+        self.audioRecordDate = date
+        self.audioCounter = fileCount
+        
         // 상황별 다른 음성 출력 가능하도록.
-        guard let url = Bundle.main.url(forResource: "testSound", withExtension: ".mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "OutPut\(soundNum)", withExtension: ".m4a") else { return }
+        
+        print("음성. 출력 OutPut\(soundNum)")
         
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            player?.delegate = self
             player?.play()
         } catch {
             print("음원 재생 중 오류 발생 \(error)")
         }
     }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        startRecording(name: audioRecordName, date: audioRecordDate, fileCount: audioCounter)
+    }
 }
 
 // 파일 관리 관련 데이터
 extension DrawingManager {
-    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int) {
+    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int, firstAnswer: String) {
         print(voiceCount)
         self.voiceCount = voiceCount
         // 사용 색상 get
@@ -91,6 +107,7 @@ extension DrawingManager {
             self.report.date = date
             self.report.colors = mapColors
             self.report.imageUrl = imageURL.path
+            self.report.firstAnswer = firstAnswer
             
             // 레포트 모델 저장
 //            saveToJson(report: reportModel, directoryUrl: userDirectory)
