@@ -33,7 +33,7 @@ struct DrawingResultView: View {
         }
         .toolbar(.hidden)
         .overlay(content: {
-            NavigationBar(title: "내가 완성한 작품 보기", leftComponent:  {
+            NavigationBar(title: "작품 기록보기", leftComponent:  {
                 EmptyView()
             }) {
                 Button {
