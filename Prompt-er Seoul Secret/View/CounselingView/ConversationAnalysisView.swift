@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ConversationAnalysisView: View {
+    @State private var isPopoverVisible = false
+    
     let report: ReportModel
     let rebootBot: [String] = [
         "안녕하세요! 리붓봇이에요. 지금부터 저와 함께 대화하며 자유롭게 색칠을 해볼까요? 색칠하는 동안의 대화내용은 기록이 될 거에요.",
@@ -18,10 +20,35 @@ struct ConversationAnalysisView: View {
     ]
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .top, spacing: 4) {
                 Text("대화 내용 분석")
                     .font(.pretendardBold32)
                     .foregroundColor(.defaultBlack)
+                
+                // popover
+                Button(action: {
+                    isPopoverVisible.toggle()
+                }, label: {
+                    Image("info.circle")
+                        .foregroundColor(.unselectedText)
+                })
+                .popover(isPresented: $isPopoverVisible, arrowEdge: .top) {
+                    
+                    VStack (alignment: .leading){
+                        Text("대화 내용 분석")
+                            .font(.pretendardSemiBold20)
+                            .foregroundColor(.defaultBlack)
+                            .padding(.bottom, 12)
+                        
+                        Text("어르신이 채색활동을 진행하시면서 리붓봇과 나눈 대화 \n내용을 통해, 어르신의 현재 심리상태와 정서상태를 파악 \n할 수 있어요.")
+                            .font(.pretendardMedium20)
+                            .foregroundColor(.captionText2)
+                    }
+                    .padding(.leading ,28)
+                    .padding(.top, 24)
+                    .padding(.bottom, 24)
+                    .padding(.trailing, 28)
+                }
                 
                 Spacer()
             }
