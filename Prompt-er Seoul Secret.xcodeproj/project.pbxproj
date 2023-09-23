@@ -556,7 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
-				DEVELOPMENT_TEAM = YKG7843K2L;
+				DEVELOPMENT_TEAM = G7X65ZSJ3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";
@@ -598,7 +598,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Prompt-er Seoul Secret/Preview Content\"";
-				DEVELOPMENT_TEAM = YKG7843K2L;
+				DEVELOPMENT_TEAM = G7X65ZSJ3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prompt-er-Seoul-Secret-Info.plist";

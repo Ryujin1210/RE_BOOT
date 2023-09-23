@@ -46,6 +46,7 @@ class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     // Flags
     @Published var isColorSummaryDone = false
+    @Published var isSummaryDone = false
 }
 
 // 음성 출력 관련 기능
@@ -112,6 +113,26 @@ extension DrawingManager {
                         Task {
                             var editText =  await openAIViewModel.shared.getEditorChatResponse(prompt: success)
                             self.report.recordSummary.updateValue(editText ?? "응답 에러", forKey: i)
+                            print("======? record Count : \(self.report.recordSummary.count)")
+                            print("======? voice Count : \(self.voiceCount)")
+                            if self.report.recordSummary.count == self.voiceCount {
+                                print("-----------> 함수 진입")
+                                var allText: String = ""
+                                
+                                for part in self.report.recordSummary {
+                                    allText += part.value
+                                }
+                                
+                                if let summary = await openAIViewModel.shared.getSummarizeChatResponse(prompt: allText) {
+                                    self.report.summaryText = summary
+                                }
+                                
+                                if let model = await openAIViewModel.shared.getJsonChatResponse(prompt: allText) {
+                                    self.report.textEmotion = model
+                                }
+                                
+                                self.isSummaryDone = true
+                            }
                         }
                         // 여기서 마침표 구문점 넣기
                         print("voiceCount : \(self.report.recordSummary.count)")
@@ -140,20 +161,6 @@ extension DrawingManager {
     
     func saveToJson(directoryUrl: URL) {
         Task {
-            var allText: String = ""
-            
-            for part in report.recordSummary {
-                allText += part.value
-            }
-            
-            if let summary = await openAIViewModel.shared.getSummarizeChatResponse(prompt: allText) {
-                report.summaryText = summary
-            }
-            
-            if let model = await openAIViewModel.shared.getJsonChatResponse(prompt: allText) {
-                report.textEmotion = model
-            }
-            
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
             let jsonData = try? encoder.encode(self.report)
