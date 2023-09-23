@@ -29,7 +29,9 @@ struct DrawingView: View {
     // 팝업 관련 프로퍼티
     @State var popup = false
     @State var botCounter = 0
+    @State var activityTime: Int = 0
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    let activityTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let rebootBot: [String] = [
         "안녕하세요! 리붓봇이에요.\n지금부터 저와 함께 대화하며 자유롭게 색칠을 해볼까요?\n색칠하는 동안의 대화내용은 기록이 될 거에요.",
         "지금 색칠하고 있는 색을 고른 이유를 알려주세요!",
@@ -54,7 +56,7 @@ struct DrawingView: View {
                 .padding(.top, 70)
         }
         .onAppear {
-            drawingManager.report = .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "")
+            drawingManager.report = .init(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "")
             // 레코딩 시작
             drawingManager.startRecording(name: viewModel.name, date: viewModel.date, fileCount: botCounter)
             isPresented = true
@@ -71,6 +73,9 @@ struct DrawingView: View {
                 rebootBotAction()
             }
         }
+        .onReceive(activityTimer) { value in
+            activityTime += 1
+        }
         .alert("색칠하기를 그만하시겠어요?", isPresented: $isDone) {
             Button("취소", role: .cancel) {
                 // 돌아가기
@@ -80,6 +85,7 @@ struct DrawingView: View {
             Button("확인", role: .destructive) {
                 // 레코딩 종료
                 timer.upstream.connect().cancel()
+                activityTimer.upstream.connect().cancel()
                 toolPicker.setVisible(false, forFirstResponder: canvas)
                 drawingManager.stopRecording()
                 
@@ -88,7 +94,7 @@ struct DrawingView: View {
                 
                 // 그림 및 정보 저장
                 captureImage = canvas.snapshot()
-                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1, firstAnswer: viewModel.firstAnswer)
+                drawingManager.saveData(name: viewModel.name, canvas: canvas, image: captureImage!, date: viewModel.date, voiceCount: botCounter + 1, firstAnswer: viewModel.firstAnswer, activityTime: activityTime)
                 goNextPage = true
             }
         } message: {

@@ -25,7 +25,7 @@ class DrawingManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     static let shared = DrawingManager()
     
     // 레포트 모델
-    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "")
+    @Published var report: ReportModel = ReportModel(name: "", date: "", recordSummary: [:], colors: [], imageUrl: "", firstAnswer: "", mainColors: [], colorSummary: "", activityTime: "")
     @Published var voiceCount: Int = 0
     // 질문 더미 데이터
     var drawingQuestion: [String] = [
@@ -76,7 +76,7 @@ extension DrawingManager {
 
 // 파일 관리 관련 데이터
 extension DrawingManager {
-    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int, firstAnswer: String) {
+    func saveData(name: String, canvas: PKCanvasView, image: UIImage, date: String, voiceCount: Int, firstAnswer: String, activityTime: Int) {
         print(voiceCount)
         self.voiceCount = voiceCount
         // 사용 색상 get
@@ -129,6 +129,7 @@ extension DrawingManager {
             self.report.imageUrl = imageURL.path
             self.report.firstAnswer = firstAnswer
             self.report.mainColors = mapMainColors
+            self.report.activityTime = activityTime.secondsToTimeString()
             
             // 레포트 모델 저장
 //            saveToJson(report: reportModel, directoryUrl: userDirectory)
