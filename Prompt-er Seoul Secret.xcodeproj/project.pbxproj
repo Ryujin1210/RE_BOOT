@@ -11,6 +11,7 @@
 		3D3E5B5B2ABEB30B0092305A /* OutPut1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B572ABEB30A0092305A /* OutPut1.m4a */; };
 		3D3E5B5C2ABEB30B0092305A /* OutPut4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B582ABEB30B0092305A /* OutPut4.m4a */; };
 		3D3E5B5D2ABEB30B0092305A /* OutPut3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D3E5B592ABEB30B0092305A /* OutPut3.m4a */; };
+		3D3E5B5F2ABF0BA00092305A /* Ex+ String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E5B5E2ABF0BA00092305A /* Ex+ String.swift */; };
 		3DF63FCA2AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */; };
 		3DF63FCC2AA054B000AEC368 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF63FCB2AA054B000AEC368 /* ContentView.swift */; };
 		3DF63FCE2AA054B100AEC368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF63FCD2AA054B100AEC368 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		3D3E5B572ABEB30A0092305A /* OutPut1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut1.m4a; sourceTree = "<group>"; };
 		3D3E5B582ABEB30B0092305A /* OutPut4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut4.m4a; sourceTree = "<group>"; };
 		3D3E5B592ABEB30B0092305A /* OutPut3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = OutPut3.m4a; sourceTree = "<group>"; };
+		3D3E5B5E2ABF0BA00092305A /* Ex+ String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ String.swift"; sourceTree = "<group>"; };
 		3DF63FC62AA054B000AEC368 /* Prompt-er Seoul Secret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prompt-er Seoul Secret.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF63FC92AA054B000AEC368 /* Prompt_er_Seoul_SecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt_er_Seoul_SecretApp.swift; sourceTree = "<group>"; };
 		3DF63FCB2AA054B000AEC368 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				3DF63FFB2AA348F700AEC368 /* CustomNavigationBar.swift */,
 				3DF640402AA410A500AEC368 /* Ex+ View.swift */,
 				B54E108F2ABEAEA200C2A65C /* Ex+ Text.swift */,
+				3D3E5B5E2ABF0BA00092305A /* Ex+ String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				3DF640092AA39EE800AEC368 /* FifthView.swift in Sources */,
 				B54E10902ABEAEA200C2A65C /* Ex+ Text.swift in Sources */,
 				3DF6403B2AA3A02600AEC368 /* Ex+ Color.swift in Sources */,
+				3D3E5B5F2ABF0BA00092305A /* Ex+ String.swift in Sources */,
 				3DF63FFA2AA1F71C00AEC368 /* ReportModel.swift in Sources */,
 				3DF6400E2AA39EE800AEC368 /* LottieView.swift in Sources */,
 				3DF63FFC2AA348F700AEC368 /* CustomNavigationBar.swift in Sources */,

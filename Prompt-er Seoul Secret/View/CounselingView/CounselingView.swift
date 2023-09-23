@@ -66,8 +66,7 @@ struct CounselingView: View {
                                             Spacer()
                                         }
                                         .padding(.leading, 36)
-                                        
-                                        Spacer()
+                                        .padding(.bottom, 50)
                                         
                                         HStack(alignment: .bottom, spacing: 0) {
                                             Spacer()
@@ -97,12 +96,11 @@ struct CounselingView: View {
                                             Spacer()
                                         }
                                         .padding(.leading, 36)
-                                        
-                                        Spacer()
+                                        .padding(.bottom, 50)
                                         
                                         HStack(alignment: .bottom, spacing: 0) {
                                             Spacer()
-                                            Text("16")
+                                            Text("\(report.wordsCount)")
                                                 .font(.pretendardSemiBold40)
                                                 .padding(.trailing, 11)
                                                 .foregroundColor(.primary700)
@@ -128,8 +126,7 @@ struct CounselingView: View {
                                             Spacer()
                                         }
                                         .padding(.leading, 36)
-                                        
-                                        Spacer()
+                                        .padding(.bottom, 50)
                                         
                                         HStack(alignment: .bottom, spacing: 0) {
                                             Spacer()
