@@ -1,7 +1,7 @@
 <a name="readmeTop"></a>
 <br />
 
-<div align="center">
+<div align="left">
   <h1>🎨 RE:BOOT </h1>
   <table>
     <tr>
